@@ -35,8 +35,25 @@ export default function Header() {
 
 export function Promo() {
   return (
-    <div className="bg-slate-900 text-project-gray w-full flex justify-center py-4">
-      <p>-20% with the promo code DYNAMO</p>
+    <div className="bg-slate-900 text-project-gray w-full py-4 overflow-hidden">
+      <style>
+        {`
+          @keyframes promoAnimation {
+            100% {
+              transform: translateX(-100%);
+            }
+            0% {
+              transform: translateX(100%);
+            }
+          }
+
+          .promo-text {
+            animation: promoAnimation 15s linear infinite;
+          }
+
+        `}
+      </style>
+      <p className="promo-text text-project-gray animation-promoAnimation whitespace-nowrap">-20% with the promo code "DYNAMO" only until 29 July 2023</p>
     </div>
   );
 }
