@@ -18,8 +18,8 @@ class AppFixtures extends Fixture
                 "Stock" => 100,
                 "Category" => "Cigarettes",
                 "ProductType" => "Tabac",
-                "CreatedAt" => "2023-07-01T00:00:00Z",
-                "UpdatedAt" => "2023-07-16T00:00:00Z",
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 10.00,
                 "Available" => true
             ],
@@ -29,8 +29,8 @@ class AppFixtures extends Fixture
                 "Stock" => 80,
                 "Category" => "Cigarettes",
                 "ProductType" => "Tabac",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 9.50,
                 "Available" => true
             ],
@@ -40,8 +40,8 @@ class AppFixtures extends Fixture
                 "Stock" => 70,
                 "Category" => "Cigarettes",
                 "ProductType" => "Tabac",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 9.00,
                 "Available" => true
             ],
@@ -51,8 +51,8 @@ class AppFixtures extends Fixture
                 "Stock" => 90,
                 "Category" => "Cigarettes",
                 "ProductType" => "Tabac",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 8.50,
                 "Available" => true
             ],
@@ -62,8 +62,8 @@ class AppFixtures extends Fixture
                 "Stock" => 60,
                 "Category" => "Cigarettes",
                 "ProductType" => "Tabac",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 11.00,
                 "Available" => true
             ],
@@ -73,8 +73,8 @@ class AppFixtures extends Fixture
                 "Stock" => 75,
                 "Category" => "Cigarettes",
                 "ProductType" => "Tabac",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 8.50,
                 "Available" => true
             ],
@@ -84,8 +84,8 @@ class AppFixtures extends Fixture
                 "Stock" => 65,
                 "Category" => "Cigarettes",
                 "ProductType" => "Tabac",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 10.50,
                 "Available" => true
             ],
@@ -95,8 +95,8 @@ class AppFixtures extends Fixture
                 "Stock" => 85,
                 "Category" => "Cigarettes",
                 "ProductType" => "Tabac",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 9.00,
                 "Available" => true
             ],
@@ -106,8 +106,8 @@ class AppFixtures extends Fixture
                 "Stock" => 80,
                 "Category" => "Cigarettes",
                 "ProductType" => "Tabac",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 8.00,
                 "Available" => true
             ],
@@ -117,8 +117,8 @@ class AppFixtures extends Fixture
                 "Stock" => 95,
                 "Category" => "Cigarettes",
                 "ProductType" => "Tabac",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 9.50,
                 "Available" => true
             ],
@@ -129,8 +129,8 @@ class AppFixtures extends Fixture
                 "Stock" => 45,
                 "Category" => "Journaux et magazines",
                 "ProductType" => "Presse",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 2.70,
                 "Available" => true
             ],
@@ -140,8 +140,8 @@ class AppFixtures extends Fixture
                 "Stock" => 30,
                 "Category" => "Journaux et magazines",
                 "ProductType" => "Presse",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 2.20,
                 "Available" => true
             ],
@@ -151,8 +151,8 @@ class AppFixtures extends Fixture
                 "Stock" => 50,
                 "Category" => "Journaux et magazines",
                 "ProductType" => "Presse",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 2.30,
                 "Available" => true
             ],
@@ -162,8 +162,8 @@ class AppFixtures extends Fixture
                 "Stock" => 55,
                 "Category" => "Journaux et magazines",
                 "ProductType" => "Presse",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 2.00,
                 "Available" => true
             ],
@@ -173,8 +173,8 @@ class AppFixtures extends Fixture
                 "Stock" => 40,
                 "Category" => "Journaux et magazines",
                 "ProductType" => "Presse",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 3.00,
                 "Available" => true
             ],
@@ -184,8 +184,8 @@ class AppFixtures extends Fixture
                 "Stock" => 60,
                 "Category" => "Journaux et magazines",
                 "ProductType" => "Presse",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 1.50,
                 "Available" => true
             ],
@@ -195,8 +195,8 @@ class AppFixtures extends Fixture
                 "Stock" => 65,
                 "Category" => "Journaux et magazines",
                 "ProductType" => "Presse",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 2.00,
                 "Available" => true
             ],
@@ -206,8 +206,8 @@ class AppFixtures extends Fixture
                 "Stock" => 70,
                 "Category" => "Journaux et magazines",
                 "ProductType" => "Presse",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 3.50,
                 "Available" => true
             ],
@@ -217,8 +217,8 @@ class AppFixtures extends Fixture
                 "Stock" => 75,
                 "Category" => "Journaux et magazines",
                 "ProductType" => "Presse",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 4.00,
                 "Available" => true
             ],
@@ -240,8 +240,8 @@ class AppFixtures extends Fixture
                 "Stock" => 120,
                 "Category" => "Gâteaux et bonbons",
                 "ProductType" => "Confiserie",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 1.70,
                 "Available" => true
             ],
@@ -251,8 +251,8 @@ class AppFixtures extends Fixture
                 "Stock" => 100,
                 "Category" => "Gâteaux et bonbons",
                 "ProductType" => "Confiserie",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 4.00,
                 "Available" => true
             ],
@@ -262,8 +262,8 @@ class AppFixtures extends Fixture
                 "Stock" => 150,
                 "Category" => "Gâteaux et bonbons",
                 "ProductType" => "Confiserie",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 2.00,
                 "Available" => true
             ],
@@ -273,8 +273,8 @@ class AppFixtures extends Fixture
                 "Stock" => 80,
                 "Category" => "Gâteaux et bonbons",
                 "ProductType" => "Confiserie",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 6.00,
                 "Available" => true
             ],
@@ -284,8 +284,8 @@ class AppFixtures extends Fixture
                 "Stock" => 130,
                 "Category" => "Gâteaux et bonbons",
                 "ProductType" => "Confiserie",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 1.50,
                 "Available" => true
             ],
@@ -295,8 +295,8 @@ class AppFixtures extends Fixture
                 "Stock" => 90,
                 "Category" => "Gâteaux et bonbons",
                 "ProductType" => "Confiserie",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 5.50,
                 "Available" => true
             ],
@@ -306,8 +306,8 @@ class AppFixtures extends Fixture
                 "Stock" => 140,
                 "Category" => "Gâteaux et bonbons",
                 "ProductType" => "Confiserie",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 1.20,
                 "Available" => true
             ],
@@ -317,8 +317,8 @@ class AppFixtures extends Fixture
                 "Stock" => 95,
                 "Category" => "Gâteaux et bonbons",
                 "ProductType" => "Confiserie",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 7.00,
                 "Available" => true
             ],
@@ -328,8 +328,8 @@ class AppFixtures extends Fixture
                 "Stock" => 150,
                 "Category" => "Gâteaux et bonbons",
                 "ProductType" => "Confiserie",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 1.80,
                 "Available" => true
             ],
@@ -340,8 +340,8 @@ class AppFixtures extends Fixture
                 "Stock" => 50,
                 "Category" => "Objets divers liés au tabac",
                 "ProductType" => "Accessoires",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 70.00,
                 "Available" => true
             ],
@@ -351,8 +351,8 @@ class AppFixtures extends Fixture
                 "Stock" => 100,
                 "Category" => "Objets divers liés au tabac",
                 "ProductType" => "Accessoires",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 15.00,
                 "Available" => true
             ],
@@ -362,8 +362,8 @@ class AppFixtures extends Fixture
                 "Stock" => 75,
                 "Category" => "Objets divers liés au tabac",
                 "ProductType" => "Accessoires",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 25.00,
                 "Available" => true
             ],
@@ -373,8 +373,8 @@ class AppFixtures extends Fixture
                 "Stock" => 200,
                 "Category" => "Objets divers liés au tabac",
                 "ProductType" => "Accessoires",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 1.50,
                 "Available" => true
             ],
@@ -384,8 +384,8 @@ class AppFixtures extends Fixture
                 "Stock" => 60,
                 "Category" => "Objets divers liés au tabac",
                 "ProductType" => "Accessoires",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 40.00,
                 "Available" => true
             ],
@@ -395,8 +395,8 @@ class AppFixtures extends Fixture
                 "Stock" => 300,
                 "Category" => "Objets divers liés au tabac",
                 "ProductType" => "Accessoires",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 0.50,
                 "Available" => true
             ],
@@ -406,8 +406,8 @@ class AppFixtures extends Fixture
                 "Stock" => 70,
                 "Category" => "Objets divers liés au tabac",
                 "ProductType" => "Accessoires",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 15.00,
                 "Available" => true
             ],
@@ -417,8 +417,8 @@ class AppFixtures extends Fixture
                 "Stock" => 85,
                 "Category" => "Objets divers liés au tabac",
                 "ProductType" => "Accessoires",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 20.00,
                 "Available" => true
             ],
@@ -428,8 +428,8 @@ class AppFixtures extends Fixture
                 "Stock" => 65,
                 "Category" => "Objets divers liés au tabac",
                 "ProductType" => "Accessoires",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 45.00,
                 "Available" => true
             ],
@@ -440,8 +440,8 @@ class AppFixtures extends Fixture
                 "Stock" => 150,
                 "Category" => "Boissons",
                 "ProductType" => "Sodas",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 1.00,
                 "Available" => true
             ],
@@ -451,8 +451,8 @@ class AppFixtures extends Fixture
                 "Stock" => 175,
                 "Category" => "Boissons",
                 "ProductType" => "Sodas",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 1.00,
                 "Available" => true
             ],
@@ -462,8 +462,8 @@ class AppFixtures extends Fixture
                 "Stock" => 160,
                 "Category" => "Boissons",
                 "ProductType" => "Sodas",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 1.00,
                 "Available" => true
             ],
@@ -473,8 +473,8 @@ class AppFixtures extends Fixture
                 "Stock" => 140,
                 "Category" => "Boissons",
                 "ProductType" => "Sodas",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 1.20,
                 "Available" => true
             ],
@@ -484,8 +484,8 @@ class AppFixtures extends Fixture
                 "Stock" => 250,
                 "Category" => "Boissons",
                 "ProductType" => "Eau",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 0.80,
                 "Available" => true
             ],
@@ -495,8 +495,8 @@ class AppFixtures extends Fixture
                 "Stock" => 220,
                 "Category" => "Boissons",
                 "ProductType" => "Eau",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 0.80,
                 "Available" => true
             ],
@@ -506,8 +506,8 @@ class AppFixtures extends Fixture
                 "Stock" => 200,
                 "Category" => "Boissons",
                 "ProductType" => "Eau",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 0.90,
                 "Available" => true
             ],
@@ -517,8 +517,8 @@ class AppFixtures extends Fixture
                 "Stock" => 100,
                 "Category" => "Boissons",
                 "ProductType" => "Energisant",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" =>  "2023-07-16",
                 "Price" => 2.50,
                 "Available" => true
             ],
@@ -528,8 +528,8 @@ class AppFixtures extends Fixture
                 "Stock" => 120,
                 "Category" => "Boissons",
                 "ProductType" => "Energisant",
-                "CreatedAt" => new \DateTime("2023-07-01"),
-                "UpdatedAt" => new \DateTime("2023-07-16"),
+                "CreatedAt" =>  "2023-07-16",
+                "UpdatedAt" => "2023-07-16",
                 "Price" => 2.70,
                 "Available" => true
             ]
@@ -543,8 +543,8 @@ class AppFixtures extends Fixture
                     ->setStock($productData["Stock"])
                     ->setCategory($productData["Category"])
                     ->setProductType($productData["ProductType"])
-                    ->setCreatedAt(new DateTime($productData["CreatedAt"]))
-                    ->setUpdatedAt(new \DateTimeImmutable($productData["UpdatedAt"]))
+                    ->setCreatedAt(new DateTime($productData["CreatedAt"]) )
+                    ->setUpdatedAt(new DateTime($productData["UpdatedAt"]) )
                     ->setPrice($productData["Price"])
                     ->setAvailable($productData["Available"]);
 
