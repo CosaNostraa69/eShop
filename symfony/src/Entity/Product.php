@@ -34,8 +34,8 @@ class Product
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $CreatedAt = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $UpdatedAt = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $UpdatedAt = null;
 
     #[ORM\Column]
     private ?float $Price = null;
@@ -120,12 +120,12 @@ class Product
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeImmutable
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->UpdatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeImmutable $UpdatedAt): static
+    public function setUpdatedAt(\DateTimeInterface $UpdatedAt): static
     {
         $this->UpdatedAt = $UpdatedAt;
 
