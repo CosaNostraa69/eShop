@@ -17,7 +17,7 @@ export default function Back() {
   }else{
 
     return (
-      <div className="w-full p-2">
+      <div className="w-full p-2 pl-6">
         <a className="opacity-75 text-sm" href="/">Home</a>
         <a href={pathname} className="opacity-75 text-sm"> &lt; {pathnameWithoutSlash}</a>
             
