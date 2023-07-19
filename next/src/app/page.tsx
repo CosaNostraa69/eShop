@@ -6,59 +6,6 @@ import { MdSmokingRooms, MdNewspaper } from "react-icons/md";
 import { GiWrappedSweet } from "react-icons/gi";
 import { BiSolidDrink } from "react-icons/bi";
 import { SlOptions } from "react-icons/sl";
-const content: { title: string; src: string; description: string }[] = [
-  {
-    title: "Newspapers",
-    src: "newspaper.webp",
-    description:
-      "Uncover the world's stories, stay informed with our trusted newsPapper. From breaking news to captivating features, we empower you with knowledge.",
-  },
-  {
-    title: "Drinks",
-    src: "drinks.webp",
-    description:
-      "In the artistry of mixology, libations come alive, infusing the palate with a symphony of flavors, unveiling stories and shared experiences with every sip.",
-  },
-  {
-    title: "Cigarettes",
-    src: "cigarettes.webp",
-    description:
-      "A momentary pleasure shrouded in smoke, a reminder that some indulgences are best left behind.",
-  },
-  {
-    title: "Sweets",
-    src: "sweets.webp",
-    description:
-      "Sweetness dances upon the tongue, a blissful symphony that delights the senses and brings joy to the soul",
-  },
-];
-const categories: { title: string; icon: any; text: string }[] = [
-  {
-    title: "Nicotine",
-    icon: <MdSmokingRooms className="w-[30px] h-[30px]" />,
-    text: "Unveiling an Exquisite Collection of Tobacco Delights",
-  },
-  {
-    title: "Newspapers",
-    icon: <MdNewspaper className="w-[30px] h-[30px]" />,
-    text: "Informed minds thrive with the power of printed news.",
-  },
-  {
-    title: "Sweets",
-    icon: <GiWrappedSweet className="w-[30px] h-[30px]" />,
-    text: "Indulge in sugary delights that sweeten life's every moment.",
-  },
-  {
-    title: "Drinks",
-    icon: <BiSolidDrink className="w-[30px] h-[30px]" />,
-    text: "Quench your thirst with a symphony of refreshing liquid libations.",
-  },
-  {
-    title: "Other",
-    icon: <SlOptions className="w-[30px] h-[30px]" />,
-    text: "possibilities flourish beyond imagination's boundaries.",
-  },
-];
 
 export default function Home() {
   return (
@@ -116,3 +63,57 @@ export default function Home() {
     </div>
   );
 }
+
+const content: { title: string; src: string; description: string }[] = [
+  {
+    title: "Newspapers",
+    src: "newspaper.webp",
+    description:
+      "Uncover the world's stories, stay informed with our trusted newsPapper. From breaking news to captivating features, we empower you with knowledge.",
+  },
+  {
+    title: "Drinks",
+    src: "drinks.webp",
+    description:
+      "In the artistry of mixology, libations come alive, infusing the palate with a symphony of flavors, unveiling stories and shared experiences with every sip.",
+  },
+  {
+    title: "Cigarettes",
+    src: "cigarettes.webp",
+    description:
+      "A momentary pleasure shrouded in smoke, a reminder that some indulgences are best left behind.",
+  },
+  {
+    title: "Sweets",
+    src: "sweets.webp",
+    description:
+      "Sweetness dances upon the tongue, a blissful symphony that delights the senses and brings joy to the soul",
+  },
+];
+const categories: { title: string; icon: any; text: string }[] = [
+  {
+    title: "Nicotine",
+    icon: <MdSmokingRooms className="w-[30px] h-[30px]" />,
+    text: "Unveiling an Exquisite Collection of Tobacco Delights",
+  },
+  {
+    title: "Newspapers",
+    icon: <MdNewspaper className="w-[30px] h-[30px]" />,
+    text: "Informed minds thrive with the power of printed news.",
+  },
+  {
+    title: "Sweets",
+    icon: <GiWrappedSweet className="w-[30px] h-[30px]" />,
+    text: "Indulge in sugary delights that sweeten life's every moment.",
+  },
+  {
+    title: "Drinks",
+    icon: <BiSolidDrink className="w-[30px] h-[30px]" />,
+    text: "Quench your thirst with a symphony of refreshing liquid libations.",
+  },
+  {
+    title: "Other",
+    icon: <SlOptions className="w-[30px] h-[30px]" />,
+    text: "possibilities flourish beyond imagination's boundaries.",
+  },
+];
