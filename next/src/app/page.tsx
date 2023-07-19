@@ -64,7 +64,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center">
       <Back />
-      <div className="w-screen flex flex-col items-center py-24 bg-project-yellow">
+      <div className="w-full flex flex-col items-center py-24 bg-project-yellow">
         <h1 className="w-2/3 text-center text-5xl font-bold">
           Discover the Rich World of Fine Tobacco at our E-Shop!
         </h1>
@@ -87,7 +87,7 @@ export default function Home() {
           );
         })}
       </div>
-      <ul className="flex flex-col items-center gap-6  px-12 pt-12   sm:pt-0">
+      <ul className="flex flex-col items-center gap-6  p-12   sm:pt-0">
         <h2 className="text-4xl font-bold">Get inspired</h2>
         {content.map((category, index) => (
           <li

@@ -10,7 +10,23 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 export default function Footer() {
   return (
-    <div className="py-12 gap-y-12 flex flex-wrap lg:flex-nowrap items-center justify-evenly">
+    <div className="py-16 gap-y-12 flex flex-wrap lg:flex-nowrap items-center justify-evenly">
+      <div className="w-1/2 flex flex-col items-center gap-6">
+        <p className="flex items-center gap-2">
+          <MdOutlineCopyright />
+          2023 Dynamo™
+        </p>
+        <div className="flex flex-col items-center">
+          <h6 className="text-lg font-bold">Stay Connected</h6>
+          <p>Get all the latest news</p>
+          <div className="flex items-center gap-2 m-2">
+            <FaSquareTwitter className="w-[25px] h-[25px]" />
+            <FaSquareFacebook className="w-[25px] h-[25px]" />
+            <FaSquareYoutube className="w-[25px] h-[25px]" />
+            <FaLinkedin className="w-[25px] h-[25px]" />
+          </div>
+        </div>
+      </div>
       <div className="w-1/2 flex flex-col items-center gap-2">
         <h6 className="text-lg font-bold">E-Shop</h6>
         <nav className="flex flex-col items-center gap-2 text-sm">
@@ -30,30 +46,15 @@ export default function Footer() {
           {/* <Link href={"/api/products?type=other"}>Others</Link>e */}
         </nav>
       </div>
-      <div className="w-1/2 flex flex-col items-center gap-6">
-        <p className="flex items-center gap-2">
-          <MdOutlineCopyright />
-          2023 Dynamo™
-        </p>
-        <div className="flex flex-col items-center">
-          <h6 className="text-lg font-bold">Stay Connected</h6>
-          <p>Get all the latest news</p>
-          <div className="flex items-center gap-2 m-2">
-            <FaSquareTwitter className="w-[25px] h-[25px]" />
-            <FaSquareFacebook className="w-[25px] h-[25px]" />
-            <FaSquareYoutube className="w-[25px] h-[25px]" />
-            <FaLinkedin className="w-[25px] h-[25px]" />
-          </div>
-        </div>
-      </div>
+
       <div className="w-1/2 flex flex-col items-center gap-4">
         <h6 className="text-lg font-bold">Customer Service</h6>
-        <p className="text-center">
-          E-Shop customer service call us at:
+        <div className="flex flex-col items-center">
+          <p className="text-center">E-Shop customer service call us at:</p>
           <a className="underline" href="tel:+33756971528">
             +33756971528
           </a>
-        </p>
+        </div>
         <Link href={"/contact"}>
           <Button>Contact Us</Button>
         </Link>

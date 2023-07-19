@@ -2,30 +2,40 @@
 import { Button } from "@/components/ui/button";
 import { NavigationMenuDemo } from "./NavigationMenu";
 import { MdMenu } from "react-icons/md";
+import { BsBasket } from "react-icons/bs";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { log } from "console";
+import { VT323 } from "next/font/google";
+const roboto = VT323({ subsets: ["latin"], weight: ["400"] });
+
+// import {
+//   Select,
+//   SelectContent,
+//   SelectGroup,
+//   SelectItem,
+//   SelectLabel,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select";
 
 export default function Header() {
   return (
     <div>
       <div
-        className=" bg-white w-full flex items-center justify-between sm:justify-center   py-2 px-12
+        className=" bg-white w-full flex items-center justify-between   py-2 px-12
       shadow-md"
       >
-        <NavigationMenuDemo />
-        <MdMenu className="sm:invisible w-[25px] h-[25px] hover:cursor-pointer" />
+        <p className={`w-1/3 text-4xl font-semibold ${roboto.className}`}>
+          Ze market
+        </p>
+        <div className="w-1/3">
+          <NavigationMenuDemo />
+        </div>
+        <div className="flex items-center justify-end w-1/3">
+          <BsBasket className=" w-[25px] h-[25px] hover:cursor-pointer" />
+          <MdMenu className="sm:invisible w-[25px] h-[25px] hover:cursor-pointer" />
+        </div>
       </div>
       <Promo />
       <SearchBar />

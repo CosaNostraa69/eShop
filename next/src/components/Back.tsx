@@ -7,7 +7,7 @@ import { Button } from "./ui/button";
 export default function Back() {
   const router = useRouter();
   return (
-    <div className="w-full justify-between">
+    <div className="w-full justify-between p-2">
       <Button
         className="my-2 ml-4"
         onClick={(e) => {
