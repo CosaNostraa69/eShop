@@ -53,7 +53,9 @@ export function Promo() {
 
         `}
       </style>
-      <p className="promo-text text-project-gray animation-promoAnimation whitespace-nowrap">-20% with the promo code "DYNAMO" only until 29 July 2023</p>
+      <p className="promo-text text-project-gray animation-promoAnimation whitespace-nowrap">
+        -20% with the promo code "DYNAMO" only until 29 July 2023
+      </p>
     </div>
   );
 }
@@ -84,6 +86,7 @@ export function SearchBar() {
           required
           name="categories"
           id="categories-select"
+          className="hover:cursor-pointer hover:ring-1 p-2 rounded-[2px] ring-slate-400 hover:duration-200"
         >
           <option value="">Category</option>
           <option value="cigarettes">Cigarettes</option>
