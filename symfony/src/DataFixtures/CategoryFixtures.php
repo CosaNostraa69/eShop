@@ -39,7 +39,6 @@ class CategoryFixtures extends AbstractFixtures
 
             $manager->persist($category);
 
-            dump('category_' . $categoryData["Label"]);
             $this->setReference('category_' . $categoryData["Label"], $category);
         }
 

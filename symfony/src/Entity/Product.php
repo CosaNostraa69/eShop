@@ -27,8 +27,6 @@ class Product
     #[ORM\Column]
     private ?int $Stock = null;
 
-
-
     #[ORM\Column(length: 50)]
     private ?string $ProductType = null;
 
@@ -56,10 +54,17 @@ class Product
         $this->orders = new ArrayCollection();
     }
 
+    public function __toString(): string
+    {
+        return $this->Name ?? '';
+    }
+
     public function getId(): ?int
     {
         return $this->id;
     }
+
+
 
     public function getName(): ?string
     {
