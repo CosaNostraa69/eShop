@@ -49,24 +49,34 @@ export function Promo() {
       <style>
         {`
           @keyframes promoAnimation {
-            100% {
-              transform: translateX(-100%);
-            }
             0% {
               transform: translateX(100%);
             }
+            100% {
+              transform: translateX(-100%);
+            }
           }
-
+        
           .promo-text {
             animation: promoAnimation 15s linear infinite;
           }
+        
+          .promo-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 100%;
+            white-space: nowrap;
+            animation: none; /* Disable animation for the pseudo-element */
 
+          }
         `}
-      </style>
-      <p className="promo-text text-project-gray animation-promoAnimation whitespace-nowrap">
-        -20% with the promo code "DYNAMO" only until 29 July 2023
-      </p>
-    </div>
+    </style>
+
+      <p className="promo-text text-project-gray whitespace-nowrap" data-text="-20% with the promo code &quot;DYNAMO&quot; only until 29 July 2023">
+        -20% with the promo code "DYNAMO" only until 29 July 2023</p>
+      
+  </div>
   );
 }
 
@@ -74,7 +84,7 @@ export function SearchBar() {
   const router = useRouter();
   const [select, setSelect] = useState("");
   const [input, setInput] = useState("");
-  function handleSelectValueChange(value) {
+  function handleSelectValueChange(value:any) {
     console.log(value);
     setSelect(value);
   }
