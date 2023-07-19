@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <>
       <div>
-        {/* <Back /> */}
+        <Back />
         <div className="relative w-full py-52 ">
           <Image
             src="/assets/aboutus.jpg"
