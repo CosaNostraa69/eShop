@@ -4,40 +4,46 @@ namespace App\DataFixtures;
 
 use App\Entity\Categories;
 use Doctrine\Persistence\ObjectManager;
-use Doctrine\Common\DataFixtures\AbstractFixture;
 
-class CategoryFixtures extends AbstractFixture
+class CategoryFixtures extends AbstractFixtures
 {
     public function load(ObjectManager $manager)
     {
+        // Label is used for fixture reference.
         $categories = [
             [
-                "Name" => "Cigarettes"
+                "Name" => "Cigarettes",
+                "Label" => "cigarettes"
             ],
             [
-                "Name" => "Journaux et magazines"
+                "Name" => "Journaux et magazines",
+                "Label" => "journaux"
             ],
             [
-                "Name" => "Gâteaux et bonbons"
+                "Name" => "Gâteaux et bonbons",
+                "Label" => "gateaux"
             ],
             [
-                "Name" => "Objets divers liés au tabac"
+                "Name" => "Objets divers liés au tabac",
+                "Label" => "divers"
             ],
             [
-                "Name" => "Boissons"
+                "Name" => "Boissons",
+                "Label" => "boissons"
             ]
         ];
+
         foreach ($categories as $categoryData) {
             $category = new Categories();
             $category->setName($categoryData["Name"]);
-        
+
             $manager->persist($category);
-        
-            // Use the name of the category as the reference identifier
-            $this->setReference('category_' . $categoryData["Name"], $category);
+
+            dump('category_' . $categoryData["Label"]);
+            $this->setReference('category_' . $categoryData["Label"], $category);
         }
-        
+
         $manager->flush();
-        
+
     }
 }
