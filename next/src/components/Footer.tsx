@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <div className="py-12 gap-y-12 flex flex-wrap lg:flex-nowrap items-center justify-evenly">
       <div className="w-1/2 flex flex-col items-center gap-2">
-        <h6 className="text-lg font-bold">Marketplace</h6>
+        <h6 className="text-lg font-bold">E-Shop</h6>
         <nav className="flex flex-col items-center gap-2 text-sm">
           <Link href={"/home"}>Home</Link>
           <Link href={"/api/products"}>Products</Link>
@@ -21,7 +21,7 @@ export default function Footer() {
         </nav>
       </div>
       <div className="w-1/2 flex flex-col items-center gap-2">
-        <h6 className="text-lg font-bold">E-Shop</h6>
+        <h6 className="text-lg font-bold">Marketplace</h6>
         <nav className="flex flex-col items-center gap-2 text-sm">
           <Link href={"/api/products?type=newspapers"}>Newspapers</Link>
           <Link href={"/api/products?type=drinks"}>Drinks</Link>
