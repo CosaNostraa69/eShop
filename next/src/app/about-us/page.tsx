@@ -16,12 +16,12 @@ export default function Page() {
         </div>
       </div>
       
-      <div className="p-5">
-        <div className=" border rounded-sm flex">
+      <div className="p-5 bg-slate-200 md:mx-12 lg:mx-20 xl:mx-32">
+        <div className="flex items-center flex-col sm:flex-row">
           <div className="w-1/2 p-2">
-            <Image src='/assets/about-us-1.webp' alt="5 womens are building their world" width={250} height={100}  objectFit="cover" />
+            <Image src='/assets/about-us-1.webp' alt="5 womens are building their world" width={250} height={100}  objectFit="cover" className="lg:w-[300px]" />
           </div>
-          <div className="w-1/2 flex flex-col my-auto pr-5">
+          <div className="w-1/2 flex flex-col sm:my-auto sm:pr-5 text-center sm:text-start mt-3 ">
             <p >We are a premier online shop dedicated to providing a diverse range of high-quality products to our valued customers. </p>
             <button className="bg-black w-20 text-white rounded-sm mt-3 mx-auto p-1 text-xs	">Explore</button>
           </div>
