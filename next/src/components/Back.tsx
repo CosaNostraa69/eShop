@@ -4,18 +4,26 @@ import { MdKeyboardBackspace } from "react-icons/md";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
+
 
 export default function Back() {
   const router = useRouter()
-  const pathname = usePathname()
-  return (
-    <div className="w-full justify-between p-2">
+  let pathname = usePathname()
 
-       <a href={pathname}>{pathname}</a>
-          
-    </div>
-  );
+  const pathnameWithoutSlash = pathname.slice(1)
+
+  if(pathnameWithoutSlash  == ""){
+    return;
+  }else{
+
+    return (
+      <div className="w-full p-2">
+        <a className="opacity-75 text-sm" href="/">Home</a>
+        <a href={pathname} className="opacity-75 text-sm"> &lt; {pathnameWithoutSlash}</a>
+            
+      </div>
+    );
+  } 
 }
 
 
