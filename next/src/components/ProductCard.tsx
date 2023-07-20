@@ -20,13 +20,14 @@ export default function ProductCard(data: any) {
           <CardTitle className="mb-2">{data.data.name}</CardTitle>
           <div className="flex gap-6">
             <CardDescription>{data.data.category}</CardDescription>
-            <CardDescription>{data.data.product_type}</CardDescription>
+            <CardDescription>{data.data.ProductType}</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
           <div className="w-full flex justify-center my-6">
             <Image
-              src={`/assets/${data.data.src}`}
+              src={`/assets/drinks.webp`}
+              // src={`/assets/${data.data.src}`}
               width={200}
               height={200}
               alt={`${data.data.name} product picture`}
@@ -44,17 +45,17 @@ export default function ProductCard(data: any) {
             <div>
               <Label htmlFor="quantity">Quantity</Label>
               <Input
-                disabled={!data.data.available}
+                disabled={!data.data.Available}
                 name="quantity"
                 type="number"
                 min={1}
-                max={data.data.stock}
+                max={data.data.Stock}
                 placeholder="your desired quantity"
               />
             </div>
             <div className="max-w-40">
-              {data.data.available == true ? (
-                <Badge>Available</Badge>
+              {data.data.Available == true ? (
+                <Badge>available</Badge>
               ) : (
                 <Badge variant="outline">Not available</Badge>
               )}
@@ -63,8 +64,8 @@ export default function ProductCard(data: any) {
         </CardContent>
         <CardFooter className="w-full flex items-center justify-around">
           <h4 className="font-semibold text-2xl my-4">{data.data.price}€</h4>
-          <Button disabled={!data.data.available}>
-            {data.data.available == true ? <p>Add to cart</p> : <p>Sold out</p>}
+          <Button disabled={!data.data.Available}>
+            {data.data.Available == true ? <p>Add to cart</p> : <p>Sold out</p>}
           </Button>
         </CardFooter>
       </Card>
