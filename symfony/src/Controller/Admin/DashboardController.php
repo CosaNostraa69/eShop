@@ -36,7 +36,7 @@ public function __construct(
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Symfony');
+            ->setTitle('Ze Market');
     }
 
     public function configureMenuItems(): iterable
