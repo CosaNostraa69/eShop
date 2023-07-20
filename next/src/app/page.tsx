@@ -7,9 +7,11 @@ import { GiWrappedSweet } from "react-icons/gi";
 import { BiSolidDrink } from "react-icons/bi";
 import { SlOptions } from "react-icons/sl";
 
-export default function Home() {
+export default function Home(){  
+
   return (
     <div className="flex flex-col items-center">
+
       <Back />
       <div className="w-full flex flex-col items-center py-24 bg-project-yellow">
         <h1 className="w-2/3 text-center text-5xl font-bold">
