@@ -5,17 +5,36 @@ namespace App\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\CategoriesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Tests\Fixtures\Metadata\Get;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 #[ORM\Entity(repositoryClass: CategoriesRepository::class)]
-#[ApiResource]
+#[ApiResource(
+
+    operations:[
+        new GetCollection(
+            normalizationContext:['groups' => ['categories_read']]
+        ),
+        new Get(
+            normalizationContext:['groups' => ['category_read']]
+        )
+    ]
+
+)]
 class Categories
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['categories_read', 'category_read'])]
+
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Groups(['categories_read', 'category_read'])]
+
     private ?string $name = null;
 
     public function __toString(): string
