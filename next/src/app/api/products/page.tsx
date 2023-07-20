@@ -3,34 +3,60 @@ import React from "react";
 import Back from "@/components/Back";
 import { useSearchParams } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
+import axios from "axios";
+import { useState, useEffect } from "react";
+
+const BASE_URL = "http://localhost:8000";
+const api = axios.create({
+  baseURL: BASE_URL,
+});
+export async function getProducts() {
+  try {
+    const response = await api.get("/api/products");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    throw error;
+  }
+}
 
 export default function Page() {
-  const searchParams = useSearchParams();
+  const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    // Fetch data when the component mounts
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const productsData = await getProducts();
+      setProducts(productsData);
+    } catch (error) {
+      // Handle errors here
+    }
+  };
+  // console.log(products["hydra:member"]);
+  const list = products["hydra:member"];
+  console.log(list);
+
+  const searchParams = useSearchParams();
   const type = searchParams.get("type");
   const search = searchParams.get("search");
-  const exampleQuery = `SELECT *
-  FROM products
-  WHERE type = '${type}' AND (name LIKE '%${search}%' OR description LIKE '%${search}%');
-  `;
   return (
     <div>
       <Back />
-      <h1>Liste des produits pour les filtres:</h1>
-      <p>type = {type}</p>
-      <p>search = {search}</p>
-      <p>
-        Faire la Query SQL suivante:{" "}
-        <span className="text-xl font-bold">{exampleQuery}</span>
-      </p>
+      {/* <p>type = {type}</p>
+      <p>search = {search}</p> */}
       <div className="w-full justify-center flex flex-wrap">
-        {data.map((card) => {
-          return (
-            <>
-              <ProductCard data={card} />
-            </>
-          );
-        })}
+        {list &&
+          list.map((card) => {
+            return (
+              <>
+                <ProductCard data={card} />
+              </>
+            );
+          })}
       </div>
     </div>
   );
