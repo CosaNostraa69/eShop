@@ -12,7 +12,6 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CategoriesRepository::class)]
 #[ApiResource(
-
     operations:[
         new GetCollection(
             normalizationContext:['groups' => ['categories_read']]
@@ -21,21 +20,20 @@ use Symfony\Component\Serializer\Annotation\Groups;
             normalizationContext:['groups' => ['category_read']]
         )
     ]
-
 )]
 class Categories
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['categories_read', 'category_read'])]
+    #[Groups(['categories_read', 'category_read'])]  // Groupes corrects
 
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
-    #[Groups(['categories_read', 'category_read'])]
-
+    #[Groups(['categories_read', 'category_read', 'product_read'])] 
     private ?string $name = null;
+    
 
     public function __toString(): string
     {
@@ -52,7 +50,7 @@ class Categories
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): self   // Changé "static" en "self"
     {
         $this->name = $name;
 
