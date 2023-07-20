@@ -2,11 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { NavigationMenuDemo } from "./NavigationMenu";
 import { MdMenu } from "react-icons/md";
-import { BsBasket } from "react-icons/bs";
 import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { VT323 } from "next/font/google";
+import { CartDropdown } from "./CartDropdown";
 const roboto = VT323({ subsets: ["latin"], weight: ["400"] });
 
 // import {
@@ -20,6 +20,11 @@ const roboto = VT323({ subsets: ["latin"], weight: ["400"] });
 // } from "@/components/ui/select";
 
 export default function Header() {
+  const[
+    cardMenuOpen,setCardMenuOpen
+  ] = useState(false)
+  console.log(cardMenuOpen);
+  
   return (
     <div>
       <div
@@ -33,9 +38,9 @@ export default function Header() {
           <NavigationMenuDemo />
         </div>
         <div className="flex items-center justify-end w-1/3">
-          <BsBasket className=" w-[25px] h-[25px] hover:cursor-pointer" />
-          <MdMenu className="sm:invisible w-[25px] h-[25px] hover:cursor-pointer" />
-        </div>
+  <CartDropdown />
+  <MdMenu className="sm:invisible w-[25px] h-[25px] hover:cursor-pointer" />
+</div>
       </div>
       <Promo />
       <SearchBar />
