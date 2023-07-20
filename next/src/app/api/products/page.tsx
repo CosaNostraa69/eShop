@@ -63,12 +63,14 @@ export default function Page() {
   const list = products["hydra:member"];
 
   const filteredProducts = list.filter((product) => {
-    console.log(product.ProductType);
+    // console.log(product.ProductType);
+    console.log(product);
 
     if (selectedCategories.length === 0) {
       return true; // Show all products when no checkbox is selected
     } else {
-      return selectedCategories.includes(product.ProductType);
+      // return selectedCategories.includes(product.ProductType);
+      return selectedCategories.includes(product.category);
     }
   });
 
@@ -80,7 +82,7 @@ export default function Page() {
           {categories.map((category) => {
             return (
               <li key={category} className="flex gap-2 items-center">
-                <span className="lg:w-[100px]">{category}</span>
+                <span className="lg:w-[100px] text-sm">{category}</span>
                 <Checkbox
                   id={category}
                   checked={selectedCategories.includes(category)}
@@ -114,6 +116,13 @@ export const Checkbox = ({ id, checked, onChange }) => {
   );
 };
 
-const categories = ["Tabac", "Presse", "Consiferie", "Accessoires", "other"];
+// const categories = ["Tabac", "Presse", "Confiserie", "Accessoires", "other"];
+const categories = [
+  "Cigarettes",
+  "Journaux et magazines",
+  "Gâteaux et bonbons",
+  "Objets divers liés au tabac",
+  "Boissons",
+];
 
 // Rest of the code remains the same
