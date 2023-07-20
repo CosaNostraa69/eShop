@@ -3,30 +3,45 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-
+use App\Entity\Categories;
 use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Tests\Fixtures\Metadata\Get;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    operations:[
+        new GetCollection(
+            normalizationContext:['groups' => ['product_read']]
+        ),
+        new Get(
+            normalizationContext:['groups' => ['product_read']]
+        )
+    ]
+)]
 class Product
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['categories_read', 'category_read'])]
+    #[Groups(['product_read'])]  // Modification ici
 
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Groups(['product_read'])]  // Modification ici
+
     private ?string $Name = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['product_read'])]  // Modification ici
+
     private ?string $Description = null;
 
     #[ORM\Column]
@@ -49,7 +64,7 @@ class Product
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(['categories_read', 'category_read'])]
+    #[Groups(['product_read'])]  // Modification ici
 
     private ?Categories $category = null;
 
@@ -74,14 +89,12 @@ class Product
         return $this->id;
     }
 
-
-
     public function getName(): ?string
     {
         return $this->Name;
     }
 
-    public function setName(string $Name): static
+    public function setName(string $Name): self
     {
         $this->Name = $Name;
 
@@ -93,7 +106,7 @@ class Product
         return $this->Description;
     }
 
-    public function setDescription(string $Description): static
+    public function setDescription(string $Description): self
     {
         $this->Description = $Description;
 
@@ -105,7 +118,7 @@ class Product
         return $this->Stock;
     }
 
-    public function setStock(int $Stock): static
+    public function setStock(int $Stock): self
     {
         $this->Stock = $Stock;
 
@@ -117,7 +130,7 @@ class Product
         return $this->ProductType;
     }
 
-    public function setProductType(string $ProductType): static
+    public function setProductType(string $ProductType): self
     {
         $this->ProductType = $ProductType;
 
@@ -129,7 +142,7 @@ class Product
         return $this->CreatedAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $CreatedAt): static
+    public function setCreatedAt(\DateTimeInterface $CreatedAt): self
     {
         $this->CreatedAt = $CreatedAt;
 
@@ -141,7 +154,7 @@ class Product
         return $this->UpdatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $UpdatedAt): static
+    public function setUpdatedAt(\DateTimeInterface $UpdatedAt): self
     {
         $this->UpdatedAt = $UpdatedAt;
 
@@ -153,7 +166,7 @@ class Product
         return $this->Price;
     }
 
-    public function setPrice(float $Price): static
+    public function setPrice(float $Price): self
     {
         $this->Price = $Price;
 
@@ -165,7 +178,7 @@ class Product
         return $this->Available;
     }
 
-    public function setAvailable(bool $Available): static
+    public function setAvailable(bool $Available): self
     {
         $this->Available = $Available;
 
@@ -177,7 +190,7 @@ class Product
         return $this->category;
     }
 
-    public function setCategory(?Categories $category): static
+    public function setCategory(?Categories $category): self
     {
         $this->category = $category;
 
@@ -192,7 +205,7 @@ class Product
         return $this->orders;
     }
 
-    public function addOrder(Order $order): static
+    public function addOrder(Order $order): self
     {
         if (!$this->orders->contains($order)) {
             $this->orders->add($order);
@@ -202,7 +215,7 @@ class Product
         return $this;
     }
 
-    public function removeOrder(Order $order): static
+    public function removeOrder(Order $order): self
     {
         if ($this->orders->removeElement($order)) {
             $order->removeProduct($this);
@@ -216,7 +229,7 @@ class Product
         return $this->picture;
     }
 
-    public function setPicture(?string $picture): static
+    public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
 
