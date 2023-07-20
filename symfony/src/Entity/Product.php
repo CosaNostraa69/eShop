@@ -3,18 +3,19 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Entity\Categories;
 use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Tests\Fixtures\Metadata\Get;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\MaxDepth;
 
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+ 
 #[ApiResource(
     operations:[
         new GetCollection(
@@ -24,54 +25,59 @@ use Symfony\Component\Serializer\Annotation\Groups;
             normalizationContext:['groups' => ['product_read']]
         )
     ]
+
 )]
 class Product
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
-    #[Groups(['product_read'])]  // Modification ici
-
+    #[ORM\Column(type:"integer")]
+    #[Groups(['product_read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
-    #[Groups(['product_read'])]  // Modification ici
-
+    #[Groups(['product_read'])]
     private ?string $Name = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['product_read'])]  // Modification ici
-
+    #[Groups(['product_read'])]
     private ?string $Description = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type:"integer")]
+    #[Groups(['product_read'])]
     private ?int $Stock = null;
 
     #[ORM\Column(length: 50)]
+    #[Groups(['product_read'])]
     private ?string $ProductType = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Groups(['product_read'])]
     private ?\DateTimeInterface $CreatedAt = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Groups(['product_read'])]
     private ?\DateTimeInterface $UpdatedAt = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type:"float")]
+    #[Groups(['product_read'])]
     private ?float $Price = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type:"boolean")]
+    #[Groups(['product_read'])]
     private ?bool $Available = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(targetEntity: Categories::class)]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(['product_read'])]  // Modification ici
-
+    #[Groups(['product_read'])]
+    #[MaxDepth(1)]
     private ?Categories $category = null;
 
     #[ORM\ManyToMany(targetEntity: Order::class, mappedBy: 'product')]
     private Collection $orders;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['product_read'])]
     private ?string $picture = null;
 
     public function __construct()
