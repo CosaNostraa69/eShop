@@ -61,18 +61,21 @@ export default function Page() {
   }
 
   const list = products["hydra:member"];
+  // console.log(`LIST: --- ${list[0].category}`);
 
   const filteredProducts = list.filter((product) => {
     // console.log(product.ProductType);
-    console.log(product);
+    // console.log(product);
+    // console.log(`PRODUCT: --- ${product}`);
 
     if (selectedCategories.length === 0) {
       return true; // Show all products when no checkbox is selected
     } else {
       // return selectedCategories.includes(product.ProductType);
-      return selectedCategories.includes(product.category);
+      return selectedCategories.includes(product.category.name);
     }
   });
+  console.log(filteredProducts);
 
   return (
     <div className="flex flex-col lg:flex-row lg:flex-nowrap">

@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { VT323 } from "next/font/google";
 import { CartDropdown } from "./CartDropdown";
+import Link from "next/link";
 const roboto = VT323({ subsets: ["latin"], weight: ["400"] });
 
 // import {
@@ -20,27 +21,28 @@ const roboto = VT323({ subsets: ["latin"], weight: ["400"] });
 // } from "@/components/ui/select";
 
 export default function Header() {
-  const[
-    cardMenuOpen,setCardMenuOpen
-  ] = useState(false)
+  const [cardMenuOpen, setCardMenuOpen] = useState(false);
   console.log(cardMenuOpen);
-  
+
   return (
     <div>
       <div
         className=" bg-white w-full flex items-center justify-between   py-2 px-12
       shadow-md"
       >
-        <p className={`w-1/3 text-4xl font-semibold ${roboto.className}`}>
+        <Link
+          href={"/"}
+          className={`w-1/3 text-4xl font-semibold ${roboto.className}`}
+        >
           Ze market
-        </p>
+        </Link>
         <div className="w-1/3">
           <NavigationMenuDemo />
         </div>
         <div className="flex items-center justify-end w-1/3">
-  <CartDropdown />
-  <MdMenu className="sm:invisible w-[25px] h-[25px] hover:cursor-pointer" />
-</div>
+          <CartDropdown />
+          <MdMenu className="sm:invisible w-[25px] h-[25px] hover:cursor-pointer" />
+        </div>
       </div>
       <Promo />
       <SearchBar />
@@ -76,12 +78,15 @@ export function Promo() {
 
           }
         `}
-    </style>
+      </style>
 
-      <p className="promo-text text-project-gray whitespace-nowrap" data-text="-20% with the promo code &quot;DYNAMO&quot; only until 29 July 2023">
-        -20% with the promo code "DYNAMO" only until 29 July 2023</p>
-      
-  </div>
+      <p
+        className="promo-text text-project-gray whitespace-nowrap"
+        data-text='-20% with the promo code "DYNAMO" only until 29 July 2023'
+      >
+        -20% with the promo code "DYNAMO" only until 29 July 2023
+      </p>
+    </div>
   );
 }
 
@@ -89,11 +94,11 @@ export function SearchBar() {
   const router = useRouter();
   const [select, setSelect] = useState("");
   const [input, setInput] = useState("");
-  function handleSelectValueChange(value:any) {
+  function handleSelectValueChange(value: any) {
     console.log(value);
     setSelect(value);
   }
-  
+
   return (
     <div className="w-full py-4 flex justify-center shadow-md">
       <form
