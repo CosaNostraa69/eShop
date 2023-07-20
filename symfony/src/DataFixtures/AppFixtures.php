@@ -131,7 +131,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.70,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "journaux"
             ],
             [
                 "Name" => "Liberation",
@@ -142,7 +142,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.20,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "journaux"
             ],
             [
                 "Name" => "Le Parisien",
@@ -153,7 +153,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.30,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "journaux"
             ],
             [
                 "Name" => "L'Equipe",
@@ -164,7 +164,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "journaux"
             ],
             [
                 "Name" => "Les Echos",
@@ -175,7 +175,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 3.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "journaux"
             ],
             [
                 "Name" => "Le Canard Enchainé",
@@ -186,7 +186,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.50,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "journaux"
             ],
             [
                 "Name" => "Charlie Hebdo",
@@ -197,7 +197,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "journaux"
             ],
             [
                 "Name" => "L'Obs",
@@ -208,7 +208,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 3.50,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "journaux"
             ],
             [
                 "Name" => "Paris Match",
@@ -219,7 +219,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 4.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "journaux"
             ],
 
             [
@@ -231,7 +231,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16T00:00:00Z",
                 "Price" => 1.50,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "gateaux"
             ],
             [
                 "Name" => "Bonbons Skittles",
@@ -242,7 +242,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.70,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "gateaux"
             ],
             [
                 "Name" => "Gâteau Choco Nuts",
@@ -253,7 +253,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 4.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "gateaux"
             ],
             [
                 "Name" => "Bonbons Jelly Beans",
@@ -264,7 +264,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "gateaux"
             ],
             [
                 "Name" => "Gâteau Red Velvet",
@@ -275,7 +275,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 6.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "gateaux"
             ],
             [
                 "Name" => "Bonbons M&M's",
@@ -286,7 +286,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.50,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "gateaux"
             ],
             [
                 "Name" => "Gâteau Tiramisu",
@@ -297,7 +297,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 5.50,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "gateaux"
             ],
             [
                 "Name" => "Bonbons Starburst",
@@ -308,7 +308,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.20,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "gateaux"
             ],
             [
                 "Name" => "Gâteau Cheesecake",
@@ -319,7 +319,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 7.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "gateaux"
             ],
             [
                 "Name" => "Bonbons Sour Patch Kids",
@@ -330,7 +330,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.80,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "gateaux"
             ],
             [
                 "Name" => "Pipe Peterson",
@@ -341,7 +341,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 70.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "divers"
             ],
             [
                 "Name" => "Cendrier Verre",
@@ -352,7 +352,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 15.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "divers"
             ],
             [
                 "Name" => "Etui Cigarette Cuir",
@@ -363,7 +363,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 25.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "divers"
             ],
             [
                 "Name" => "Briquet Bic",
@@ -374,7 +374,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.50,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "divers"
             ],
             [
                 "Name" => "Zippo Dragon",
@@ -385,7 +385,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 40.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "divers"
             ],
             [
                 "Name" => "Boîte Allumettes",
@@ -396,7 +396,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 0.50,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "divers"
             ],
             [
                 "Name" => "Grinder Métal",
@@ -407,7 +407,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 15.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "divers"
             ],
             [
                 "Name" => "Blague à Tabac",
@@ -418,7 +418,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 20.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "divers"
             ],
             [
                 "Name" => "Zippo Skull",
@@ -429,7 +429,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 45.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "divers"
             ],
             [
                 "Name" => "Pepsi 500ml",
@@ -440,7 +440,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "boissons"
             ],
             [
                 "Name" => "Sprite 500ml",
@@ -451,7 +451,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "boissons"
             ],
             [
                 "Name" => "Fanta Orange 500ml",
@@ -462,7 +462,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "boissons"
             ],
             [
                 "Name" => "Dr Pepper 500ml",
@@ -473,7 +473,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.20,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "boissons"
             ],
             [
                 "Name" => "Evian 500ml",
@@ -484,7 +484,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 0.80,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "boissons"
             ],
             [
                 "Name" => "Volvic 500ml",
@@ -495,7 +495,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 0.80,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "boissons"
             ],
             [
                 "Name" => "Perrier 330ml",
@@ -506,7 +506,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 0.90,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "boissons"
             ],
             [
                 "Name" => "Red Bull 250ml",
@@ -517,7 +517,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.50,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "boissons"
             ],
             [
                 "Name" => "Monster Energy 500ml",
@@ -528,10 +528,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.70,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "boissons"
             ]
         ];
-
         foreach ($products as $productData) {
             $product = new Product();
             $product->setName($productData["Name"])
