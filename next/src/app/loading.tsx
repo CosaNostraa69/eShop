@@ -1,6 +1,20 @@
+
 export default function Loading() {
+
+  console.log("it loading");
+  
   return (
     <>
+      <h1>
+        <span className="let1">l</span>
+        <span className="let2">o</span>
+        <span className="let3">a</span>
+        <span className="let4">d</span>
+        <span className="let5">i</span>
+        <span className="let6">n</span>
+        <span className="let7">g</span>
+      </h1>
+
       <style>{`
         html, body {
           height: 100%;
@@ -95,16 +109,6 @@ export default function Loading() {
         
 
       `}</style>
-
-      <h1>
-        <span className="let1">l</span>
-        <span className="let2">o</span>
-        <span className="let3">a</span>
-        <span className="let4">d</span>
-        <span className="let5">i</span>
-        <span className="let6">n</span>
-        <span className="let7">g</span>
-      </h1>
     </>
   );
 }

@@ -88,6 +88,7 @@ export function SearchBar() {
     console.log(value);
     setSelect(value);
   }
+  
   return (
     <div className="w-full py-4 flex justify-center shadow-md">
       <form
