@@ -4,6 +4,7 @@ import Back from "@/components/Back";
 import { useSearchParams } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 // import { Checkbox } from "@/components/ui/checkbox";
+import Loading from "@/app/loading";
 
 import axios from "axios";
 
@@ -57,7 +58,11 @@ export default function Page() {
 
   // Conditional rendering: Display a loading message or fallback if products are not available yet
   if (products["hydra:member"] === undefined) {
-    return <div>Loading products...</div>;
+    return (
+      <>
+        <Loading />
+      </>
+    );
   }
 
   const list = products["hydra:member"];
