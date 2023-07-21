@@ -6,7 +6,7 @@ import { MdSmokingRooms, MdNewspaper } from "react-icons/md";
 import { GiWrappedSweet } from "react-icons/gi";
 import { BiSolidDrink } from "react-icons/bi";
 import { SlOptions } from "react-icons/sl";
-
+import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex flex-col items-center">
@@ -18,18 +18,23 @@ export default function Home() {
         <Button className="my-12">Discover more...</Button>
       </div>
       <div
-        className="w-full flex flex-col md:flex-row md:flex-wrap justify-center gap-y-12 py-12 shadow-md sm:shadow-none
+        className="w-full flex flex-col md:flex-row md:flex-wrap justify-center gap-y-12 py-6 shadow-md sm:shadow-none
       "
       >
         {categories.map((category) => {
           return (
             <div
               key={category.text}
-              className="flex flex-col w-full md:px-6 md:w-1/2 lg:w-1/5 items-center gap-4 text-center"
+              className="flex flex-col w-full md:px-6 md:w-1/2 lg:w-1/5 items-center gap-4 text-center rounded-sm hover:bg-[#F4F7F9] hover:duration-200 py-6"
             >
-              {category.icon}
-              <h3 className="text-2xl font-bold">{category.title}</h3>
-              <p className="w-2/3 sm:w-full">{category.text}</p>
+              <Link
+                href={category.href}
+                className="flex flex-col items-center gap-4 text-center"
+              >
+                {category.icon}
+                <h3 className="text-2xl font-bold">{category.title}</h3>
+                <p className="w-2/3 sm:w-full">{category.text}</p>
+              </Link>
             </div>
           );
         })}
@@ -90,30 +95,36 @@ const content: { title: string; src: string; description: string }[] = [
       "Sweetness dances upon the tongue, a blissful symphony that delights the senses and brings joy to the soul",
   },
 ];
-const categories: { title: string; icon: any; text: string }[] = [
+
+const categories: { title: string; icon: any; text: string; href: string }[] = [
   {
     title: "Nicotine",
     icon: <MdSmokingRooms className="w-[30px] h-[30px]" />,
     text: "Unveiling an Exquisite Collection of Tobacco Delights",
+    href: "/api/products?type=Cigarettes",
   },
   {
     title: "Newspapers",
     icon: <MdNewspaper className="w-[30px] h-[30px]" />,
     text: "Informed minds thrive with the power of printed news.",
+    href: "/api/products?type=Journaux et magazines",
   },
   {
     title: "Sweets",
     icon: <GiWrappedSweet className="w-[30px] h-[30px]" />,
     text: "Indulge in sugary delights that sweeten life's every moment.",
+    href: "/api/products?type=Gâteaux et bonbons",
   },
   {
     title: "Drinks",
     icon: <BiSolidDrink className="w-[30px] h-[30px]" />,
     text: "Quench your thirst with a symphony of refreshing liquid libations.",
+    href: "/api/products?type=Boissons",
   },
   {
     title: "Other",
     icon: <SlOptions className="w-[30px] h-[30px]" />,
     text: "possibilities flourish beyond imagination's boundaries.",
+    href: "/api/products?type=Objets divers liés au tabac",
   },
 ];
