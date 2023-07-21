@@ -27,7 +27,7 @@ export default function ProductCard(data: any) {
           <div className="w-full flex justify-center my-6">
             <Image
               // src={`/assets/drinks.webp`}
-              src={`/uploads/images/${data.data.src}`}
+              src={`/uploads/images/${data.data.picture}`}
               width={200}
               height={200}
               alt={`${data.data.Name} product picture`}
