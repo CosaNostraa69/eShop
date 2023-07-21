@@ -62,6 +62,7 @@ export default function Page() {
 
   const list = products["hydra:member"];
   // console.log(`LIST: --- ${list[0].category}`);
+  console.log(list);
 
   const filteredProducts = list.filter((product) => {
     // console.log(product.ProductType);
@@ -75,11 +76,11 @@ export default function Page() {
       return selectedCategories.includes(product.category.name);
     }
   });
-  console.log(filteredProducts);
+  // console.log(filteredProducts);
 
   return (
     <div className="flex flex-col lg:flex-row lg:flex-nowrap">
-      <div className="w-full lg:w-1/4 flex flew-row  justify-center lg:flex-col lg:justify-start gap-6 lg:gap-12 p-6 lg:p-0 lg:pl-20 lg:pt-20 shadow-md">
+      <div className="w-full lg:w-1/4 lg:min-h-screen flex flew-row  justify-center lg:flex-col lg:justify-start gap-6 lg:gap-12 p-6 lg:p-0 lg:pl-20 lg:pt-20 shadow-md">
         <h3 className="font-bold text-md lg:text-xl">Filters:</h3>
         <ul className="flex flex-row flex-wrap gap-6 lg:gap-0 items-center lg:flex-col lg:items-start">
           {categories.map((category) => {
