@@ -15,23 +15,24 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
 
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
- 
+
 #[ApiResource(
-    operations:[
+    operations: [
         new GetCollection(
-            normalizationContext:['groups' => ['product_read']]
+            normalizationContext: ['groups' => ['product_read']]
         ),
         new Get(
-            normalizationContext:['groups' => ['product_read']]
+            normalizationContext: ['groups' => ['product_read']]
         )
-    ]
+    ],
+    paginationEnabled: false
 
 )]
 class Product
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type:"integer")]
+    #[ORM\Column(type: "integer")]
     #[Groups(['product_read'])]
     private ?int $id = null;
 
@@ -43,7 +44,7 @@ class Product
     #[Groups(['product_read'])]
     private ?string $Description = null;
 
-    #[ORM\Column(type:"integer")]
+    #[ORM\Column(type: "integer")]
     #[Groups(['product_read'])]
     private ?int $Stock = null;
 
@@ -59,11 +60,11 @@ class Product
     #[Groups(['product_read'])]
     private ?\DateTimeInterface $UpdatedAt = null;
 
-    #[ORM\Column(type:"float")]
+    #[ORM\Column(type: "float")]
     #[Groups(['product_read'])]
     private ?float $Price = null;
 
-    #[ORM\Column(type:"boolean")]
+    #[ORM\Column(type: "boolean")]
     #[Groups(['product_read'])]
     private ?bool $Available = null;
 
