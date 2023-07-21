@@ -12,7 +12,24 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import axios from "axios";
+
+// const BASE_URL = "http://localhost:8000";
+// const api = axios.create({
+//   baseURL: BASE_URL,
+// });
+
 export default function ProductCard(data: any) {
+  // async function getImage(data) {
+  //   try {
+  //     const response = await api.get(`/uploads/images/${data.data.picture}`);
+  //     return response.data;
+  //   } catch (error) {
+  //     console.error("Error fetching products:", error);
+  //     throw error;
+  //   }
+  // }
+  // const image = getImage(data);
   return (
     <>
       <Card className="w-[400px] h-[auto] m-4 shadow-md my-20">
@@ -27,10 +44,20 @@ export default function ProductCard(data: any) {
           <div className="w-full flex justify-center my-6">
             <Image
               // src={`/assets/drinks.webp`}
-              src={`/uploads/images/${data.data.picture}`}
+              // src={`/uploads/images/${image}`}
+
+              src={
+                data.data.picture
+                  ? `http://localhost:8000/uploads/images/${data.data.picture}`
+                  : "/assets/not-found-image.webp"
+              }
               width={200}
               height={200}
-              alt={`${data.data.Name} product picture`}
+              alt={
+                data.data.picture
+                  ? `${data.data.Name} product picture`
+                  : `${data.data.Name} picture not found`
+              }
               className="object-fill w-[200px] h-[150px]"
               // style={{ objectFit: "cover" }}
             ></Image>
