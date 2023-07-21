@@ -1,7 +1,5 @@
 
 export default function Loading() {
-
-  console.log("it loading");
   
   return (
     <>
