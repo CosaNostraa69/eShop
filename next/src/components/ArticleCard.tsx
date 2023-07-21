@@ -6,7 +6,7 @@ export default function ArticleCard(data: any) {
     <div className="shadow-2xl w-64 flex flex-col rounded-sm items-center h-[400px]">
       <div className="w-64 h-32 bg-black rounded-sm">
         <Image
-          src={`/assets/${data.data.src}`}
+          src={`/assets/about-us/${data.data.src}`}
           alt="A picture of smoke with balck background"
           width={100}
           height={100}

@@ -7,11 +7,9 @@ import { GiWrappedSweet } from "react-icons/gi";
 import { BiSolidDrink } from "react-icons/bi";
 import { SlOptions } from "react-icons/sl";
 
-export default function Home(){  
-
+export default function Home() {
   return (
     <div className="flex flex-col items-center">
-
       <Back />
       <div className="w-full flex flex-col items-center py-24 bg-project-yellow">
         <h1 className="w-2/3 text-center text-5xl font-bold">
@@ -47,7 +45,7 @@ export default function Home(){
           >
             <Image
               className="grayscale aspect-[4/3] object-cover"
-              src={`/assets/${category.src}`}
+              src={`/assets/home/${category.src}`}
               width={600}
               height={600}
               alt={`${category.title} picture`}

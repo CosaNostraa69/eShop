@@ -10,7 +10,7 @@ export default function Page() {
         <Back />
         <div className="relative w-full py-52 ">
           <Image
-            src="/assets/aboutus.jpg"
+            src="/assets/about-us/aboutus.webp"
             alt="about us hero banner"
             layout="fill"
             objectFit="cover"
@@ -31,7 +31,7 @@ export default function Page() {
         <div className="flex items-center flex-col sm:flex-row sm:mt-6">
           <div className="w-1/2 p-2">
             <Image
-              src="/assets/aboutus-2.jpg"
+              src="/assets/aboutus-2.webp"
               alt="5 womens are building their world"
               width={250}
               height={100}
@@ -67,25 +67,25 @@ export default function Page() {
 
 const articles = [
   {
-    src: "aboutus-card-1.jpg",
+    src: "aboutus-card-1.webp",
     title: "Our Premium Nicotine Selection",
     text: "Discover our carefully curated collection of premium nicotine products, including a wide range of e-liquids with various flavors and strengths, and high-quality vape devices. Whether you're an experienced enthusiast or new to vaping, our knowledgeable staff is here to assist you in finding the perfect fit for a satisfying vaping experience.",
     views: "16,1",
   },
   {
-    src: "aboutus-card-2.jpg",
+    src: "aboutus-card-2.webp",
     title: "Delightful Drinks and Treats",
     text: "Quench your thirst with a variety of energizing cold brews, smoothies, and artisanal teas. Pair your drinks with mouthwatering sweets, from candies to chocolates. Treat yourself to a delightful experience with our diverse selection of beverages and treats.",
     views: "12,7",
   },
   {
-    src: "aboutus-card-3.jpg",
+    src: "aboutus-card-3.webp",
     title: "Stay Informed with Daily News",
     text: "Stay connected with the latest happenings around the world. Explore newspapers and magazines offering news, thought-provoking articles, and captivating stories. Relax in our reading corner while staying informed and entertained.",
     views: "9,8",
   },
   {
-    src: "aboutus-card-4.jpg",
+    src: "aboutus-card-4.webp",
     title: "Discover Unique Finds and More",
     text: "Explore a collection of unique finds and surprising treasures. From intriguing accessories to quirky gadgets, our ever-changing display offers delightful products you won't find elsewhere. Embrace the excitement of discovering extraordinary items.",
     views: "10,4",
