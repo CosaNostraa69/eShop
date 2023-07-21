@@ -12,44 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
-import { log } from "console";
-
-
 export default function ProductCard(data: any) {
-
-  const [quantity, setQuantity] = useState(1);
-
-  const handleQuantity = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = parseInt(event.target.value);
-
-    setQuantity(inputValue);
-  };
-
-  const handleAddToCart = () => {
-
-      const existingCartData = localStorage.getItem("cartData");
-      const cartData = existingCartData ? JSON.parse(existingCartData) : {};
-      const productId = data.data.id;
-
-      if(quantity === 0){
-        return;
-      }
-  
-      if (cartData[productId]) {
-        cartData[productId].quantity += quantity;
-      } else {
-        cartData[productId] = {
-          name: data.data.Name,
-          price: data.data.Price,
-          quantity: quantity,
-        };
-      }
-      localStorage.setItem("cartData", JSON.stringify(cartData));
-  };
-
-
-
   return (
     <>
       <Card className="w-[400px] h-[auto] m-4 shadow-md my-20">
@@ -64,10 +27,20 @@ export default function ProductCard(data: any) {
           <div className="w-full flex justify-center my-6">
             <Image
               // src={`/assets/drinks.webp`}
-              src={`/uploads/images/${data.data.picture}`}
+              // src={`/uploads/images/${image}`}
+
+              src={
+                data.data.picture
+                  ? `http://localhost:8000/uploads/images/${data.data.picture}`
+                  : "/assets/not-found-image.webp"
+              }
               width={200}
               height={200}
-              alt={`${data.data.Name} product picture`}
+              alt={
+                data.data.picture
+                  ? `${data.data.Name} product picture`
+                  : `${data.data.Name} picture not found`
+              }
               className="object-fill w-[200px] h-[150px]"
               // style={{ objectFit: "cover" }}
             ></Image>
