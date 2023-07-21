@@ -9,7 +9,6 @@ class CategoryFixtures extends AbstractFixtures
 {
     public function load(ObjectManager $manager)
     {
-        // Label is used for fixture reference.
         $categories = [
             [
                 "Name" => "Cigarettes",

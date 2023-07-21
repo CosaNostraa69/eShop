@@ -81,6 +81,11 @@ class Product
     #[Groups(['product_read'])]
     private ?string $picture = null;
 
+    public function getPictureUrl(): ?string
+{
+    return $this->picture ? '/public/uploads/images/' . $this->picture : null;
+}
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
