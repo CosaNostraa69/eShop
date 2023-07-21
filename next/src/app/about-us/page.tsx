@@ -31,7 +31,7 @@ export default function Page() {
         <div className="flex items-center flex-col sm:flex-row sm:mt-6">
           <div className="w-1/2 p-2">
             <Image
-              src="/assets/aboutus-2.webp"
+              src="/assets/about-us/aboutus-2.webp"
               alt="5 womens are building their world"
               width={250}
               height={100}

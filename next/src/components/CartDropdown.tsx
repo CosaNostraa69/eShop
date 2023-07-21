@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import { BsBasket } from "react-icons/bs";
+import BasketCard from "./ui/basketCard";
 
 
 export function CartDropdown() {
@@ -17,11 +18,12 @@ export function CartDropdown() {
       </button>
       
       {cardMenuOpen && (
-        <div className="z-10 absolute right-0 w-80 mt-2 py-2 bg-white border rounded shadow-xl">
-          <p className="px-4 py-2 text-gray-800">Your cart is empty</p>
+        <div className="z-10 absolute right-0 w-[320px] mr-2 py-2 bg-white shadow-2xl rounded]" style={{boxShadow:"rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"}}>
           {/* You can map over the cart items here */}
+          <BasketCard/>
         </div>
       )}
     </div>
   );
 }
+
