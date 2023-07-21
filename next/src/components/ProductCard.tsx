@@ -14,7 +14,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 export default function ProductCard(data: any) {
-
   const [quantity, setQuantity] = useState(1);
 
   const handleQuantity = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,25 +23,24 @@ export default function ProductCard(data: any) {
   };
 
   const handleAddToCart = () => {
+    const existingCartData = localStorage.getItem("cartData");
+    const cartData = existingCartData ? JSON.parse(existingCartData) : {};
+    const productId = data.data.id;
 
-      const existingCartData = localStorage.getItem("cartData");
-      const cartData = existingCartData ? JSON.parse(existingCartData) : {};
-      const productId = data.data.id;
+    if (quantity === 0) {
+      return;
+    }
 
-      if(quantity === 0){
-        return;
-      }
-
-      if (cartData[productId]) {
-        cartData[productId].quantity += quantity;
-      } else {
-        cartData[productId] = {
-          name: data.data.Name,
-          price: data.data.Price,
-          quantity: quantity,
-        };
-      }
-      localStorage.setItem("cartData", JSON.stringify(cartData));
+    if (cartData[productId]) {
+      cartData[productId].quantity += quantity;
+    } else {
+      cartData[productId] = {
+        name: data.data.Name,
+        price: data.data.Price,
+        quantity: quantity,
+      };
+    }
+    localStorage.setItem("cartData", JSON.stringify(cartData));
   };
 
   return (
@@ -103,19 +101,22 @@ export default function ProductCard(data: any) {
               ) : (
                 <Badge variant="outline">Not available</Badge>
               )}
+              {data.data.Stock < 15 ? (
+                <p className="text-project-red h-[20px] font-bold my-4">
+                  {data.data.Stock} produits restants en stock
+                </p>
+              ) : (
+                <div className="h-[20px] my-4"></div>
+              )}
             </div>
           </div>
         </CardContent>
         <CardFooter className="w-full flex items-center justify-around">
           <h4 className="font-semibold text-2xl my-4">{data.data.Price}€</h4>
 
-          <Button 
-            onClick={handleAddToCart} 
-            disabled={!data.data.Available}
-            >
+          <Button onClick={handleAddToCart} disabled={!data.data.Available}>
             {data.data.Available == true ? <p>Add to cart</p> : <p>Sold out</p>}
           </Button>
-
         </CardFooter>
       </Card>
     </>
