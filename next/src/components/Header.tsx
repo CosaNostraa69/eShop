@@ -120,10 +120,10 @@ export function SearchBar() {
           className="hover:cursor-pointer hover:ring-1 p-2 rounded-[2px] ring-slate-400 hover:duration-200"
         >
           <option value="">Category</option>
-          <option value="cigarettes">Cigarettes</option>
-          <option value="drinks">Drinks</option>
-          <option value="sweets">Sweets</option>
-          <option value="newspapers">Newspapers</option>
+          <option value="Cigarettes">Cigarettes</option>
+          <option value="Boissons">Drinks</option>
+          <option value="Gâteaux et bonbons">Sweets</option>
+          <option value="Journaux et magazines">Newspapers</option>
           <option value="other">Others</option>
         </select>
         <Input
