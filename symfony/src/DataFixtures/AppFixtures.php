@@ -10,7 +10,6 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        // TODO: Change categories. Use labels defined in category fixtures.
         $products = [
             [
                 "Name" => "Marlboro Rouge",
@@ -21,7 +20,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 10.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "cigarettes",
+                "Picture" => "malboro.webp"
+
             ],
             [
                 "Name" => "Camel Bleu",
@@ -32,7 +33,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 9.50,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "cigarettes",
+                "Picture" => "camel.webp"
+
             ],
             [
                 "Name" => "Lucky Strike Original",
@@ -43,7 +46,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 9.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "cigarettes",
+                "Picture" => "luckystrike.webp"
+
             ],
             [
                 "Name" => "Gauloises Blondes",
@@ -54,7 +59,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 8.50,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "cigarettes",
+                "Picture" => "gauloises.webp"
+
             ],
             [
                 "Name" => "Dunhill International",
@@ -65,7 +72,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 11.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "cigarettes",
+                "Picture" => "dunhill.webp"
+
             ],
             [
                 "Name" => "Chesterfield Blue",
@@ -76,7 +85,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 8.50,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "cigarettes",
+                "Picture" => "chester.webp"
+
             ],
             [
                 "Name" => "Davidoff Classic",
@@ -87,7 +98,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 10.50,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "cigarettes",
+                "Picture" => "davidoff.webp"
+
             ],
             [
                 "Name" => "Winston Red",
@@ -98,7 +111,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 9.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "cigarettes",
+                "Picture" => "winston.webp"
+
             ],
             [
                 "Name" => "Pall Mall Red",
@@ -109,7 +124,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 8.00,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "cigarettes",
+                "Picture" => "pallmall.webp"
+
             ],
             [
                 "Name" => "Kent Blue",
@@ -120,7 +137,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 9.50,
                 "Available" => true,
-                "Category" => "cigarettes"
+                "Category" => "cigarettes",
+                "Picture" => "kent.webp"
+
             ],
             [
                 "Name" => "Le Figaro",
@@ -131,7 +150,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.70,
                 "Available" => true,
-                "Category" => "journaux"
+                "Category" => "journaux",
+                "Picture" => "figaro.webp"
+
             ],
             [
                 "Name" => "Liberation",
@@ -142,7 +163,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.20,
                 "Available" => true,
-                "Category" => "journaux"
+                "Category" => "journaux",
+                "Picture" => "liberation.webp"
+
             ],
             [
                 "Name" => "Le Parisien",
@@ -153,7 +176,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.30,
                 "Available" => true,
-                "Category" => "journaux"
+                "Category" => "journaux",
+                "Picture" => "parisien.webp"
+
             ],
             [
                 "Name" => "L'Equipe",
@@ -164,7 +189,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.00,
                 "Available" => true,
-                "Category" => "journaux"
+                "Category" => "journaux",
+                "Picture" => "equipe.webp"
+
             ],
             [
                 "Name" => "Les Echos",
@@ -175,7 +202,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 3.00,
                 "Available" => true,
-                "Category" => "journaux"
+                "Category" => "journaux",
+                "Picture" => "echos.webp"
+
             ],
             [
                 "Name" => "Le Canard Enchainé",
@@ -186,19 +215,23 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.50,
                 "Available" => true,
-                "Category" => "journaux"
+                "Category" => "journaux",
+                "Picture" => "canard.webp"
+
             ],
             [
-                "Name" => "Charlie Hebdo",
-                "Description" => "Edition hebdomadaire du journal Charlie Hebdo",
+                "Name" => "France Football",
+                "Description" => "Edition hebdomadaire du magazine France Football",
                 "Stock" => 65,
                 "ProductType" => "Presse",
                 "CreatedAt" => "2023-07-16",
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.00,
                 "Available" => true,
-                "Category" => "journaux"
+                "Category" => "journaux",
+                "Picture" => "francefoot.webp"
             ],
+            
             [
                 "Name" => "L'Obs",
                 "Description" => "Edition hebdomadaire du magazine L'Obs",
@@ -208,7 +241,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 3.50,
                 "Available" => true,
-                "Category" => "journaux"
+                "Category" => "journaux",
+                "Picture" => "obs.webp"
+
             ],
             [
                 "Name" => "Paris Match",
@@ -219,7 +254,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 4.00,
                 "Available" => true,
-                "Category" => "journaux"
+                "Category" => "journaux",
+                "Picture" => "parismatch.webp"
+
             ],
 
             [
@@ -231,7 +268,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16T00:00:00Z",
                 "Price" => 1.50,
                 "Available" => true,
-                "Category" => "gateaux"
+                "Category" => "gateaux",
+                "Picture" => "haribo.webp"
+
             ],
             [
                 "Name" => "Bonbons Skittles",
@@ -242,7 +281,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.70,
                 "Available" => true,
-                "Category" => "gateaux"
+                "Category" => "gateaux",
+                "Picture" => "skittles.webp"
+
             ],
             [
                 "Name" => "Gâteau Choco Nuts",
@@ -253,7 +294,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 4.00,
                 "Available" => true,
-                "Category" => "gateaux"
+                "Category" => "gateaux",
+                "Picture" => "nuts.webp"
+
             ],
             [
                 "Name" => "Bonbons Jelly Beans",
@@ -264,7 +307,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.00,
                 "Available" => true,
-                "Category" => "gateaux"
+                "Category" => "gateaux",
+                "Picture" => "jelly.webp"
+
             ],
             [
                 "Name" => "Gâteau Red Velvet",
@@ -275,7 +320,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 6.00,
                 "Available" => true,
-                "Category" => "gateaux"
+                "Category" => "gateaux",
+                "Picture" => "redvelvet.webp"
+
             ],
             [
                 "Name" => "Bonbons M&M's",
@@ -286,7 +333,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.50,
                 "Available" => true,
-                "Category" => "gateaux"
+                "Category" => "gateaux",
+                "Picture" => "mms.webp"
+
             ],
             [
                 "Name" => "Gâteau Tiramisu",
@@ -297,7 +346,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 5.50,
                 "Available" => true,
-                "Category" => "gateaux"
+                "Category" => "gateaux",
+                "Picture" => "tiramisu.webp"
+
             ],
             [
                 "Name" => "Bonbons Starburst",
@@ -308,7 +359,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.20,
                 "Available" => true,
-                "Category" => "gateaux"
+                "Category" => "gateaux",
+                "Picture" => "starbust.webp"
+
             ],
             [
                 "Name" => "Gâteau Cheesecake",
@@ -319,7 +372,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 7.00,
                 "Available" => true,
-                "Category" => "gateaux"
+                "Category" => "gateaux",
+                "Picture" => "cheesecake.webp"
+
             ],
             [
                 "Name" => "Bonbons Sour Patch Kids",
@@ -330,7 +385,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.80,
                 "Available" => true,
-                "Category" => "gateaux"
+                "Category" => "gateaux",
+                "Picture" => "sour.webp"
+
             ],
             [
                 "Name" => "Pipe Peterson",
@@ -341,7 +398,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 70.00,
                 "Available" => true,
-                "Category" => "divers"
+                "Category" => "divers",
+                "Picture" => "pipe.webp"
+
             ],
             [
                 "Name" => "Cendrier Verre",
@@ -352,7 +411,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 15.00,
                 "Available" => true,
-                "Category" => "divers"
+                "Category" => "divers",
+                "Picture" => "cendrier.webp"
+
             ],
             [
                 "Name" => "Etui Cigarette Cuir",
@@ -363,7 +424,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 25.00,
                 "Available" => true,
-                "Category" => "divers"
+                "Category" => "divers",
+                "Picture" => "etui.webp"
+
             ],
             [
                 "Name" => "Briquet Bic",
@@ -374,7 +437,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.50,
                 "Available" => true,
-                "Category" => "divers"
+                "Category" => "divers",
+                "Picture" => "bic.webp"
+
             ],
             [
                 "Name" => "Zippo Dragon",
@@ -385,7 +450,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 40.00,
                 "Available" => true,
-                "Category" => "divers"
+                "Category" => "divers",
+                "Picture" => "zippo.webp"
+
             ],
             [
                 "Name" => "Boîte Allumettes",
@@ -396,7 +463,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 0.50,
                 "Available" => true,
-                "Category" => "divers"
+                "Category" => "divers",
+                "Picture" => "allumettes.webp"
+
             ],
             [
                 "Name" => "Grinder Métal",
@@ -407,7 +476,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 15.00,
                 "Available" => true,
-                "Category" => "divers"
+                "Category" => "divers",
+                "Picture" => "grinder.webp"
+
             ],
             [
                 "Name" => "Blague à Tabac",
@@ -418,7 +489,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 20.00,
                 "Available" => true,
-                "Category" => "divers"
+                "Category" => "divers",
+                "Picture" => "tabac.webp"
+
             ],
             [
                 "Name" => "Zippo Skull",
@@ -429,7 +502,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 45.00,
                 "Available" => true,
-                "Category" => "divers"
+                "Category" => "divers",
+                "Picture" => "skull.webp"
+
             ],
             [
                 "Name" => "Pepsi 500ml",
@@ -440,7 +515,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.00,
                 "Available" => true,
-                "Category" => "boissons"
+                "Category" => "boissons",
+                "Picture" => "pepsi.webp"
+
             ],
             [
                 "Name" => "Sprite 500ml",
@@ -451,7 +528,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.00,
                 "Available" => true,
-                "Category" => "boissons"
+                "Category" => "boissons",
+                "Picture" => "sprite.webp"
+
             ],
             [
                 "Name" => "Fanta Orange 500ml",
@@ -462,7 +541,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.00,
                 "Available" => true,
-                "Category" => "boissons"
+                "Category" => "boissons",
+                "Picture" => "fanta.webp"
+
             ],
             [
                 "Name" => "Dr Pepper 500ml",
@@ -473,7 +554,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 1.20,
                 "Available" => true,
-                "Category" => "boissons"
+                "Category" => "boissons",
+                "Picture" => "drpepper.webp"
+
             ],
             [
                 "Name" => "Evian 500ml",
@@ -484,7 +567,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 0.80,
                 "Available" => true,
-                "Category" => "boissons"
+                "Category" => "boissons",
+                "Picture" => "evian.webp"
+
             ],
             [
                 "Name" => "Volvic 500ml",
@@ -495,7 +580,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 0.80,
                 "Available" => true,
-                "Category" => "boissons"
+                "Category" => "boissons",
+                "Picture" => "volvic.webp"
+
             ],
             [
                 "Name" => "Perrier 330ml",
@@ -506,7 +593,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 0.90,
                 "Available" => true,
-                "Category" => "boissons"
+                "Category" => "boissons",
+                "Picture" => "perrier.webp"
+
             ],
             [
                 "Name" => "Red Bull 250ml",
@@ -517,7 +606,8 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.50,
                 "Available" => true,
-                "Category" => "boissons"
+                "Category" => "boissons",
+                "Picture" => "redbull.webp"
             ],
             [
                 "Name" => "Monster Energy 500ml",
@@ -528,7 +618,9 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "UpdatedAt" => "2023-07-16",
                 "Price" => 2.70,
                 "Available" => true,
-                "Category" => "boissons"
+                "Category" => "boissons",
+                "Picture" => "monster.webp"
+
             ]
         ];
         foreach ($products as $productData) {
@@ -537,6 +629,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 ->setDescription($productData["Description"])
                 ->setStock($productData["Stock"])
                 ->setProductType($productData["ProductType"])
+                ->setPicture($productData["Picture"])
                 ->setCreatedAt(new \DateTime($productData["CreatedAt"]))
                 ->setUpdatedAt(new \DateTime($productData["UpdatedAt"]))
                 ->setPrice($productData["Price"])
