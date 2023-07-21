@@ -12,24 +12,8 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import axios from "axios";
-
-// const BASE_URL = "http://localhost:8000";
-// const api = axios.create({
-//   baseURL: BASE_URL,
-// });
 
 export default function ProductCard(data: any) {
-  // async function getImage(data) {
-  //   try {
-  //     const response = await api.get(`/uploads/images/${data.data.picture}`);
-  //     return response.data;
-  //   } catch (error) {
-  //     console.error("Error fetching products:", error);
-  //     throw error;
-  //   }
-  // }
-  // const image = getImage(data);
   return (
     <>
       <Card className="w-[400px] h-[auto] m-4 shadow-md my-20">
@@ -85,6 +69,13 @@ export default function ProductCard(data: any) {
                 <Badge>available</Badge>
               ) : (
                 <Badge variant="outline">Not available</Badge>
+              )}
+              {data.data.Stock < 15 ? (
+                <p className="text-project-red h-[20px] font-bold my-4">
+                  {data.data.Stock} produits restants en stock
+                </p>
+              ) : (
+                <div className="h-[20px] my-4"></div>
               )}
             </div>
           </div>
