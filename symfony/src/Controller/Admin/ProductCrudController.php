@@ -33,7 +33,6 @@ class ProductCrudController extends AbstractCrudController
             MoneyField::new('Price')->setCurrency('EUR')->setStoredAsCents(false),
             BooleanField::new('Available'),
             AssociationField::new('category'),
-            AssociationField::new('orders'),
             ImageField::new('picture', 'Pictures')
             ->setUploadDir('/public/uploads/images')
             ->setBasePath('/uploads/images')

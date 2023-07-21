@@ -360,7 +360,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "Price" => 1.20,
                 "Available" => true,
                 "Category" => "gateaux",
-                "Picture" => "starbust.webp"
+                "Picture" => "starbursts.webp"
 
             ],
             [
