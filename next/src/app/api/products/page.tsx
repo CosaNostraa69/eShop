@@ -6,7 +6,7 @@ import ProductCard from "@/components/ProductCard";
 // import { Checkbox } from "@/components/ui/checkbox";
 import Loading from "@/app/loading";
 import { Skeleton } from "@/components/ui/skeleton";
-
+import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
 
@@ -106,6 +106,13 @@ export default function Page() {
     ? filteredProducts.filter((product) => product.category.name === type)
     : filteredProducts;
 
+  // Additional filtering based on the "search" parameter from the URL query
+  const searchFilteredProducts = search
+    ? typeFilteredProducts.filter((product) =>
+        product.Name.toLowerCase().includes(search.toLowerCase())
+      )
+    : typeFilteredProducts;
+
   return (
     <div className="flex flex-col lg:flex-row lg:flex-nowrap">
       <div className="w-full lg:w-1/4 lg:min-h-screen flex flew-row  justify-center lg:flex-col lg:justify-start gap-6 lg:gap-12 p-6 lg:p-0 lg:pl-20 lg:pt-20 shadow-md">
@@ -154,11 +161,37 @@ export default function Page() {
       <div className="flex flex-col lg:w-3/4">
         <Back />
         {type ? (
-          <div className="w-full justify-center flex flex-wrap">
-            {typeFilteredProducts.map((card) => {
-              return <ProductCard key={card.id} data={card} />;
-            })}
-          </div>
+          <>
+            {search ? (
+              <div className="w-full justify-center flex flex-wrap">
+                {searchFilteredProducts.length > 0 ? (
+                  <>
+                    {searchFilteredProducts.map((card) => {
+                      return <ProductCard key={card.id} data={card} />;
+                    })}
+                  </>
+                ) : (
+                  <div className="flex flex-col items-center">
+                    <h1 className="text-2xl font-bold my-6">
+                      Sorry, There is no product corresponding to your search.
+                    </h1>
+                    <Image
+                      src={"/assets/sad-cat.webp"}
+                      width={200}
+                      height={200}
+                      alt="sad cat"
+                    />
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="w-full justify-center flex flex-wrap">
+                {typeFilteredProducts.map((card) => {
+                  return <ProductCard key={card.id} data={card} />;
+                })}
+              </div>
+            )}
+          </>
         ) : (
           <div className="w-full justify-center flex flex-wrap">
             {filteredProducts.map((card) => {

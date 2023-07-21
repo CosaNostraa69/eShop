@@ -124,7 +124,6 @@ export function SearchBar() {
           <option value="Boissons">Drinks</option>
           <option value="Gâteaux et bonbons">Sweets</option>
           <option value="Journaux et magazines">Newspapers</option>
-          <option value="other">Others</option>
         </select>
         <Input
           onChange={(e) => {
