@@ -1,29 +1,123 @@
 "use client"
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BsBasket } from "react-icons/bs";
-import BasketCard from "./ui/basketCard";
-
+import BasketCart from "./ui/basketCart";
+import { log } from "console";
+import { object } from "zod";
+import { Button } from "./ui/button";
 
 export function CartDropdown() {
   const [cardMenuOpen, setCardMenuOpen] = useState(false);
+  const [cartItems, setCartItems] = useState<BasketItem[]>([]);
+
+  interface BasketItem {
+    name: string;
+    price: number;
+    quantity: number;
+  }
 
   const handleBasketClick = () => {
     setCardMenuOpen(!cardMenuOpen);
   };
 
+  useEffect(() => {
+    // Load cart data from localStorage on component mount
+    const cartDataJSON = localStorage.getItem("cartData");
+    const cartData: BasketItem[] = cartDataJSON ? JSON.parse(cartDataJSON) : []
+    const cartDataArray = Object.values(cartData);
+
+    if(cartData === null){
+      localStorage.removeItem("cartData")
+    }else{
+      setCartItems(cartDataArray);    
+    }
+    
+
+    // Listen for changes in localStorage and update cartItems state accordingly
+    // const handleStorageChange = (e: StorageEvent) => {
+      
+    //   if (e.key === "cartData") {
+    //     const updatedCartDataJSON = e.newValue;
+    //     const updatedCartData: BasketItem[] = updatedCartDataJSON
+    //       ? JSON.parse(updatedCartDataJSON)
+    //       : [];
+    //     setCartItems(updatedCartData);
+    //   }
+    // };
+
+    // window.addEventListener("storage", handleStorageChange);
+
+    // Clean up the event listener when the component unmounts
+    // return () => {
+    //   window.removeEventListener("storage", handleStorageChange);
+    // };
+  }, []);
+
+  // useEffect(() => {
+  //   // Save cart data to localStorage whenever cartItems state changes
+  //   localStorage.setItem("cartData", JSON.stringify(cartItems));
+  // }, [cartItems]);
+
+
   return (
     <div>
       <button onClick={handleBasketClick}>
-        <BsBasket className=" w-[25px] h-[25px] hover:cursor-pointer" />
+        <BsBasket className="w-[25px] h-[25px] hover:cursor-pointer" />
       </button>
-      
+
       {cardMenuOpen && (
-        <div className="z-10 absolute right-0 w-[320px] mr-2 py-2 bg-white shadow-2xl rounded]" style={{boxShadow:"rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"}}>
-          {/* You can map over the cart items here */}
-          <BasketCard/>
+        <div className="z-10 absolute right-0 w-[320px] mr-2 py-2 bg-white shadow-2xl rounded"
+          style={{
+            boxShadow:
+              "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
+          }}>
+
+          <div className=" flex justify-between items-center mt-5 mb-3 border-b border-[#A5DCE3] mx-2">
+            <p className="font-bold text-[16px]">ORDER</p>
+            <p className="text-[10px]">EDIT CART</p>
+          </div>
+
+          {cartItems !== null && cartItems.length > 0 ? (
+            <>
+              
+              {cartItems.map((item, index) => (
+
+                <BasketCart
+                  key={index}
+                  name={item.name}
+                  price={item.price}
+                  quantity={item.quantity}
+                />
+              ))}
+    
+              {/* Checkout button and price info */}
+              <div className="pt-6">
+                <div className="flex justify-between items-center mx-2">
+                  <p className="text-[14px] font-bold text-[#444646]">Subtotal:</p>
+                  <p className="text-[15px] font-bold text-[#6D706F]">$10.00</p>
+                </div>
+                <div className="flex justify-between items-center mx-2">
+                  <p className="text-[14px] font-bold text-[#444646]">Tax (20%):</p>
+                  <p className="text-[15px] font-bold text-[#6D706F]">$10.00</p>
+                </div>
+                <div className="flex justify-between items-center mx-2 mb-4">
+                  <p className="text-[17px] font-bold text-[#1F2020]">Total:</p>
+                  <p className="text-[20px] font-bold text-black">$10.00</p>
+                </div>
+              </div>
+              <div className="px-2 mt-2">
+                <Button className="w-full">CHECKOUT</Button>
+              </div>
+
+
+
+            </>
+          ) : ( <p className="px-4 py-2 text-gray-800">Your cart is empty</p> )}
+
+
+          
         </div>
       )}
     </div>
   );
 }
-

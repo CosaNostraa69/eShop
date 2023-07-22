@@ -13,6 +13,8 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+
+
 export default function ProductCard(data: any) {
   const [quantity, setQuantity] = useState(1);
 
@@ -32,8 +34,10 @@ export default function ProductCard(data: any) {
     }
 
     if (cartData[productId]) {
-      cartData[productId].quantity += quantity;
-    } else {
+
+      quantity: cartData[productId].quantity += quantity;
+
+    }else {
       cartData[productId] = {
         name: data.data.Name,
         price: data.data.Price,
@@ -41,6 +45,7 @@ export default function ProductCard(data: any) {
       };
     }
     localStorage.setItem("cartData", JSON.stringify(cartData));
+
   };
 
   return (
