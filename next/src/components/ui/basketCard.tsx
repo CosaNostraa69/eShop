@@ -6,14 +6,14 @@ export default function BasketCard(){
     return(
         <div className="flex justify-between flex-col px-3">
 
-            <div className=" flex justify-between items-center mt-5 mb-3 border-b-2 mx-2">
+            <div className=" flex justify-between items-center mt-5 mb-3 border-b border-[#A5DCE3] mx-2">
                 <p className="font-bold text-[16px]">ORDER</p>
                 <p className="text-[10px]">EDIT CART</p>
             </div>
 
-            <div className="flex justify-between items-center mx-2 border-b pb-4 pt-2 ">
+            <div className="flex justify-between items-center mx-2 border-b border-[#A5DCE3] pb-4 pt-2 ">
 
-                <p className="absolute left left-[2px] text-[14px]"><AiOutlineCloseCircle/></p>
+                <p className="absolute left left-[2px] text-[14px] cursor-pointer hover:scale-110 duration-100"><AiOutlineCloseCircle/></p>
                 
                 <div className="flex items-center min-w-[45%] max-w-[45%]">
                     <Image src={'/assets/about-us/aboutus-2.webp'} alt="item-pic" width={100} height={100} className="w-[40px] h-[40px] rounded" ></Image>
@@ -24,9 +24,9 @@ export default function BasketCard(){
                 </div>
 
                 <div className="flex items-center gap-3 justify-center min-w-[25%] max-w-[25%] text-[#6D706F]">
-                    <span className="text-[20px] cursor-pointer">-</span>
+                    <span className="text-[20px] cursor-pointer hover:scale-110 duration-100">-</span>
                     <p className=" flex justify-center items-center text-[12px] border w-[20px] h-[20px]">95</p>
-                    <span className="text-[20px] cursor-pointer">+</span>
+                    <span className="text-[20px] cursor-pointer hover:scale-110 duration-100">+</span>
                 </div>
 
                 <div className="min-w-[25%] max-w-[25%] flex justify-end">
