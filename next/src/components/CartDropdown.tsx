@@ -6,15 +6,16 @@ import { log } from "console";
 import { object } from "zod";
 import { Button } from "./ui/button";
 
+interface BasketItem {
+  name: string;
+  price: number;
+  quantity: number;
+}
+
 export function CartDropdown() {
   const [cardMenuOpen, setCardMenuOpen] = useState(false);
   const [cartItems, setCartItems] = useState<BasketItem[]>([]);
 
-  interface BasketItem {
-    name: string;
-    price: number;
-    quantity: number;
-  }
 
   const handleBasketClick = () => {
     setCardMenuOpen(!cardMenuOpen);
@@ -31,32 +32,9 @@ export function CartDropdown() {
     }else{
       setCartItems(cartDataArray);    
     }
-    
 
-    // Listen for changes in localStorage and update cartItems state accordingly
-    // const handleStorageChange = (e: StorageEvent) => {
-      
-    //   if (e.key === "cartData") {
-    //     const updatedCartDataJSON = e.newValue;
-    //     const updatedCartData: BasketItem[] = updatedCartDataJSON
-    //       ? JSON.parse(updatedCartDataJSON)
-    //       : [];
-    //     setCartItems(updatedCartData);
-    //   }
-    // };
-
-    // window.addEventListener("storage", handleStorageChange);
-
-    // Clean up the event listener when the component unmounts
-    // return () => {
-    //   window.removeEventListener("storage", handleStorageChange);
-    // };
   }, []);
 
-  // useEffect(() => {
-  //   // Save cart data to localStorage whenever cartItems state changes
-  //   localStorage.setItem("cartData", JSON.stringify(cartItems));
-  // }, [cartItems]);
 
 
   return (
