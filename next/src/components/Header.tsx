@@ -6,8 +6,8 @@ import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { VT323 } from "next/font/google";
-import { CartDropdown } from "./CartDropdown";
 import Link from "next/link";
+import { BasketDropDown } from "./BasketDropDown";
 const roboto = VT323({ subsets: ["latin"], weight: ["400"] });
 
 // import {
@@ -40,7 +40,7 @@ export default function Header() {
           <NavigationMenuDemo />
         </div>
         <div className="flex items-center justify-end w-1/3">
-          <CartDropdown />
+          <BasketDropDown/>
           <MdMenu className="sm:invisible w-[25px] h-[25px] hover:cursor-pointer" />
         </div>
       </div>

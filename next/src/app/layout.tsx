@@ -21,15 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <AppContextProvider>
-          {children}
-        </AppContextProvider>
-
+      <AppContextProvider>
         <Header />
-
+          {children}
+        
         <main className="min-h-screen shadow-md">{children}</main>
         <Toaster />
         <Footer />
+        </AppContextProvider>
       </body>
     </html>
   );

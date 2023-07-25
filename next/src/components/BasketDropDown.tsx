@@ -1,10 +1,11 @@
 "use client"
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { BsBasket } from "react-icons/bs";
 import BasketCart from "./ui/basketCart";
 import { log } from "console";
 import { object } from "zod";
 import { Button } from "./ui/button";
+import { AppContext } from "@/components/AppContext";
 
 
 interface BasketItem {
@@ -13,30 +14,18 @@ interface BasketItem {
   quantity: number;
 }
 
-export function CartDropdown() {
-  const [cardMenuOpen, setCardMenuOpen] = useState(false);
-  const [cartItems, setCartItems] = useState<BasketItem[]>([]);
+export function BasketDropDown() {
 
+  const appContext = useContext(AppContext);
+  const cartItems = appContext ? appContext.cartItems : [];
+  
+
+  const [cardMenuOpen, setCardMenuOpen] = useState(false);
 
   const handleBasketClick = () => {
     setCardMenuOpen(!cardMenuOpen);
   };
-
-  useEffect(() => {
-    // Load cart data from localStorage on component mount
-    const cartDataJSON = localStorage.getItem("cartData");
-    const cartData: BasketItem[] = cartDataJSON ? JSON.parse(cartDataJSON) : []
-    const cartDataArray = Object.values(cartData);
-
-    if(cartData === null){
-      localStorage.removeItem("cartData")
-    }else{
-      setCartItems(cartDataArray);    
-    }
-
-  }, []);
-
-
+  
 
   return (
     <div>

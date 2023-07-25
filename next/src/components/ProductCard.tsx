@@ -22,6 +22,7 @@ export default function ProductCard(data: any) {
   const [quantity, setQuantity] = useState(1);
   const appContext = useContext(AppContext)
 
+  
   const handleQuantity = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = parseInt(event.target.value);
     setQuantity(inputValue);
