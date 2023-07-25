@@ -2,8 +2,6 @@
 import React, { useState, useContext } from "react";
 import { BsBasket } from "react-icons/bs";
 import BasketCart from "./ui/basketCart";
-import { log } from "console";
-import { object } from "zod";
 import { Button } from "./ui/button";
 import { AppContext } from "@/components/AppContext";
 import Link from "next/link";
@@ -14,9 +12,6 @@ export function BasketDropDown() {
 
   const [cardMenuOpen, setCardMenuOpen] = useState(false);
 
-  const handleBasketClick = () => {
-    setCardMenuOpen(!cardMenuOpen);
-  };
 
   const handleBasketEnter = () => {
     setCardMenuOpen(true);
@@ -25,11 +20,11 @@ export function BasketDropDown() {
   const handleBasketLeave = () => {
     setCardMenuOpen(false);
 
-    // onMouseLeave={handleBasketLeave}
+    
   };
 
   return (
-    <div onClick={handleBasketClick} >
+    <div onClick={handleBasketEnter} onMouseLeave={handleBasketLeave}>
       <button >
         <BsBasket className="w-[25px] h-[25px] hover:cursor-pointer" />
       </button>

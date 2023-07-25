@@ -1,6 +1,9 @@
 import Image from "next/image"
 import { Button } from "./button"
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { AppContext } from "@/components/AppContext";
+import { useContext } from "react";
+
 
 interface Props {
     id: number;
@@ -10,12 +13,23 @@ interface Props {
 }
 
 const  BasketCart: React.FC<Props> = ({name, price, quantity, id}) => {
+    const appContext = useContext(AppContext)
+
+    const HandleDeleteCart = ()=>{
+        if(appContext){
+            appContext.handleDeleteFromCart(id)
+        }
+    }
+    
+
+
+
     return(
         <div className="flex justify-between flex-col px-3">
 
             <div className="flex justify-between items-center mx-2 border-b border-[#A5DCE3] pb-4 pt-2 ">
 
-                <p className="absolute left left-[2px] text-[14px] cursor-pointer hover:scale-110 duration-100"><AiOutlineCloseCircle/></p>
+                <p className="absolute left left-[2px] text-[14px] cursor-pointer hover:scale-110 duration-100"><AiOutlineCloseCircle onClick={HandleDeleteCart}/></p>
                 
                 <div className="flex items-center min-w-[45%] max-w-[45%]">
                     <Image src={'/assets/about-us/aboutus-2.webp'} alt="item-pic" width={100} height={100} className="w-[40px] h-[40px] rounded" ></Image>

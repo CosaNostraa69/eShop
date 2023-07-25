@@ -1,10 +1,11 @@
 "use client"
 import { createContext, FC, useContext, useState, useEffect } from "react";
+import ProductCard from "./ProductCard";
 
 type ContextValues = {
   handleAddToCart: (data: any, quantity: number) => void;
   cartItems: BasketItem[];
-
+  handleDeleteFromCart: (productId: any) => void
 };
 
 type BasketItem = {
@@ -62,12 +63,23 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
     setCartItems(updatedCartItems);
   };
 
-  // const HandleDeleteFromCart = (dta: any) ={
+  const handleDeleteFromCart = (productId: string) => {
+    // Remove the item with the given productId from the cart
+    const existingCartData = localStorage.getItem("cartData");
+    const cartData = existingCartData ? JSON.parse(existingCartData) : {};
 
-  // }
+    if (cartData[productId]) {
+      delete cartData[productId];
+      localStorage.setItem("cartData", JSON.stringify(cartData));
+
+      const updatedCartItems: BasketItem[] = Object.values(cartData);
+      setCartItems(updatedCartItems);
+    }
+  };
 
   const contextValues: ContextValues = {
     handleAddToCart,
+    handleDeleteFromCart,
     cartItems,
 
   };
