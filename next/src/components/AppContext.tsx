@@ -6,6 +6,9 @@ type ContextValues = {
   handleAddToCart: (data: any, quantity: number) => void;
   cartItems: BasketItem[];
   handleDeleteFromCart: (productId: any) => void
+
+  handleIncreaseQuantity: (productId:number) => void
+  handleDecreaseQuantity: (productId:number) => void
 };
 
 type BasketItem = {
@@ -77,10 +80,37 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
     }
   };
 
+  const handleIncreaseQuantity = (productId: number) =>{
+    const existingCartData = localStorage.getItem("cartData");
+    const cartData = existingCartData ? JSON.parse(existingCartData) : {};
+
+    if (cartData[productId]) {
+      cartData[productId].quantity += 1;
+      localStorage.setItem("cartData", JSON.stringify(cartData));
+
+      const updatedCartItems: BasketItem[] = Object.values(cartData);
+      setCartItems(updatedCartItems);
+    }
+  }
+
+  const handleDecreaseQuantity = (productId: number) => {
+    const existingCartData = localStorage.getItem("cartData");
+    const cartData = existingCartData ? JSON.parse(existingCartData) : {};
+
+    if (cartData[productId] && cartData[productId].quantity > 1) {
+      cartData[productId].quantity -= 1;
+      localStorage.setItem("cartData", JSON.stringify(cartData));
+
+      const updatedCartItems: BasketItem[] = Object.values(cartData);
+      setCartItems(updatedCartItems);
+    }
+  };
   const contextValues: ContextValues = {
     handleAddToCart,
-    handleDeleteFromCart,
     cartItems,
+    handleDeleteFromCart,
+    handleIncreaseQuantity,
+    handleDecreaseQuantity,
 
   };
 

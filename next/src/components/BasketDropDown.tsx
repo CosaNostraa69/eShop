@@ -7,24 +7,24 @@ import { AppContext } from "@/components/AppContext";
 import Link from "next/link";
 
 export function BasketDropDown() {
+  const [cardMenuOpen, setCardMenuOpen] = useState(false);
+
   const appContext = useContext(AppContext);
   const cartItems = appContext ? appContext.cartItems : [];
 
-  const [cardMenuOpen, setCardMenuOpen] = useState(false);
-
-
+  // const handleBasketClick = () => {
+  //   setCardMenuOpen(!cardMenuOpen);
+  // };
   const handleBasketEnter = () => {
     setCardMenuOpen(true);
   };
-
   const handleBasketLeave = () => {
     setCardMenuOpen(false);
-
-    
   };
 
   return (
     <div onClick={handleBasketEnter} onMouseLeave={handleBasketLeave}>
+      
       <button >
         <BsBasket className="w-[25px] h-[25px] hover:cursor-pointer" />
       </button>

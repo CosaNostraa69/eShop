@@ -20,6 +20,16 @@ const  BasketCart: React.FC<Props> = ({name, price, quantity, id}) => {
             appContext.handleDeleteFromCart(id)
         }
     }
+    const handleIncreaseQuantity = ()=>{
+        if(appContext){
+            appContext.handleIncreaseQuantity(id)
+        }
+    }
+    const handleDecreaseQuantity = ()=>{
+        if(appContext){
+            appContext.handleDecreaseQuantity(id)
+        }
+    }
     
 
 
@@ -40,9 +50,9 @@ const  BasketCart: React.FC<Props> = ({name, price, quantity, id}) => {
                 </div>
 
                 <div className="flex items-center gap-3 justify-center min-w-[25%] max-w-[25%] text-[#6D706F]">
-                    <span className="text-[20px] cursor-pointer hover:scale-110 duration-100">-</span>
+                    <span className="text-[20px] cursor-pointer hover:scale-110 duration-100" onClick={handleDecreaseQuantity}>-</span>
                     <p className=" flex justify-center items-center text-[12px] border w-[20px] h-[20px]">{quantity}</p>
-                    <span className="text-[20px] cursor-pointer hover:scale-110 duration-100">+</span>
+                    <span className="text-[20px] cursor-pointer hover:scale-110 duration-100" onClick={handleIncreaseQuantity}>+</span>
                 </div>
 
                 <div className="min-w-[25%] max-w-[25%] flex justify-end">
