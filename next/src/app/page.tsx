@@ -7,6 +7,8 @@ import { GiWrappedSweet } from "react-icons/gi";
 import { BiSolidDrink } from "react-icons/bi";
 import { SlOptions } from "react-icons/sl";
 import Link from "next/link";
+
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center">

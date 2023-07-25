@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AppContext } from "@/components/AppContext";
+
 import {
   Card,
   CardContent,
@@ -13,39 +15,23 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import App from "next/app";
 
 
 export default function ProductCard(data: any) {
   const [quantity, setQuantity] = useState(1);
+  const appContext = useContext(AppContext)
 
+  
   const handleQuantity = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = parseInt(event.target.value);
-
     setQuantity(inputValue);
   };
 
   const handleAddToCart = () => {
-    const existingCartData = localStorage.getItem("cartData");
-    const cartData = existingCartData ? JSON.parse(existingCartData) : {};
-    const productId = data.data.id;
-
-    if (quantity === 0) {
-      return;
+    if(appContext){
+      appContext.handleAddToCart(data, quantity);
     }
-
-    if (cartData[productId]) {
-
-      quantity: cartData[productId].quantity += quantity;
-
-    }else {
-      cartData[productId] = {
-        name: data.data.Name,
-        price: data.data.Price,
-        quantity: quantity,
-      };
-    }
-    localStorage.setItem("cartData", JSON.stringify(cartData));
-
   };
 
   return (
