@@ -2,7 +2,8 @@ import Back from "@/components/Back";
 import React from "react";
 import Image from "next/image";
 import ArticleCard from "@/components/ArticleCard";
-
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 export default function Page() {
   return (
     <>
@@ -46,9 +47,11 @@ export default function Page() {
               focus on customer satisfaction, we offer a convenient and reliable
               shopping experience for all your needs.
             </p>
-            <button className="bg-black  text-white rounded-sm mt-5 mx-auto py-2 px-4 text-xs lg:py-3 lg:px-8 hover:scale-105 duration-200">
-              Explore
-            </button>
+            <Link href={"/api/products"}>
+              <Button className="bg-black  text-white rounded-sm mt-5 mx-auto py-2 px-4 text-xs lg:py-3 lg:px-8 hover:scale-105 duration-200">
+                Explore
+              </Button>
+            </Link>
           </div>
         </div>
 

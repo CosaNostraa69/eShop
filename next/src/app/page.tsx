@@ -15,7 +15,9 @@ export default function Home() {
         <h1 className="w-2/3 text-center text-5xl font-bold">
           Discover the Rich World of Fine Tobacco at our E-Shop!
         </h1>
-        <Button className="my-12">Discover more...</Button>
+        <Link href={"/about-us"} className="my-12">
+          <Button className="my-12">Discover more...</Button>
+        </Link>
       </div>
       <div
         className="w-full flex flex-col md:flex-row md:flex-wrap justify-center gap-y-12 py-6 shadow-md sm:shadow-none
@@ -60,7 +62,9 @@ export default function Home() {
               <p className="text-center w-full md:w-2/3">
                 {category.description}
               </p>
-              <Button>See more...</Button>
+              <Link href={category.href}>
+                <Button>See more...</Button>
+              </Link>
             </div>
           </li>
         ))}
@@ -69,30 +73,39 @@ export default function Home() {
   );
 }
 
-const content: { title: string; src: string; description: string }[] = [
+const content: {
+  title: string;
+  src: string;
+  description: string;
+  href: string;
+}[] = [
   {
     title: "Newspapers",
     src: "newspaper.webp",
     description:
       "Uncover the world's stories, stay informed with our trusted newsPapper. From breaking news to captivating features, we empower you with knowledge.",
+    href: "/api/products?type=Journaux%20et%20magazines",
   },
   {
     title: "Drinks",
     src: "drinks.webp",
     description:
       "In the artistry of mixology, libations come alive, infusing the palate with a symphony of flavors, unveiling stories and shared experiences with every sip.",
+    href: "/api/products?type=Boissons",
   },
   {
     title: "Cigarettes",
     src: "cigarettes.webp",
     description:
       "A momentary pleasure shrouded in smoke, a reminder that some indulgences are best left behind.",
+    href: "http://localhost:3000/api/products?type=Cigarettes",
   },
   {
     title: "Sweets",
     src: "sweets.webp",
     description:
       "Sweetness dances upon the tongue, a blissful symphony that delights the senses and brings joy to the soul",
+    href: "/api/products?type=Gâteaux%20et%20bonbons",
   },
 ];
 
