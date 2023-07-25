@@ -31,7 +31,7 @@ class EmailHandler
         $email = (new TemplatedEmail())
             ->from('order@zemarket.com') 
             ->to($order->getUser()->getEmail()) 
-            ->subject('Confirmation de votre commande')
+            ->subject('Confirmation de votre commande / Ze Market')
             ->htmlTemplate('email/order_confirmation.html.twig')
             ->context([
                 'customer_name' => $order->getUser()->getFirstName() . ' ' . $order->getUser()->getLastName(),
