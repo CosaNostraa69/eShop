@@ -26,8 +26,12 @@ class OrderCrudController extends AbstractCrudController
             ArrayField::new('list'),
             DateTimeField::new('orderDate'),
             AssociationField::new('product'),
-            AssociationField::new('promotion'),
-            AssociationField::new('user'),
+            AssociationField::new('promotion')
+                ->setFormTypeOption('required', false)
+                ->autocomplete(),
+            AssociationField::new('user')
+                ->setFormTypeOption('required', false)
+                ->autocomplete(),
             BooleanField::new('usedCode'),
         ];
     }
