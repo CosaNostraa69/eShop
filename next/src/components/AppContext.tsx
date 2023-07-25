@@ -1,18 +1,20 @@
 "use client"
 import { log } from "console";
 import { createContext, FC } from "react";
+import { useState, useEffect } from "react";
 
 type ContextValues = {
-  sayHello: () => void;
+  SaveBasketCartDataToLocalStorage: () => void;
   bye: () => void;
 };
 
 const AppContext = createContext<ContextValues | null>(null);
 
 const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
-  const sayHello = () => {
-    console.log('hello magle');
-  };
+  
+  const SaveBasketCartDataToLocalStorage = () =>{
+
+  }
 
   const bye = ()=>{
     console.log("hye");
@@ -20,7 +22,7 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
   }
 
   const contextValues: ContextValues = {
-    sayHello,
+    SaveBasketCartDataToLocalStorage,
     bye,
   };
 
