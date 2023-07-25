@@ -50,6 +50,7 @@ export function BasketDropDown() {
                   id={item.id}
                   name={item.name}
                   price={item.price}
+                  image={item.image}
                   quantity={item.quantity}
                 
                 />

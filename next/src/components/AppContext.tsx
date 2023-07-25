@@ -15,6 +15,7 @@ type BasketItem = {
   id: number;
   name: string;
   price: number;
+  image: string;
   quantity: number;
 
 };
@@ -57,6 +58,7 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
         id: productId, 
         name: data.data.Name,
         price: data.data.Price,
+        image: data.data.picture,
         quantity: quantity,
       };
     }
