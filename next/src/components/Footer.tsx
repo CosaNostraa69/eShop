@@ -20,10 +20,18 @@ export default function Footer() {
           <h6 className="text-lg font-bold">Stay Connected</h6>
           <p>Get all the latest news</p>
           <div className="flex items-center gap-2 m-2">
-            <FaSquareTwitter className="w-[25px] h-[25px]" />
-            <FaSquareFacebook className="w-[25px] h-[25px]" />
-            <FaSquareYoutube className="w-[25px] h-[25px]" />
-            <FaLinkedin className="w-[25px] h-[25px]" />
+            <Link href={"https://twitter.com/"}>
+              <FaSquareTwitter className="w-[25px] h-[25px]" />
+            </Link>
+            <Link href={"https://facebook.com/"}>
+              <FaSquareFacebook className="w-[25px] h-[25px]" />
+            </Link>
+            <Link href={"https://youtube.com/"}>
+              <FaSquareYoutube className="w-[25px] h-[25px]" />
+            </Link>
+            <Link href={"https://linkedin.com/"}>
+              <FaLinkedin className="w-[25px] h-[25px]" />
+            </Link>
           </div>
         </div>
       </div>
