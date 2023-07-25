@@ -30,7 +30,6 @@ export default function ProductCard(data: any) {
   const handleAddToCart = () => {
     if(appContext){
       appContext.handleAddToCart(data, quantity);
-      
     }
   };
 

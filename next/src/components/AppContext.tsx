@@ -1,29 +1,43 @@
 "use client"
-import { log } from "console";
-import { createContext, FC } from "react";
-import { useState, useEffect } from "react";
+import { createContext, FC, useContext, useState } from "react";
 
 type ContextValues = {
-  SaveBasketCartDataToLocalStorage: () => void;
-  bye: () => void;
+  handleAddToCart: (data: any, quantity: number) => void;
 };
 
 const AppContext = createContext<ContextValues | null>(null);
 
 const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
-  
-  const SaveBasketCartDataToLocalStorage = () =>{
+  const [quantity, setQuantity] = useState(1);
 
-  }
+  const handleQuantity = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = parseInt(event.target.value);
+    setQuantity(inputValue);
+  };
 
-  const bye = ()=>{
-    console.log("hye");
-    
-  }
+  const handleAddToCart = (data: any, quantity: number) => {
+    const existingCartData = localStorage.getItem("cartData");
+    const cartData = existingCartData ? JSON.parse(existingCartData) : {};
+    const productId = data.data.id;
+
+    if (quantity === 0) {
+      return;
+    }
+
+    if (cartData[productId]) {
+      cartData[productId].quantity += quantity;
+    } else {
+      cartData[productId] = {
+        name: data.data.Name,
+        price: data.data.Price,
+        quantity: quantity,
+      };
+    }
+    localStorage.setItem("cartData", JSON.stringify(cartData));
+  };
 
   const contextValues: ContextValues = {
-    SaveBasketCartDataToLocalStorage,
-    bye,
+    handleAddToCart,
   };
 
   return <AppContext.Provider value={contextValues}>{children}</AppContext.Provider>;
