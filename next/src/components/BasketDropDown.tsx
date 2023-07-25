@@ -18,9 +18,19 @@ export function BasketDropDown() {
     setCardMenuOpen(!cardMenuOpen);
   };
 
+  const handleBasketEnter = () => {
+    setCardMenuOpen(true);
+  };
+
+  const handleBasketLeave = () => {
+    setCardMenuOpen(false);
+
+    // onMouseLeave={handleBasketLeave}
+  };
+
   return (
-    <div>
-      <button onClick={handleBasketClick}>
+    <div onClick={handleBasketClick} >
+      <button >
         <BsBasket className="w-[25px] h-[25px] hover:cursor-pointer" />
       </button>
 
@@ -42,9 +52,11 @@ export function BasketDropDown() {
               {cartItems.map((item, index) => (
                 <BasketCart
                   key={index}
+                  id={item.id}
                   name={item.name}
                   price={item.price}
                   quantity={item.quantity}
+                
                 />
               ))}
 

@@ -8,9 +8,11 @@ type ContextValues = {
 };
 
 type BasketItem = {
+  id: number;
   name: string;
   price: number;
   quantity: number;
+
 };
 
 const AppContext = createContext<ContextValues | null>(null);
@@ -48,6 +50,7 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
       cartData[productId].quantity += quantity;
     } else {
       cartData[productId] = {
+        id: productId, 
         name: data.data.Name,
         price: data.data.Price,
         quantity: quantity,
@@ -58,6 +61,10 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
     const updatedCartItems: BasketItem[] = Object.values(cartData);
     setCartItems(updatedCartItems);
   };
+
+  // const HandleDeleteFromCart = (dta: any) ={
+
+  // }
 
   const contextValues: ContextValues = {
     handleAddToCart,

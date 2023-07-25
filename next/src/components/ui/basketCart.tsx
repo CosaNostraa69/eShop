@@ -3,12 +3,13 @@ import { Button } from "./button"
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 interface Props {
+    id: number;
     name: string;
     price: number;
     quantity: number;
 }
 
-const  BasketCart: React.FC<Props> = ({name, price, quantity}) => {
+const  BasketCart: React.FC<Props> = ({name, price, quantity, id}) => {
     return(
         <div className="flex justify-between flex-col px-3">
 
