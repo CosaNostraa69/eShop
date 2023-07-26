@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import Back from "@/components/Back";
 import { useSearchParams } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
-// import { Checkbox } from "@/components/ui/checkbox";
-import Loading from "@/app/loading";
 import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
 import axios from "axios";
@@ -37,7 +35,7 @@ export default function Page() {
   const fetchProducts = async () => {
     try {
       const productsData = await getProducts();
-      setProducts(productsData);
+      setProducts(productsData["hydra:member"]);
     } catch (error) {
       // Handle errors here
     }
@@ -59,7 +57,7 @@ export default function Page() {
   const search = searchParams.get("search");
 
   // Conditional rendering: Display a loading message or fallback if products are not available yet
-  if (products["hydra:member"] === undefined) {
+  if (products === undefined) {
     return (
       <div className="flex flex-col lg:flex-row items-center space-x-4">
         <div className="w-full lg:w-1/4 lg:min-h-screen flex flew-row  justify-center lg:flex-col lg:justify-start gap-6 lg:gap-12 p-6 lg:p-0 lg:pl-20 lg:pt-20 m-6">
@@ -84,29 +82,21 @@ export default function Page() {
     );
   }
 
-  const list = products["hydra:member"];
-  // console.log(`LIST: --- ${list[0].category}`);
+  const list = products;
   console.log(list);
 
   const filteredProducts = list.filter((product) => {
-    // console.log(product.ProductType);
-    // console.log(product);
-    // console.log(`PRODUCT: --- ${product}`);
-
     if (selectedCategories.length === 0) {
-      return true; // Show all products when no checkbox is selected
+      return true;
     } else {
-      // return selectedCategories.includes(product.ProductType);
       return selectedCategories.includes(product.category.name);
     }
   });
-  // console.log(filteredProducts);
 
   const typeFilteredProducts = type
     ? filteredProducts.filter((product) => product.category.name === type)
     : filteredProducts;
 
-  // Additional filtering based on the "search" parameter from the URL query
   const searchFilteredProducts = search
     ? typeFilteredProducts.filter((product) =>
         product.Name.toLowerCase().includes(search.toLowerCase())

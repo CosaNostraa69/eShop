@@ -10,20 +10,8 @@ import Link from "next/link";
 import { BasketDropDown } from "./BasketDropDown";
 const roboto = VT323({ subsets: ["latin"], weight: ["400"] });
 
-// import {
-//   Select,
-//   SelectContent,
-//   SelectGroup,
-//   SelectItem,
-//   SelectLabel,
-//   SelectTrigger,
-//   SelectValue,
-// } from "@/components/ui/select";
-
 export default function Header() {
   const [cardMenuOpen, setCardMenuOpen] = useState(false);
-  console.log(cardMenuOpen);
-
   return (
     <div>
       <div
@@ -40,7 +28,7 @@ export default function Header() {
           <NavigationMenuDemo />
         </div>
         <div className="flex items-center justify-end w-1/3">
-          <BasketDropDown/>
+          <BasketDropDown />
           <MdMenu className="sm:invisible w-[25px] h-[25px] hover:cursor-pointer" />
         </div>
       </div>
@@ -95,7 +83,6 @@ export function SearchBar() {
   const [select, setSelect] = useState("");
   const [input, setInput] = useState("");
   function handleSelectValueChange(value: any) {
-    console.log(value);
     setSelect(value);
   }
 
@@ -104,7 +91,6 @@ export function SearchBar() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          // alert(`select : ${select} ; search ${input}`);
           router.push(`/api/products?type=${select}&search=${input}`);
         }}
         action="#"
