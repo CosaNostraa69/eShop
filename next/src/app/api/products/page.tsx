@@ -8,6 +8,32 @@ import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
 
+interface Product {
+  Available: boolean;
+  Description: string;
+  Name: string;
+  Price: number;
+  Stock: number;
+  category: {
+    name: string;
+  };
+  ProductType: string;
+  id: number;
+  picture: string;
+}
+
+interface CheckboxProps {
+  id: string;
+  checked: boolean;
+  onChange: () => void;
+}
+interface NavigationItem {
+  title: string;
+  href: string;
+  category: string;
+}
+type CheckboxChangeHandler = (category: string) => void;
+
 const BASE_URL = "http://localhost:8000";
 const api = axios.create({
   baseURL: BASE_URL,
@@ -24,8 +50,8 @@ export async function getProducts() {
 }
 
 export default function Page() {
-  const [products, setProducts] = useState([]);
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   useEffect(() => {
     // Fetch data when the component mounts
@@ -41,10 +67,10 @@ export default function Page() {
     }
   };
 
-  const handleCheckboxChange = (category) => {
-    setSelectedCategories((prevSelectedCategories) => {
+  const handleCheckboxChange: CheckboxChangeHandler = (category: string) => {
+    setSelectedCategories((prevSelectedCategories: string[]) => {
       if (prevSelectedCategories.includes(category)) {
-        return prevSelectedCategories.filter((cat) => cat !== category);
+        return prevSelectedCategories.filter((cat: string) => cat !== category);
       } else {
         return [...prevSelectedCategories, category];
       }
@@ -71,9 +97,7 @@ export default function Page() {
           </ul>
         </div>
         <div className="flex flex-col items-center lg:w-3/4">
-          <h1 className="text-3xl font-bold my-6 ">
-            Page is Loading ... 
-          </h1>
+          <h1 className="text-3xl font-bold my-6 ">Page is Loading ...</h1>
           <Skeleton className="w-full justify-center flex flex-wrap">
             <Skeleton className="w-[300px] h-[600px]" />
           </Skeleton>
@@ -84,7 +108,7 @@ export default function Page() {
 
   const list = products;
 
-  const filteredProducts = list.filter((product) => {
+  const filteredProducts = list.filter((product: Product) => {
     if (selectedCategories.length === 0) {
       return true;
     } else {
@@ -131,7 +155,7 @@ export default function Page() {
             </>
           ) : (
             <>
-              {categories.map((category) => {
+              {categories.map((category: string) => {
                 return (
                   <li key={category} className="flex gap-2 items-center">
                     <span className="lg:w-[100px] text-sm">{category}</span>
@@ -156,7 +180,7 @@ export default function Page() {
                 {searchFilteredProducts.length > 0 ? (
                   <>
                     {searchFilteredProducts.map((card) => {
-                      return <ProductCard key={card.id} data={card} />;
+                      return <ProductCard key={card["id"]} data={card} />;
                     })}
                   </>
                 ) : (
@@ -175,7 +199,7 @@ export default function Page() {
               </div>
             ) : (
               <div className="w-full justify-center flex flex-wrap">
-                {typeFilteredProducts.map((card) => {
+                {typeFilteredProducts.map((card: Product) => {
                   return <ProductCard key={card.id} data={card} />;
                 })}
               </div>
@@ -183,7 +207,7 @@ export default function Page() {
           </>
         ) : (
           <div className="w-full justify-center flex flex-wrap">
-            {filteredProducts.map((card) => {
+            {filteredProducts.map((card: Product) => {
               return <ProductCard key={card.id} data={card} />;
             })}
           </div>
@@ -193,7 +217,11 @@ export default function Page() {
   );
 }
 
-export const Checkbox = ({ id, checked, onChange }) => {
+export const Checkbox: React.FC<CheckboxProps> = ({
+  id,
+  checked,
+  onChange,
+}) => {
   return (
     <input
       type="checkbox"
@@ -205,7 +233,7 @@ export const Checkbox = ({ id, checked, onChange }) => {
 };
 
 // const categories = ["Tabac", "Presse", "Confiserie", "Accessoires", "other"];
-const categories = [
+const categories: string[] = [
   "Cigarettes",
   "Journaux et magazines",
   "Gâteaux et bonbons",
@@ -213,7 +241,7 @@ const categories = [
   "Boissons",
 ];
 
-const navigation: { title: string; href: string; category: string }[] = [
+const navigation: NavigationItem[] = [
   {
     title: "All products",
     href: "/api/products",
