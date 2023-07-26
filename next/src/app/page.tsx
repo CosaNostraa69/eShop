@@ -11,12 +11,12 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center">
       <Back />
-      <div className="w-full flex flex-col items-center py-24 bg-project-yellow">
+      <div className="w-full flex flex-col items-center pt-20 pb-12 bg-project-yellow">
         <h1 className="w-2/3 text-center text-5xl font-bold">
           Discover the Rich World of Fine Tobacco at our E-Shop!
         </h1>
         <Link href={"/about-us"} className="my-12">
-          <Button className="my-12">Discover more...</Button>
+          <Button>Discover more...</Button>
         </Link>
       </div>
       <div

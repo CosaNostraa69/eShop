@@ -62,7 +62,7 @@ const  BasketCart: React.FC<Props> = ({name, price, quantity,image, id}) => {
                     <span className="text-[20px] cursor-pointer hover:scale-110 duration-100" onClick={handleIncreaseQuantity}>+</span>
                 </div>
 
-                <div className="min-w-[25%] max-w-[25%] flex justify-end">
+                <div className="min-w-[20%] max-w-[20%] flex justify-end">
                     <p className="text-[15px] font-bold text-[#6D706F]">${price}</p>
                 </div>
             </div>           
