@@ -71,8 +71,8 @@ export default function Page() {
           </ul>
         </div>
         <div className="flex flex-col items-center lg:w-3/4">
-          <h1 className="text-3xl font-bold my-6">
-            Please wait while the content is loading
+          <h1 className="text-3xl font-bold my-6 ">
+            Page is Loading ... 
           </h1>
           <Skeleton className="w-full justify-center flex flex-wrap">
             <Skeleton className="w-[300px] h-[600px]" />
@@ -83,7 +83,6 @@ export default function Page() {
   }
 
   const list = products;
-  console.log(list);
 
   const filteredProducts = list.filter((product) => {
     if (selectedCategories.length === 0) {
@@ -104,8 +103,8 @@ export default function Page() {
     : typeFilteredProducts;
 
   return (
-    <div className="flex flex-col lg:flex-row lg:flex-nowrap">
-      <div className="w-full lg:w-1/4 lg:min-h-screen flex flew-row  justify-center lg:flex-col lg:justify-start gap-6 lg:gap-12 p-6 lg:p-0 lg:pl-20 lg:pt-20 shadow-md">
+    <div className="flex flex-col lg:flex-row lg:flex-nowrap ">
+      <div className="w-full lg:w-1/5 lg:min-h-screen flex flew-row justify-center lg:flex-col lg:justify-start gap-6 lg:gap-12 lg:pl-[5%] lg:pt-20 shadow-2xl ">
         <h3 className="font-bold text-md lg:text-xl">
           {type ? <>Others products:</> : <>Filters:</>}
         </h3>
