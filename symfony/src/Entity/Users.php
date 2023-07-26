@@ -26,6 +26,12 @@ class Users
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $createdAt = null;
 
+    public function __toString(): string
+    {
+        return $this->firstName ?? '';
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;

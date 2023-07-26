@@ -30,6 +30,12 @@ class Promotion
     #[ORM\Column]
     private ?int $value = null;
 
+    public function __toString(): string
+    {
+        return $this->code ?? '';
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
