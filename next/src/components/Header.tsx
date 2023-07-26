@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <div>
       <div
-        className=" bg-white w-full flex items-center justify-between   py-2 px-12
+        className="bg-white w-full flex items-center justify-between py-2 px-12 
       shadow-md"
       >
         <Link
@@ -32,7 +32,7 @@ export default function Header() {
           <MdMenu className="sm:invisible w-[25px] h-[25px] hover:cursor-pointer" />
         </div>
       </div>
-      <Promo />
+      <Promo/>
       <SearchBar />
     </div>
   );
