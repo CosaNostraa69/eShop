@@ -78,7 +78,7 @@ export function BasketDropDown() {
                     Subtotal:
                   </p>
                   <p className="text-[15px] font-bold text-[#6D706F]">
-                    ${subTotal.toFixed(2)}
+                    ${subTotal.toFixed(2)}€
                   </p>
                 </div>
                 <div className="flex justify-between items-center mx-2">
@@ -86,13 +86,13 @@ export function BasketDropDown() {
                     Tax (12%):
                   </p>
                   <p className="text-[15px] font-bold text-[#6D706F]">
-                    ${taxAmount.toFixed(2)}
+                    {taxAmount.toFixed(2)}€
                   </p>
                 </div>
                 <div className="flex justify-between items-center mx-2 mb-4">
                   <p className="text-[17px] font-bold text-[#1F2020]">Total:</p>
                   <p className="text-[20px] font-bold text-black">
-                    ${totalPrice.toFixed(2)}
+                    {totalPrice.toFixed(2)}€
                   </p>
                 </div>
               </div>

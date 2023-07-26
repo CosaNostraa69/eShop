@@ -63,7 +63,7 @@ const  BasketCart: React.FC<Props> = ({name, price, quantity,image, id}) => {
                 </div>
 
                 <div className="min-w-[20%] max-w-[20%] flex justify-end">
-                    <p className="text-[15px] font-bold text-[#6D706F]">${price}</p>
+                    <p className="text-[15px] font-bold text-[#6D706F]">{price}€</p>
                 </div>
             </div>           
 
