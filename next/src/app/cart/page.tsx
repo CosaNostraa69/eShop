@@ -114,13 +114,13 @@ export default function Page() {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div className="flex bg-slate-100 flex-col items-center gap-6 py-12 lg:px-20 xl:px-32">
+    <div className="flex bg-slate-50 flex-col items-center gap-6 py-12 lg:px-20 xl:px-32">
       <h1 className="text-3xl lg:text-4xl w-full justify-start p-6 font-bold">
         Cart
       </h1>
 
-      <div className="w-full flex flex-col items-center gap-6 p-6 md:flex-row md:items-start">
-        <div className="w-full md:w-2/3 bg-white p-6">
+      <div className="w-full flex flex-col items-center gap-1 p-6 md:flex-row md:items-start">
+        <div className="w-full md:w-2/3 bg-white p-6 shadow-xl">
           <p className="text-lg lg:text-xl w-full justify-start p-6 font-bold">
             1. Recap
           </p>
@@ -156,9 +156,9 @@ export default function Page() {
             </TableBody>
           </Table>
         </div>
-        <div className="w-full bg-white p-6 justify-center flex items-center gap-6 flex-col md:w-1/3 lg:w-1/2 md:items-center">
+        <div className="w-full bg-white shadow-xl p-6 justify-center flex items-center gap-6 flex-col md:w-1/3 lg:w-1/2 md:items-center">
           <div className="flex flex-col gap-2 text-center">
-            <p className="text-lg lg:text-xl font-bold ">
+            <p className="text-lg lg:text-xl font-bold">
               Total to pay {totalToPay}€
             </p>
             <p className="text:md lg:text-lg font-semibold text-[#444646]">
