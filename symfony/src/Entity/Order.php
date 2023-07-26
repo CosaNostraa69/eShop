@@ -9,7 +9,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 #[ORM\Table(name: '`order`')]
 #[ApiResource]
 class Order
@@ -22,8 +24,7 @@ class Order
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\Column(type: Types::ARRAY)]
-    private array $list = [];
+   
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $orderDate = null;
@@ -35,12 +36,22 @@ class Order
     #[ORM\JoinColumn(nullable: true)] // Set nullable to true for "promotion"
     private ?Promotion $promotion = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(targetEntity:Users::class,cascade:['persist'])]
     #[ORM\JoinColumn(nullable: true)] // Set nullable to true for "user"
     private ?Users $user = null;
 
     #[ORM\Column]
     private ?bool $usedCode = null;
+
+    #[ORM\PrePersist]
+    public function setCreatedAtValue(): void
+    {
+        $this->orderDate = new \DateTimeImmutable();
+    }
+    public function __toString(): string
+    {
+        return $this->orderDate ?? '';
+    }
 
     public function __construct()
     {
@@ -64,18 +75,8 @@ class Order
         return $this;
     }
 
-    public function getList(): array
-    {
-        return $this->list;
-    }
 
-    public function setList(array $list): static
-    {
-        $this->list = $list;
-
-        return $this;
-    }
-
+    
     public function getOrderDate(): ?\DateTimeInterface
     {
         return $this->orderDate;
