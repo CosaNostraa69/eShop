@@ -31,7 +31,7 @@ export function BasketDropDown() {
 
 
   return (
-    <div onClick={handleBasketClick} >
+    <div onClick={handleBasketEnter} onMouseLeave={handleBasketLeave}>
       
       <div className="relative">
         <button >

@@ -2,6 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { useState, useContext } from "react";
 import { AppContext } from "@/components/AppContext";
+import { useToast } from "@/components/ui/use-toast"
+
+
 
 import {
   Card,
@@ -21,6 +24,7 @@ import App from "next/app";
 export default function ProductCard(data: any) {
   const [quantity, setQuantity] = useState(1);
   const appContext = useContext(AppContext)
+  const {toast} = useToast()
   
   
   const handleQuantity = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,8 +35,21 @@ export default function ProductCard(data: any) {
   const handleAddToCart = () => {
     if(appContext){
       appContext.handleAddToCart(data, quantity);
+      handleToastForAddToCart(toast)
     }
   };
+
+  function handleToastForAddToCart(toastTest: any){
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleString();
+
+    return(
+      toastTest({ 
+        title: `${quantity} ${data.data.Name}, added to the shopping cart`,
+        description: `${formattedDate}`,
+      })
+    )
+  }
 
   return (
     <>
