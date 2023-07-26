@@ -77,7 +77,7 @@ export function CheckoutForm({
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-8 shadow-xl  bg-white p-6  w-full md:w-4/5 lg:w-3/5 flex flex-col"
       >
-        <h2 className="text-lg lg:text-xl w-full justify-start p-6 font-bold">
+        <h2 className="text-lg lg:text-xl w-full justify-start  font-bold">
           2. Checkout
         </h2>
         <FormField
