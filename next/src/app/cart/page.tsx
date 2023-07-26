@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
 import { CheckoutForm } from "@/components/CheckoutForm";
-
+import Image from "next/image";
 interface BasketItem {
   name: string;
   price: number;
@@ -69,6 +69,9 @@ export default function Page() {
     (total, product) => total + product.price * product.quantity,
     0
   );
+  const taxAmount = totalPrice * 0.12;
+  const totalToPay = totalPrice + taxAmount;
+
   const [promoCode, setPromoCode] = useState("");
   const [isPromoCodeValid, setPromoCodeValid] = useState(false);
   const [discountedTotalPrice, setDiscountedTotalPrice] = useState(0);
@@ -90,7 +93,7 @@ export default function Page() {
     if (validPromo) {
       const discountPercentage = validPromo.value;
       const newTotalPrice =
-        totalPrice - totalPrice * (discountPercentage / 100);
+        totalToPay - totalToPay * (discountPercentage / 100);
       setDiscountedTotalPrice(newTotalPrice);
       setAppliedDiscount(discountPercentage);
       setPromoCodeValid(true);
@@ -104,32 +107,42 @@ export default function Page() {
   };
 
   // console.log(appliedPromotion);
-  const ref = useRef<null | HTMLElement>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   const handleClick = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div className="flex flex-col items-center gap-6 py-12">
+    <div className="flex bg-slate-50 flex-col items-center gap-6 py-12">
       <h1 className="text-3xl lg:text-4xl w-full justify-start p-6 font-bold">
         Cart
       </h1>
-      <h2 className="text-2xl lg:text-3xl w-full justify-start p-6 font-bold">
-        1. Recap
-      </h2>
-      <div className="w-full  flex flex-col items-center gap-6 p-6 md:flex-row">
-        <div className="w-full md:w-2/3 lg:w-1/2 ">
+
+      <div className="w-full  flex flex-col items-center gap-6 p-6 md:flex-row md:items-start">
+        <div className="w-full  md:w-2/3 lg:w-1/2 bg-white p-6">
+          <p className="text-lg lg:text-xl w-full justify-start p-6 font-bold">
+            1. Recap
+          </p>
           <Table>
             <TableHeader>
               <TableRow>
+                <TableHead>Image</TableHead>
                 <TableHead>Name</TableHead>
                 <TableHead className="text-center">Price</TableHead>
                 <TableHead className="text-center">Quantity</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {cartDataArray.map((product, index) => (
+              {cartDataArray.map((product) => (
                 <TableRow key={product.name}>
+                  <TableCell>
+                    <Image
+                      src={`http://localhost:8000/uploads/images/${product.image}`}
+                      alt={`${product.name} image`}
+                      width={40}
+                      height={40}
+                    ></Image>
+                  </TableCell>
                   <TableCell>{product.name}</TableCell>
                   <TableCell className="text-center">
                     {product.price * product.quantity}€
@@ -142,12 +155,20 @@ export default function Page() {
             </TableBody>
           </Table>
         </div>
-        <div className="w-full justify-center flex items-center gap-6 flex-col md:w-1/3 lg:w-1/2 md:items-center">
-          <h2 className="text-2xl font-bold">Sub total: {totalPrice}€</h2>
+        <div className="w-full bg-white p-6 justify-center flex items-center gap-6 flex-col md:w-1/3 lg:w-1/2 md:items-center">
+          <div className="flex flex-col gap-2 text-center">
+            <p className="text-lg lg:text-xl font-bold ">
+              Total to pay {totalToPay}€
+            </p>
+            <p className="text:md lg:text-lg font-semibold text-[#444646]">
+              Sub total: {totalPrice}€
+            </p>
+            <p className="text-md lg:text-lg font-semibold text-[#444646]">
+              Tax (12%): {taxAmount}€
+            </p>
+          </div>
           <div className="flex flex-col items-center text-center gap-4">
-            <Label>
-              Do you have a promotional code? If so, put it down here:
-            </Label>
+            <Label>Do you have a promotional code?</Label>
             <Input
               className="max-w-[250px]"
               type="text"
@@ -173,7 +194,7 @@ export default function Page() {
           <Button onClick={handleClick}>Checkout now</Button>
         </div>
       </div>
-      <div className="w-full" ref={ref}>
+      <div className="w-full flex justify-start px-6" ref={ref}>
         <Checkout
           finalPrice={discountedTotalPrice ? discountedTotalPrice : totalPrice}
           usedPromotion={appliedPromotion ? appliedPromotion : null}
@@ -193,10 +214,7 @@ export function Checkout({
   // console.log(usedPromotion);
   // console.log(cartDataArray);
   return (
-    <div className="w-full flex flex-col items-center gap-6 py-12">
-      <h2 className="text-2xl lg:text-3xl w-full justify-start p-6 font-bold">
-        2. Checkout
-      </h2>
+    <div className="w-full flex flex-col gap-6 py-12">
       <CheckoutForm
         finalPrice={finalPrice}
         usedPromotion={usedPromotion}

@@ -75,8 +75,11 @@ export function CheckoutForm({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8  w-full md:w-4/5 lg:w-3/5 flex flex-col"
+        className="space-y-8  bg-white p-6  w-full md:w-4/5 lg:w-3/5 flex flex-col"
       >
+        <h2 className="text-lg lg:text-xl w-full justify-start p-6 font-bold">
+          2. Checkout
+        </h2>
         <FormField
           control={form.control}
           name="firstName"
