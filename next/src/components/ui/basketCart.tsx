@@ -40,7 +40,7 @@ const  BasketCart: React.FC<Props> = ({name, price, quantity,image, id}) => {
 
             <div className="flex justify-between items-center mx-2 border-b border-[#A5DCE3] pb-4 pt-2 ">
 
-                <p className="absolute left left-[2px] text-[14px] cursor-pointer hover:scale-110 duration-100"><AiOutlineCloseCircle onClick={HandleDeleteCart}/></p>
+                <p className="absolute left left-[8px] text-[14px] cursor-pointer hover:scale-110 duration-100"><AiOutlineCloseCircle onClick={HandleDeleteCart}/></p>
                 
                 <div className="flex items-center min-w-[45%] max-w-[45%]">
                 <Image

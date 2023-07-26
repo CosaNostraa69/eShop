@@ -9,6 +9,7 @@ type ContextValues = {
 
   handleIncreaseQuantity: (productId:number) => void
   handleDecreaseQuantity: (productId:number) => void
+  calculateTotalPrice: () => number
 };
 
 type BasketItem = {
@@ -107,12 +108,29 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
       setCartItems(updatedCartItems);
     }
   };
+
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+
+    cartItems.forEach((item)=>{
+      totalPrice += item.quantity * item.price;
+    })
+
+    // Add 12% tax to the total 
+
+    const taxPercentage = 0.12;
+    totalPrice *= 1 + taxPercentage; 
+
+    return totalPrice;
+  }
+
   const contextValues: ContextValues = {
     handleAddToCart,
     cartItems,
     handleDeleteFromCart,
     handleIncreaseQuantity,
     handleDecreaseQuantity,
+    calculateTotalPrice,
 
   };
 
