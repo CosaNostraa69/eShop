@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -12,7 +11,6 @@ import {
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
 
@@ -42,28 +40,23 @@ export async function getPromos() {
 }
 
 export default function Page() {
-  const [promotions, setPromotions] = useState([]);
+  const [promotions, setPromotions] = useState<Promotion[]>([]);
+  const [cartDataArray, setCartDataArray] = useState<BasketItem[]>([]);
+
   useEffect(() => {
-    // Fetch data when the component mounts
+    const fetchPromotions = async () => {
+      try {
+        const promotions = await getPromos();
+        setPromotions(promotions["hydra:member"]);
+      } catch (error) {}
+    };
     fetchPromotions();
+    const cartDataJSON = localStorage.getItem("cartData");
+    const cartData: BasketItem[] = cartDataJSON ? JSON.parse(cartDataJSON) : [];
+    setCartDataArray(Object.values(cartData));
   }, []);
 
-  const fetchPromotions = async () => {
-    try {
-      const promotions = await getPromos();
-      setPromotions(promotions);
-    } catch (error) {
-      // Handle errors here
-    }
-  };
-  // console.log(promotions["hydra:member"]);
-  const promotionsList: Promotion[] = promotions["hydra:member"];
-  console.log(promotionsList);
-
-  const cartDataJSON = localStorage.getItem("cartData");
-  const cartData: BasketItem[] = cartDataJSON ? JSON.parse(cartDataJSON) : [];
-  const cartDataArray = Object.values(cartData);
-  console.log(cartDataArray);
+  const promotionsList: Promotion[] = promotions;
 
   const totalPrice = cartDataArray.reduce(
     (total, product) => total + product.price * product.quantity,
@@ -74,18 +67,17 @@ export default function Page() {
   const [discountedTotalPrice, setDiscountedTotalPrice] = useState(0);
   const [appliedDiscount, setAppliedDiscount] = useState(0);
 
-  const handlePromoCodeChange = (event) => {
+  const handlePromoCodeChange = (event: any) => {
     setPromoCode(event.target.value);
   };
 
   const handleCheckCode = () => {
-    const lowerCasedPromoCode = promoCode.toLowerCase(); // Convert entered code to lowercase
+    const lowerCasedPromoCode = promoCode.toLowerCase();
     const validPromo = promotionsList.find(
       (promo) => promo.code.toLowerCase() === lowerCasedPromoCode
     );
 
     if (validPromo) {
-      // If the promo code is valid, calculate the discounted total price
       const discountPercentage = validPromo.value;
       const newTotalPrice =
         totalPrice - totalPrice * (discountPercentage / 100);
@@ -93,18 +85,18 @@ export default function Page() {
       setAppliedDiscount(discountPercentage);
       setPromoCodeValid(true);
     } else {
-      // If the promo code is not valid, reset the discounted total price and applied discount
       setDiscountedTotalPrice(0);
       setAppliedDiscount(0);
       setPromoCodeValid(false);
     }
   };
+
   return (
     <div className="flex flex-col items-center gap-6 py-12">
       <h1 className="text-3xl lg:text-4xl w-full justify-start p-6 font-bold">
         Cart
       </h1>
-      <div className="w-full flex flex-col items-center gap-6 p-6 md:flex-row">
+      <div className="w-full  flex flex-col items-center gap-6 p-6 md:flex-row">
         <div className="w-full md:w-2/3 lg:w-1/2 ">
           <Table>
             <TableHeader>

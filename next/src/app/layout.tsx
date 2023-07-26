@@ -4,7 +4,7 @@ import { Roboto_Flex } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AppContextProvider } from "../components/AppContext"; 
+import { AppContextProvider } from "../components/AppContext";
 
 const roboto = Roboto_Flex({ subsets: ["latin"] });
 
@@ -21,13 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-      <AppContextProvider>
-        <Header />
-          {children}
-        
-        <main className="min-h-screen shadow-md">{children}</main>
-        <Toaster />
-        <Footer />
+        <AppContextProvider>
+          <Header />
+          <main className="min-h-screen shadow-md">{children}</main>
+          <Toaster />
+          <Footer />
         </AppContextProvider>
       </body>
     </html>
