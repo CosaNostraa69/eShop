@@ -72,7 +72,7 @@ export function Promo() {
         className="promo-text text-project-gray whitespace-nowrap"
         data-text='-20% with the promo code "DYNAMO" only until 29 July 2023'
       >
-        -20% with the promo code "DYNAMO" only until 29 July 2023
+        -20% with the promo code DYNAMO only until 29 July 2023
       </p>
     </div>
   );
