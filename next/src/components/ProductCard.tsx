@@ -53,7 +53,7 @@ export default function ProductCard(data: any) {
 
   return (
     <>
-      <Card className="w-[400px] h-[auto] m-4 shadow-md my-20">
+      <Card className="w-[360px] h-[auto] m-4 shadow-md my-4">
         <CardHeader>
           <CardTitle className="mb-2">{data.data.Name}</CardTitle>
           <div className="flex gap-6">
@@ -62,11 +62,8 @@ export default function ProductCard(data: any) {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="w-full flex justify-center my-6">
+          <div className="w-full flex justify-center">
             <Image
-              // src={`/assets/drinks.webp`}
-              // src={`/uploads/images/${image}`}
-
               src={
                 data.data.picture
                   ? `http://localhost:8000/uploads/images/${data.data.picture}`
@@ -79,8 +76,7 @@ export default function ProductCard(data: any) {
                   ? `${data.data.Name} product picture`
                   : `${data.data.Name} picture not found`
               }
-              className="object-fill w-[200px] h-[150px]"
-              // style={{ objectFit: "cover" }}
+              className="object-fill w-[150px] h-[150px] mb-4"
             ></Image>
           </div>
           <p>
@@ -89,7 +85,7 @@ export default function ProductCard(data: any) {
             {data.data.Description}
           </p>
 
-          <div className="flex flex-col space-y-1.5 my-6">
+          <div className="flex flex-col space-y-1.5 mt-4">
             <div>
               <Label htmlFor="quantity">Quantity</Label>
               <Input
@@ -114,7 +110,7 @@ export default function ProductCard(data: any) {
                   {data.data.Stock} produits restants en stock
                 </p>
               ) : (
-                <div className="h-[20px] my-4"></div>
+                <div ></div>
               )}
             </div>
           </div>
