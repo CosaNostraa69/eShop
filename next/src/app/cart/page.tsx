@@ -19,6 +19,7 @@ interface BasketItem {
   name: string;
   price: number;
   quantity: number;
+  image: string;
 }
 interface Promotion {
   code: string;
