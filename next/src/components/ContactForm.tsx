@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
+import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
   firstName: z.string().min(2, {
@@ -43,12 +44,17 @@ export function ContactForm() {
       message: "",
     },
   });
+  const { toast } = useToast();
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+    // console.log(values);
+    toast({
+      title: `${values.firstName}, votre message a bien été envoyé!`,
+      description: "Nous reviendrons bientôt vers vous.",
+    });
   }
 
   return (

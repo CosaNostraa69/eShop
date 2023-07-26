@@ -1,15 +1,15 @@
-"use client"
+"use client";
 import { createContext, FC, useContext, useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 
 type ContextValues = {
   handleAddToCart: (data: any, quantity: number) => void;
   cartItems: BasketItem[];
-  handleDeleteFromCart: (productId: any) => void
+  handleDeleteFromCart: (productId: any) => void;
 
-  handleIncreaseQuantity: (productId:number) => void
-  handleDecreaseQuantity: (productId:number) => void
-  calculateTotalPrice: () => number
+  handleIncreaseQuantity: (productId: number) => void;
+  handleDecreaseQuantity: (productId: number) => void;
+  calculateTotalPrice: () => number;
 };
 
 type BasketItem = {
@@ -18,12 +18,13 @@ type BasketItem = {
   price: number;
   image: string;
   quantity: number;
-
 };
 
 const AppContext = createContext<ContextValues | null>(null);
 
-const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
+const AppContextProvider: FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [quantity, setQuantity] = useState(1);
   const [cartItems, setCartItems] = useState<BasketItem[]>([]);
 
@@ -38,10 +39,8 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
     const cartData: BasketItem[] = cartDataJSON ? JSON.parse(cartDataJSON) : [];
     const cartDataArray = Object.values(cartData);
 
-    setCartItems(cartDataArray)
-    
+    setCartItems(cartDataArray);
   }, []);
-
 
   const handleAddToCart = (data: any, quantity: number) => {
     const existingCartData = localStorage.getItem("cartData");
@@ -56,7 +55,7 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
       cartData[productId].quantity += quantity;
     } else {
       cartData[productId] = {
-        id: productId, 
+        id: productId,
         name: data.data.Name,
         price: data.data.Price,
         image: data.data.picture,
@@ -83,7 +82,7 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
     }
   };
 
-  const handleIncreaseQuantity = (productId: number) =>{
+  const handleIncreaseQuantity = (productId: number) => {
     const existingCartData = localStorage.getItem("cartData");
     const cartData = existingCartData ? JSON.parse(existingCartData) : {};
 
@@ -94,7 +93,7 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
       const updatedCartItems: BasketItem[] = Object.values(cartData);
       setCartItems(updatedCartItems);
     }
-  }
+  };
 
   const handleDecreaseQuantity = (productId: number) => {
     const existingCartData = localStorage.getItem("cartData");
@@ -112,17 +111,17 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
   const calculateTotalPrice = () => {
     let totalPrice = 0;
 
-    cartItems.forEach((item)=>{
+    cartItems.forEach((item) => {
       totalPrice += item.quantity * item.price;
-    })
+    });
+    // console.log(totalPrice);
 
-    // Add 12% tax to the total 
+    // Add 12% tax to the total
 
-    const taxPercentage = 0.12;
-    totalPrice *= 1 + taxPercentage; 
+    // totalPrice *= 1 + taxPercentage;
 
     return totalPrice;
-  }
+  };
 
   const contextValues: ContextValues = {
     handleAddToCart,
@@ -131,10 +130,11 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({ children }) => 
     handleIncreaseQuantity,
     handleDecreaseQuantity,
     calculateTotalPrice,
-
   };
 
-  return <AppContext.Provider value={contextValues}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={contextValues}>{children}</AppContext.Provider>
+  );
 };
 
 export { AppContext, AppContextProvider };

@@ -13,11 +13,15 @@ export function BasketDropDown() {
   const cartItems = appContext ? appContext.cartItems : [];
   let totalPrice = appContext ? appContext.calculateTotalPrice() : 0;
 
-  const taxPercentage = 0.12;  
+  // const taxPercentage = 0.12;
   // Calculate the tax amount
-  const taxAmount = totalPrice * taxPercentage; 
-  const subTotal = totalPrice - taxAmount; 
+  // const taxAmount = totalPrice * taxPercentage;
+  const taxAmount = totalPrice * 1.12 - totalPrice;
+  // console.log(taxAmount);
 
+  totalPrice = taxAmount + totalPrice;
+  // console.log(totalPrice);
+  const subTotal = totalPrice - taxAmount;
 
   const handleBasketClick = () => {
     setCardMenuOpen(!cardMenuOpen);
@@ -29,20 +33,17 @@ export function BasketDropDown() {
     setCardMenuOpen(false);
   };
 
-
   return (
     <div onClick={handleBasketEnter} onMouseLeave={handleBasketLeave}>
-      
       <div className="relative">
-        <button >
+        <button>
           <BsBasket className="w-[25px] h-[25px] hover:cursor-pointer relative" />
         </button>
-        
+
         {cartItems.length > 0 && (
           <div className="bg-[#C7C33C] absolute top-[-5px] left-[7px] w-[12px] h-[12px] rounded-full"></div>
         )}
       </div>
-
 
       {cardMenuOpen && (
         <div
@@ -67,7 +68,6 @@ export function BasketDropDown() {
                   price={item.price}
                   image={item.image}
                   quantity={item.quantity}
-                
                 />
               ))}
 
@@ -77,17 +77,23 @@ export function BasketDropDown() {
                   <p className="text-[14px] font-bold text-[#444646]">
                     Subtotal:
                   </p>
-                  <p className="text-[15px] font-bold text-[#6D706F]">${subTotal.toFixed(2)}</p>
+                  <p className="text-[15px] font-bold text-[#6D706F]">
+                    ${subTotal.toFixed(2)}
+                  </p>
                 </div>
                 <div className="flex justify-between items-center mx-2">
                   <p className="text-[14px] font-bold text-[#444646]">
                     Tax (12%):
                   </p>
-                  <p className="text-[15px] font-bold text-[#6D706F]">${taxAmount.toFixed(2)}</p>
+                  <p className="text-[15px] font-bold text-[#6D706F]">
+                    ${taxAmount.toFixed(2)}
+                  </p>
                 </div>
                 <div className="flex justify-between items-center mx-2 mb-4">
                   <p className="text-[17px] font-bold text-[#1F2020]">Total:</p>
-                  <p className="text-[20px] font-bold text-black">${totalPrice.toFixed(2)}</p>
+                  <p className="text-[20px] font-bold text-black">
+                    ${totalPrice.toFixed(2)}
+                  </p>
                 </div>
               </div>
               <div className="px-2 mt-2">
