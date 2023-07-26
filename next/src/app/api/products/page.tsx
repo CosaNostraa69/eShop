@@ -49,7 +49,6 @@ export default function Page() {
         return [...prevSelectedCategories, category];
       }
     });
-    console.log(selectedCategories);
   };
 
   const searchParams = useSearchParams();
