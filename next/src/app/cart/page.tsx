@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-
+import Back from "@/components/Back";
 import {
   Table,
   TableBody,
@@ -114,15 +114,16 @@ export default function Page() {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div className="flex bg-slate-50 flex-col items-center gap-6 py-12 lg:px-20 xl:px-32">
-      <h1 className="text-3xl lg:text-4xl w-full justify-start p-6 font-bold">
+    <div className="flex bg-slate-50 flex-col items-center lg:px-20 xl:px-32">
+      {/* <h1 className="text-3xl lg:text-4xl w-full justify-start p-6 font-bold">
         Cart
-      </h1>
+      </h1> */}
+      <Back />
 
-      <div className="w-full flex flex-col items-center gap-1 p-6 md:flex-row md:items-start">
+      <div className="w-full flex flex-col items-center gap-2 p-6 md:flex-row md:items-start">
         <div className="w-full md:w-2/3 bg-white p-6 shadow-xl">
-          <p className="text-lg lg:text-xl w-full justify-start p-6 font-bold">
-            1. Recap
+          <p className="text-lg lg:text-xl w-full justify-start font-bold">
+            1. My bag
           </p>
           <Table>
             <TableHeader>
@@ -192,7 +193,15 @@ export default function Page() {
               Discounted total: {discountedTotalPrice}€
             </h2>
           )}
-          <Button onClick={handleClick}>Checkout now</Button>
+          <Button className="w-full" onClick={handleClick}>
+            Checkout now
+          </Button>
+          <Image
+            src={"/assets/paiement-methods.png"}
+            width={200}
+            height={50}
+            alt="paiements methods logos"
+          />
         </div>
       </div>
       <div className="w-full flex justify-start px-6" ref={ref}>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import { MdKeyboardBackspace } from "react-icons/md";
@@ -20,7 +20,7 @@ export default function Back() {
     }
   };
 
-  const getCategoryLabel = (category) => {
+  const getCategoryLabel = (category: any) => {
     // Define custom labels for specific categories
     switch (category) {
       case "cigarettes":
@@ -38,10 +38,9 @@ export default function Back() {
     }
   };
 
-  const getPageLabel = (page) => {
+  const getPageLabel = (page: any) => {
     // Define custom labels for specific pages
     switch (page) {
-   
       case "about":
         return "About Us";
       case "contact":
@@ -54,15 +53,15 @@ export default function Back() {
   const isHome = pathSegments.length <= 0;
 
   return (
-    <div className="w-full p-1 pl-6">
+    <div className="flex items-center w-full p-1 pl-6">
       {isHome ? (
         <span className="opacity-75 text-sm p-2">Home</span>
       ) : (
         <span
           onClick={handleBack}
-          className="cursor-pointer opacity-75 text-sm p-2 hover:underline hover:text-slate-400 hover:duration-200"
+          className=" cursor-pointer opacity-75 text-sm p-2 hover:underline hover:text-slate-400 hover:duration-200"
         >
-          <MdKeyboardBackspace /> Back
+          Home
         </span>
       )}
 
@@ -70,7 +69,9 @@ export default function Back() {
         <span key={index}>
           {" > "}
           <span
-            onClick={() => router.push(`/${pathSegments.slice(0, index + 1).join("/")}`)}
+            onClick={() =>
+              router.push(`/${pathSegments.slice(0, index + 1).join("/")}`)
+            }
             className="cursor-pointer opacity-75 text-sm p-2 hover:underline hover:text-slate-400 hover:duration-200"
           >
             {getCategoryLabel(segment)}
