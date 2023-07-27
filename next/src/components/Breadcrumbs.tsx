@@ -37,7 +37,7 @@ export default function Breadcrumbs() {
 
 
   return (
-    <div className="flex items-center w-full p-1 pl-6">
+    <div className="flex items-center w-full p-1 pl-6 shadow-2xl">
       <Link
         href="/"
         className="cursor-pointer opacity-75 text-sm p-2 hover:underline hover:text-slate-400 hover:duration-200"

@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { VT323 } from "next/font/google";
 import Link from "next/link";
 import { BasketDropDown } from "./BasketDropDown";
+import Breadcrumbs from "./Breadcrumbs";
 const roboto = VT323({ subsets: ["latin"], weight: ["400"] });
 
 export default function Header() {
@@ -36,6 +37,7 @@ export default function Header() {
       <Promo/>
       
       <SearchBar />
+      <Breadcrumbs/>
     </div>
   );
 }

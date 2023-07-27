@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Back from "@/components/Breadcrumbs";
 import { useSearchParams } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -126,7 +125,7 @@ export default function Page() {
     : typeFilteredProducts;
 
   return (
-    <div className="flex flex-col lg:flex-row lg:flex-nowrap ">
+    <div className="flex flex-col lg:flex-row lg:flex-nowrap mt-[230px]">
       <div className="w-full lg:w-1/5 lg:min-h-screen flex flew-row justify-center lg:flex-col lg:justify-start gap-6 lg:gap-12 lg:pl-[5%] lg:pt-20 shadow-2xl ">
         <h3 className="font-bold text-md lg:text-xl">
           {type ? <>Others products:</> : <>Filters:</>}
@@ -171,7 +170,6 @@ export default function Page() {
         </ul>
       </div>
       <div className="flex flex-col lg:w-3/4">
-        <Back />
         {type ? (
           <>
             {search ? (

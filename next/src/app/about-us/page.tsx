@@ -1,4 +1,3 @@
-import Back from "@/components/Breadcrumbs";
 import React from "react";
 import Image from "next/image";
 import ArticleCard from "@/components/ArticleCard";
@@ -7,8 +6,8 @@ import Link from "next/link";
 export default function Page() {
   return (
     <>
-      <div>
-        <Back />
+      <div className="mt-[220px]">
+        
         <div className="relative w-full py-52 ">
           <Image
             src="/assets/about-us/aboutus.webp"
