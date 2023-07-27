@@ -1,4 +1,4 @@
-import Back from "@/components/Back";
+import Back from "@/components/Breadcrumbs";
 import React from "react";
 import Image from "next/image";
 import ArticleCard from "@/components/ArticleCard";

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import Back from "@/components/Back";
+import Back from "@/components/Breadcrumbs";
 import {
   Table,
   TableBody,

@@ -1,4 +1,4 @@
-import Back from "@/components/Back";
+import Back from "@/components/Breadcrumbs";
 import React from "react";
 import { ContactForm } from "@/components/ContactForm";
 export default function Page() {

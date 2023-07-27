@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Back from "@/components/Back";
+import Back from "@/components/Breadcrumbs";
 import { useSearchParams } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 import { Skeleton } from "@/components/ui/skeleton";

@@ -1,4 +1,3 @@
-import Back from "@/components/Back";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { MdSmokingRooms, MdNewspaper } from "react-icons/md";
@@ -6,11 +5,12 @@ import { GiWrappedSweet } from "react-icons/gi";
 import { BiSolidDrink } from "react-icons/bi";
 import { SlOptions } from "react-icons/sl";
 import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center">
-      <Back />
+      <Breadcrumbs />
       <div className="w-full flex flex-col items-center pt-20 pb-12 bg-project-yellow">
         <h1 className="w-2/3 text-center text-5xl font-bold">
           Discover the Rich World of Fine Tobacco at our E-Shop!
