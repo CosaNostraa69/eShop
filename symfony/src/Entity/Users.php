@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\UsersRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 class Users
@@ -15,16 +16,29 @@ class Users
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Groups(['order_write'])]
+
     private ?string $firstName = null;
 
     #[ORM\Column(length: 100)]
+    #[Groups(['order_write'])]
+
     private ?string $lastName = null;
 
     #[ORM\Column(length: 100)]
+    #[Groups(['order_write'])]
+
     private ?string $email = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $createdAt = null;
+    #[Groups(['order_write'])]
+
+    private ?\DateTimeInterface $created_at = null;
+
+    #[ORM\PrePersist]
+    public function prePersist() :void{
+        $this->created_at = new \DateTime();
+    }
 
     public function __toString(): string
     {
@@ -75,12 +89,12 @@ class Users
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->createdAt;
+        return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): static
+    public function setCreatedAt(\DateTimeInterface $created_at): static
     {
-        $this->createdAt = $createdAt;
+        $this->created_at = $created_at;
 
         return $this;
     }
