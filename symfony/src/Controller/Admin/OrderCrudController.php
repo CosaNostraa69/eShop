@@ -23,7 +23,7 @@ class OrderCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             IntegerField::new('price'),
-            DateTimeField::new('orderDate'),
+            DateTimeField::new('created_at'),
             AssociationField::new('product'),
             AssociationField::new('promotion')
                 ->setFormTypeOption('required', false)

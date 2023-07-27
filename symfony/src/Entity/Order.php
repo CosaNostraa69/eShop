@@ -8,49 +8,67 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-
+use ApiPlatform\Metadata\Post;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
 #[ORM\HasLifecycleCallbacks]
 #[ORM\Table(name: '`order`')]
-#[ApiResource]
+#[ApiResource(
+operations:[
+    new Post(
+        denormalizationContext: [ 'groups' => ['order_write']]
+    )
+]
+
+)]
 class Order
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['order_write'])]
     private ?int $id = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]   
+    #[Groups(['order_write'])]
+
     private ?int $price = null;
 
    
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $orderDate = null;
+    #[Groups(['order_write'])]
+
+    private ?\DateTimeInterface $created_at = null;
 
     #[ORM\ManyToMany(targetEntity: Product::class, inversedBy: 'orders')]
+    #[Groups(['order_write'])]
+
     private Collection $product;
 
     #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: true)] // Set nullable to true for "promotion"
+    #[ORM\JoinColumn(nullable: true)] 
+    #[Groups(['order_write'])]
+    // Set nullable to true for "promotion"
     private ?Promotion $promotion = null;
 
     #[ORM\ManyToOne(targetEntity:Users::class,cascade:['persist'])]
-    #[ORM\JoinColumn(nullable: true)] // Set nullable to true for "user"
+    #[ORM\JoinColumn(nullable: true)]
+    #[Groups(['order_write'])]
     private ?Users $user = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?bool $usedCode = null;
 
     #[ORM\PrePersist]
     public function setCreatedAtValue(): void
     {
-        $this->orderDate = new \DateTimeImmutable();
+        $this->created_at = new \DateTimeImmutable();
     }
     public function __toString(): string
     {
-        return $this->orderDate ?? '';
+        return $this->created_at ?? '';
     }
 
     public function __construct()
@@ -77,14 +95,14 @@ class Order
 
 
     
-    public function getOrderDate(): ?\DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->orderDate;
+        return $this->created_at;
     }
 
-    public function setOrderDate(\DateTimeInterface $orderDate): static
+    public function setCreatedAt(\DateTimeInterface $created_at): static
     {
-        $this->orderDate = $orderDate;
+        $this->created_at = $created_at;
 
         return $this;
     }
