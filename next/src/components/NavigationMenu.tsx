@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
+import { useState, useEffect } from "react";
 
 import { cn } from "@/lib/utils";
 import {
@@ -51,10 +51,28 @@ const components: { title: string; href: string; description: string }[] = [
 ];
 
 export function NavigationMenuDemo() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    // Add the scroll event listener
+    const handleScroll = () => {
+      const shouldHaveWhiteBackground = window.scrollY === 0;
+      setIsScrolled(!shouldHaveWhiteBackground);
+    };
+
+    // Attach the event listener when the component mounts
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <NavigationMenu className="invisible sm:visible">
-      <NavigationMenuList>
-        <NavigationMenuItem>
+      <NavigationMenuList className={`${isScrolled ? "bg-white md:px-8 xl:px-12 rounded" : "bg-white"}`}>
+        <NavigationMenuItem >
           <NavigationMenuLink href="/" className={navigationMenuTriggerStyle()}>
             Home
           </NavigationMenuLink>
