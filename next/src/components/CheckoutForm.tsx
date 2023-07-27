@@ -16,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 interface BasketItem {
   id: number;
@@ -66,7 +66,7 @@ export function CheckoutForm({
       email: "",
     },
   });
-
+  const router = useRouter();
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -74,7 +74,7 @@ export function CheckoutForm({
       price: Number(finalPrice.toFixed(0)),
       created_at: new Date().toISOString(),
       product: cartDataArray.map((item) => "/api/products/" + item.id),
-      promotion: "/api/promotions/" + usedPromotion.id || "",
+      promotion: "/api/promotions/" + usedPromotion?.id || "",
       user: {
         firstName: values.firstName,
         lastName: values.lastName,
@@ -93,7 +93,9 @@ export function CheckoutForm({
           price: Number(finalPrice.toFixed(0)),
           created_at: new Date().toISOString(),
           product: cartDataArray.map((item) => "/api/products/" + item.id),
-          promotion: "/api/promotions/" + usedPromotion.id || "",
+          promotion: usedPromotion
+            ? "/api/promotions/" + usedPromotion?.id
+            : null,
           user: {
             firstName: values.firstName,
             lastName: values.lastName,
@@ -109,7 +111,7 @@ export function CheckoutForm({
         }
       );
       console.log("Order successfully submitted:", response.data);
-      router.push("/confirmation")
+      router.push("/confirmation");
     } catch (error) {
       console.error("Error submitting the order:", error);
     }

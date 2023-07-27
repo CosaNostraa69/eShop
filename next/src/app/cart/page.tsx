@@ -16,12 +16,14 @@ import axios from "axios";
 import { CheckoutForm } from "@/components/CheckoutForm";
 import Image from "next/image";
 interface BasketItem {
+  id: number;
   name: string;
   price: number;
   quantity: number;
   image: string;
 }
 interface Promotion {
+  id: number;
   code: string;
   value: number;
   category: string;
@@ -166,7 +168,7 @@ export default function Page() {
               Sub total: {totalPrice}€
             </p>
             <p className="text-md lg:text-lg font-semibold text-[#444646]">
-              Tax (12%): {taxAmount}€
+              Tax (12%): {taxAmount.toFixed(2)}€
             </p>
           </div>
           <div className="flex flex-col items-center text-center gap-4">
@@ -190,7 +192,7 @@ export default function Page() {
           </div>
           {discountedTotalPrice > 0 && (
             <h2 className="text-2xl font-bold">
-              Discounted total: {discountedTotalPrice}€
+              Discounted total: {discountedTotalPrice.toFixed(2)}€
             </h2>
           )}
           <Button className="w-full" onClick={handleClick}>
