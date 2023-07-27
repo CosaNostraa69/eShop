@@ -72,8 +72,8 @@ export default function Page() {
     (total, product) => total + product.price * product.quantity,
     0
   );
-  const taxAmount = totalPrice * 0.12;
-  const totalToPay = totalPrice + taxAmount;
+  const taxAmount = (totalPrice * 0.12);
+  const totalToPay: any = (totalPrice + taxAmount).toFixed(2);
 
   const [promoCode, setPromoCode] = useState("");
   const [isPromoCodeValid, setPromoCodeValid] = useState(false);
