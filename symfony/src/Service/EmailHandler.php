@@ -18,7 +18,7 @@ class EmailHandler
     public function sendTemplateEmail(string $toEmail, string $subject, string $template, array $context): void
     {
         $email = (new TemplatedEmail())
-        ->from('quarter-backend@simplon.com')
+        ->from('zeconfirmation@zemarket.com')
         ->to($toEmail)
         ->subject($subject)
         ->htmlTemplate($template)
