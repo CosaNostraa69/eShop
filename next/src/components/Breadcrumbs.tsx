@@ -13,6 +13,10 @@ export default function Breadcrumbs() {
   const isFirstSegmentApi = pathSegments.length > 0 && pathSegments[0] === "api";
   const filteredSegments = isFirstSegmentApi ? pathSegments.slice(1) : pathSegments;
 
+  if(pathname === "/"){
+    return null;
+  }
+
   const getCategoryLabel = (category: any) => {
     // Define custom labels for specific categories
     switch (category) {

@@ -9,7 +9,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center mt-[185px]">
       <Breadcrumbs />
       <div className="w-full flex flex-col items-center pt-20 pb-12 bg-project-yellow">
         <h1 className="w-2/3 text-center text-5xl font-bold">

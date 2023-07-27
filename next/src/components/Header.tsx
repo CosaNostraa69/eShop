@@ -12,10 +12,11 @@ const roboto = VT323({ subsets: ["latin"], weight: ["400"] });
 
 export default function Header() {
   const [cardMenuOpen, setCardMenuOpen] = useState(false);
+  const router = useState()
   return (
-    <div>
+    <div className="fixed top-0 left-0 w-full bg-white z-50">
       <div
-        className="bg-white w-full flex items-center justify-between py-2 px-6 md:px-10 
+        className="flex items-center justify-between py-2 px-6 md:px-10 
       shadow-md"
       >
         <Link
@@ -33,6 +34,7 @@ export default function Header() {
         </div>
       </div>
       <Promo/>
+      
       <SearchBar />
     </div>
   );
