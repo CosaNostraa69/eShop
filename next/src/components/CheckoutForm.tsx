@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 interface BasketItem {
   name: string;
@@ -43,6 +44,11 @@ const formSchema = z.object({
   }),
 });
 
+const BASE_URL = "http://localhost:8000";
+const api = axios.create({
+  baseURL: BASE_URL,
+});
+
 export function CheckoutForm({
   finalPrice,
   usedPromotion,
@@ -59,16 +65,47 @@ export function CheckoutForm({
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    // console.log(values);
-    console.log(`first name: ${values.firstName}`);
-    console.log(`last name: ${values.lastName}`);
-    console.log(`email: ${values.email}`);
-    console.log(`prix final: ${finalPrice}`);
-    console.log(`promotion utilisée: ${usedPromotion}`);
-    console.log(cartDataArray);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log({
+      price: finalPrice,
+      orderDate: new Date().toISOString(),
+      product: cartDataArray.map((item) => "/api/products/" + item.id),
+      promotion: usedPromotion?.code || "",
+      user: {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        createdAt: new Date().toISOString(),
+      },
+      usedCode: usedPromotion !== null ? true : false,
+    });
+
+    try {
+      const response = await api.post(
+        "/api/orders",
+        {
+          price: finalPrice,
+          orderDate: new Date().toISOString(),
+          product: cartDataArray.map((item) => item.id),
+          promotion: usedPromotion?.code || "",
+          user: {
+            firstName: values.firstName,
+            lastName: values.lastName,
+            email: values.email,
+            createdAt: new Date().toISOString(),
+          },
+          usedCode: usedPromotion !== null ? true : false,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json", // Specify the Content-Type as JSON
+          },
+        }
+      );
+      console.log("Order successfully submitted:", response.data);
+    } catch (error) {
+      console.error("Error submitting the order:", error);
+    }
   }
 
   return (
