@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { NavigationMenuDemo } from "./NavigationMenu";
 import { MdMenu } from "react-icons/md";
 import { Input } from "@/components/ui/input";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { VT323 } from "next/font/google";
 import Link from "next/link";
@@ -12,24 +12,40 @@ import Breadcrumbs from "./Breadcrumbs";
 const roboto = VT323({ subsets: ["latin"], weight: ["400"] });
 
 export default function Header() {
-  const [cardMenuOpen, setCardMenuOpen] = useState(false);
-  const router = useState()
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    // Function to handle the scroll event
+    const handleScroll = () => {
+      // Check the scroll position to decide whether to apply the yellow background or not
+      const shouldHaveYellowBackground = window.scrollY > 0;
+      setIsScrolled(shouldHaveYellowBackground);
+    };
+
+    // Add the event listener when the component mounts
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div >
+    <div>
       <div
-        className="flex items-center justify-between py-2 px-6 md:px-10 
-      shadow-md fixed top-0 left-0 w-full bg-white z-50"
-      >
+        className={`fixed top-0 left-0 w-full z-50 shadow-md flex items-center justify-between py-2 px-6 md:px-10  ${isScrolled ? "bg-slate-900 py-2" : "bg-white"}`}
+       >
         <Link
           href={"/"}
-          className={`w-1/3 text-2xl md:text-4xl font-semibold ${roboto.className}`}
+          className={`w-1/3 text-2xl md:text-4xl font-semibold ${roboto.className} ${isScrolled ? "text-white" : "text-black"}`}
         >
           Ze market
         </Link>
         <div className="w-1/3">
-          <NavigationMenuDemo />
+          <NavigationMenuDemo/>
         </div>
-        <div className="flex items-center justify-end w-1/3">
+        <div className={`flex items-center justify-end w-1/3 ${isScrolled ? "text-white" : "text-black"}`}>
           <BasketDropDown />
           <MdMenu className="sm:invisible w-[25px] h-[25px] ml-2 sm:ml-0 hover:cursor-pointer" />
         </div>
