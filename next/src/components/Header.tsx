@@ -45,7 +45,7 @@ export default function Header() {
         <div className="w-1/3">
           <NavigationMenuDemo/>
         </div>
-        <div className={`flex items-center justify-end w-1/3 ${isScrolled ? "text-white" : "text-black"}`}>
+        <div className={`flex items-center justify-end w-1/3 ${isScrolled ? "text-[#2A774C]" : "text-black"}`}>
           <BasketDropDown />
           <MdMenu className="sm:invisible w-[25px] h-[25px] ml-2 sm:ml-0 hover:cursor-pointer" />
         </div>
@@ -62,7 +62,7 @@ export default function Header() {
 
 export function Promo() {
   return (
-    <div className="bg-slate-900 text-project-gray w-full py-4 overflow-hidden">
+    <div className="bg-slate-900 text-project-gray w-full py-[12px] overflow-hidden">
       <style>
         {`
           @keyframes promoAnimation {
@@ -109,7 +109,7 @@ export function SearchBar() {
   }
 
   return (
-    <div className="w-full py-4 flex justify-center shadow-md">
+    <div className="w-full py-[8px] flex justify-center shadow-sm">
       <form
         onSubmit={(e) => {
           e.preventDefault();
