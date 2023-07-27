@@ -7,7 +7,6 @@ export default function Page() {
   return (
     <>
       <div>
-        
         <div className="relative w-full py-52 ">
           <Image
             src="/assets/about-us/aboutus.webp"

@@ -70,23 +70,21 @@ export function CheckoutForm({
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log({
-      price: Number(finalPrice.toFixed(0)),
-      created_at: new Date().toISOString(),
-      product: cartDataArray.map((item) => "/api/products/" + item.id),
-      promotion: "/api/promotions/" + usedPromotion?.id || "",
-      user: {
-        firstName: values.firstName,
-        lastName: values.lastName,
-        email: values.email,
-        created_at: new Date().toISOString(),
-      },
-      usedCode: usedPromotion ? true : false,
-    });
+    // console.log({
+    //   price: Number(finalPrice.toFixed(0)),
+    //   created_at: new Date().toISOString(),
+    //   product: cartDataArray.map((item) => "/api/products/" + item.id),
+    //   promotion: "/api/promotions/" + usedPromotion?.id || "",
+    //   user: {
+    //     firstName: values.firstName,
+    //     lastName: values.lastName,
+    //     email: values.email,
+    //     created_at: new Date().toISOString(),
+    //   },
+    //   usedCode: usedPromotion ? true : false,
+    // });
 
     try {
-      console.log(usedPromotion);
-
       const response = await api.post(
         "/api/orders",
         {
@@ -112,6 +110,10 @@ export function CheckoutForm({
       );
       console.log("Order successfully submitted:", response.data);
       router.push("/confirmation");
+      console.log(cartDataArray);
+      for (let i = 0; i < cartDataArray.length; i++) {
+        console.log(cartDataArray[i].quantity);
+      }
     } catch (error) {
       console.error("Error submitting the order:", error);
     }
