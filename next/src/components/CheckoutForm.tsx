@@ -18,11 +18,13 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 interface BasketItem {
+  id: number;
   name: string;
   price: number;
   quantity: number;
 }
 interface Promotion {
+  id: number;
   code: string;
   value: number;
   category: string;
@@ -67,34 +69,36 @@ export function CheckoutForm({
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log({
-      price: finalPrice,
-      orderDate: new Date().toISOString(),
+      price: Number(finalPrice.toFixed(0)),
+      created_at: new Date().toISOString(),
       product: cartDataArray.map((item) => "/api/products/" + item.id),
-      promotion: usedPromotion?.code || "",
+      promotion: "/api/promotions/" + usedPromotion.id || "",
       user: {
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
-        createdAt: new Date().toISOString(),
+        created_at: new Date().toISOString(),
       },
-      usedCode: usedPromotion !== null ? true : false,
+      usedCode: usedPromotion ? true : false,
     });
 
     try {
+      console.log(usedPromotion);
+
       const response = await api.post(
         "/api/orders",
         {
-          price: finalPrice,
-          orderDate: new Date().toISOString(),
-          product: cartDataArray.map((item) => item.id),
-          promotion: usedPromotion?.code || "",
+          price: Number(finalPrice.toFixed(0)),
+          created_at: new Date().toISOString(),
+          product: cartDataArray.map((item) => "/api/products/" + item.id),
+          promotion: "/api/promotions/" + usedPromotion.id || "",
           user: {
             firstName: values.firstName,
             lastName: values.lastName,
             email: values.email,
-            createdAt: new Date().toISOString(),
+            created_at: new Date().toISOString(),
           },
-          usedCode: usedPromotion !== null ? true : false,
+          usedCode: usedPromotion ? true : false,
         },
         {
           headers: {
