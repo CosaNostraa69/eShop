@@ -10,6 +10,8 @@ export default function Breadcrumbs() {
   const pathname = usePathname();
 
   const pathSegments = pathname.split("/").filter((segment) => segment !== "");
+  const isFirstSegmentApi = pathSegments.length > 0 && pathSegments[0] === "api";
+  const filteredSegments = isFirstSegmentApi ? pathSegments.slice(1) : pathSegments;
 
   const getCategoryLabel = (category: any) => {
     // Define custom labels for specific categories
@@ -29,20 +31,28 @@ export default function Breadcrumbs() {
     }
   };
 
-  const isHome = pathSegments.length === 0;
 
   return (
     <div className="flex items-center w-full p-1 pl-6">
-      <Link className="cursor-pointer opacity-75 text-sm p-2 hover:underline hover:text-slate-400 hover:duration-200" href={"/"}>Home</Link>
-      {pathSegments.map((segment, index) => (
+      <Link
+        href="/"
+        className="cursor-pointer opacity-75 text-sm p-2 hover:underline hover:text-slate-400 hover:duration-200"
+      >
+        Home
+      </Link>
+      {filteredSegments.map((segment, index) => (
         <span key={index}>
           {" > "}
-          <span
-            onClick={() => router.push(`/${pathSegments.slice(0, index + 1).join("/")}`)}
-            className="cursor-pointer opacity-75 text-sm p-2 hover:underline hover:text-slate-400 hover:duration-200"
-          >
-            {getCategoryLabel(segment)}
-          </span>
+          {index === filteredSegments.length - 1 ? ( // Check if it's the last segment
+            <span className="opacity-75 text-sm p-2">{getCategoryLabel(segment)}</span>
+          ) : (
+            <span
+              onClick={() => router.push(`/${filteredSegments.slice(0, index + 1).join("/")}`)}
+              className="cursor-pointer opacity-75 text-sm p-2 hover:underline hover:text-slate-400 hover:duration-200"
+            >
+              {getCategoryLabel(segment)}
+            </span>
+          )}
         </span>
       ))}
     </div>
