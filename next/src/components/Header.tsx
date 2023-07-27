@@ -15,10 +15,10 @@ export default function Header() {
   const [cardMenuOpen, setCardMenuOpen] = useState(false);
   const router = useState()
   return (
-    <div className="fixed top-0 left-0 w-full bg-white z-50">
+    <div >
       <div
         className="flex items-center justify-between py-2 px-6 md:px-10 
-      shadow-md"
+      shadow-md fixed top-0 left-0 w-full bg-white z-50"
       >
         <Link
           href={"/"}
@@ -34,10 +34,12 @@ export default function Header() {
           <MdMenu className="sm:invisible w-[25px] h-[25px] ml-2 sm:ml-0 hover:cursor-pointer" />
         </div>
       </div>
-      <Promo/>
-      
-      <SearchBar />
-      <Breadcrumbs/>
+
+      <div className="mt-[3.4rem]">
+        <Promo/>
+        <SearchBar />
+        <Breadcrumbs/>
+      </div>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Page() {
   return (
     <>
-      <div className="mt-[220px]">
+      <div>
         
         <div className="relative w-full py-52 ">
           <Image
