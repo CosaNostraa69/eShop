@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 interface BasketItem {
   id: number;
@@ -66,6 +67,7 @@ export function CheckoutForm({
     },
   });
 
+
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log({
@@ -107,6 +109,7 @@ export function CheckoutForm({
         }
       );
       console.log("Order successfully submitted:", response.data);
+      router.push("/confirmation")
     } catch (error) {
       console.error("Error submitting the order:", error);
     }
