@@ -15,12 +15,12 @@ export default function Header() {
   return (
     <div>
       <div
-        className="bg-white w-full flex items-center justify-between py-2 px-12 
+        className="bg-white w-full flex items-center justify-between py-2 px-6 md:px-10 
       shadow-md"
       >
         <Link
           href={"/"}
-          className={`w-1/3 text-4xl font-semibold ${roboto.className}`}
+          className={`w-1/3 text-2xl md:text-4xl font-semibold ${roboto.className}`}
         >
           Ze market
         </Link>
@@ -29,7 +29,7 @@ export default function Header() {
         </div>
         <div className="flex items-center justify-end w-1/3">
           <BasketDropDown />
-          <MdMenu className="sm:invisible w-[25px] h-[25px] hover:cursor-pointer" />
+          <MdMenu className="sm:invisible w-[25px] h-[25px] ml-2 sm:ml-0 hover:cursor-pointer" />
         </div>
       </div>
       <Promo/>
