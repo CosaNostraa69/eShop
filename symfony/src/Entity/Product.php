@@ -54,7 +54,7 @@ class Product
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     #[Groups(['product_read'])]
-    private ?\DateTimeInterface $CreatedAt = null;
+    private ?\DateTimeInterface $created_at = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     #[Groups(['product_read'])]
@@ -80,6 +80,11 @@ class Product
     #[ORM\Column(length: 255, nullable: true)]
     #[Groups(['product_read'])]
     private ?string $picture = null;
+
+    #[ORM\PrePersist]
+    public function prePersist() :void{
+        $this->created_at = new \DateTime();
+    }
 
     public function getPictureUrl(): ?string
 {
@@ -151,12 +156,12 @@ class Product
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->CreatedAt;
+        return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTimeInterface $CreatedAt): self
+    public function setCreatedAt(\DateTimeInterface $created_at): self
     {
-        $this->CreatedAt = $CreatedAt;
+        $this->created_at = $created_at;
 
         return $this;
     }
