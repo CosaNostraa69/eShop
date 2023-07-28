@@ -21,7 +21,7 @@ class AppFixtures extends AbstractFixtures implements DependentFixtureInterface
                 "Price" => 10.00,
                 "Available" => true,
                 "Category" => "cigarettes",
-                "Picture" => "malboro.webp"
+                "Picture" => "marlboro.webp"
             ],
             [
                 "Name" => "Camel Blue",
