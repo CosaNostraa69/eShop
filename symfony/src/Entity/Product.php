@@ -91,13 +91,15 @@ class Product
     private ?string $picture = null;
 
     #[ORM\PrePersist]
-    public function prePersist() :void{
+    public function prePersist(): void
+    {
         $this->created_at = new \DateTime();
     }
 
     #[ORM\PrePersist]
     #[ORM\PreUpdate]
-    public function prePersistAndUpdate(): void {
+    public function prePersistAndUpdate(): void
+    {
         if ($this->getCreatedAt() === null) {
             $this->setCreatedAt(new \DateTime());
         }
@@ -105,9 +107,9 @@ class Product
     }
 
     public function getPictureUrl(): ?string
-{
-    return $this->picture ? '/public/uploads/images/' . $this->picture : null;
-}
+    {
+        return $this->picture ? '/public/uploads/images/' . $this->picture : null;
+    }
 
     public function __construct()
     {

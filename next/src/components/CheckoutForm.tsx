@@ -2,7 +2,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -68,22 +67,7 @@ export function CheckoutForm({
   });
   const router = useRouter();
 
-  // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // console.log({
-    //   price: Number(finalPrice.toFixed(0)),
-    //   created_at: new Date().toISOString(),
-    //   product: cartDataArray.map((item) => "/api/products/" + item.id),
-    //   promotion: "/api/promotions/" + usedPromotion?.id || "",
-    //   user: {
-    //     firstName: values.firstName,
-    //     lastName: values.lastName,
-    //     email: values.email,
-    //     created_at: new Date().toISOString(),
-    //   },
-    //   usedCode: usedPromotion ? true : false,
-    // });
-
     try {
       const response = await api.post(
         "/api/orders",
@@ -104,16 +88,12 @@ export function CheckoutForm({
         },
         {
           headers: {
-            "Content-Type": "application/json", // Specify the Content-Type as JSON
+            "Content-Type": "application/json",
           },
         }
       );
       console.log("Order successfully submitted:", response.data);
       router.push("/confirmation");
-      console.log(cartDataArray);
-      for (let i = 0; i < cartDataArray.length; i++) {
-        console.log(cartDataArray[i].quantity);
-      }
     } catch (error) {
       console.error("Error submitting the order:", error);
     }
@@ -123,7 +103,7 @@ export function CheckoutForm({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 shadow-xl  bg-white p-6 my-20 w-full md:w-4/5 lg:w-3/5 flex flex-col"
+        className="space-y-8 shadow-xl  bg-white p-6  w-full md:w-4/5 lg:w-3/5 flex flex-col"
       >
         <h2 className="text-lg lg:text-xl w-full justify-start  font-bold">
           2. Checkout
