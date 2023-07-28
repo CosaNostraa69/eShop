@@ -56,7 +56,6 @@ export function CheckoutForm({
   usedPromotion,
   cartDataArray,
 }: CheckoutProps) {
-  // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -69,6 +68,21 @@ export function CheckoutForm({
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
+      console.log({
+        price: Number(finalPrice.toFixed(0)),
+        created_at: new Date().toISOString(),
+        product: cartDataArray.map((item) => "/api/products/" + item.id),
+        promotion: usedPromotion
+          ? "/api/promotions/" + usedPromotion?.id
+          : null,
+        user: {
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          created_at: new Date().toISOString(),
+        },
+        used_code: usedPromotion ? true : false,
+      });
       const response = await api.post(
         "/api/orders",
         {
@@ -84,7 +98,7 @@ export function CheckoutForm({
             email: values.email,
             created_at: new Date().toISOString(),
           },
-          usedCode: usedPromotion ? true : false,
+          used_code: usedPromotion ? true : false,
         },
         {
           headers: {

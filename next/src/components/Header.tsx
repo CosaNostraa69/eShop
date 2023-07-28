@@ -15,17 +15,13 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    // Function to handle the scroll event
     const handleScroll = () => {
-      // Check the scroll position to decide whether to apply the yellow background or not
       const shouldHaveYellowBackground = window.scrollY > 0;
       setIsScrolled(shouldHaveYellowBackground);
     };
 
-    // Add the event listener when the component mounts
     window.addEventListener("scroll", handleScroll);
 
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -34,27 +30,35 @@ export default function Header() {
   return (
     <div>
       <div
-        className={`fixed top-0 left-0 w-full z-50 shadow-md flex items-center justify-between py-2 px-6 md:px-10  ${isScrolled ? "bg-slate-900 py-2" : "bg-white"}`}
-       >
+        className={`fixed top-0 left-0 w-full z-50 shadow-md flex items-center justify-between py-2 px-6 md:px-10  ${
+          isScrolled ? "bg-slate-900 py-2" : "bg-white"
+        }`}
+      >
         <Link
           href={"/"}
-          className={`w-1/3 text-2xl md:text-4xl font-semibold ${roboto.className} ${isScrolled ? "text-white" : "text-black"}`}
+          className={`w-1/3 text-2xl md:text-4xl font-semibold ${
+            roboto.className
+          } ${isScrolled ? "text-white" : "text-black"}`}
         >
           Ze market
         </Link>
         <div className="w-1/3">
-          <NavigationMenuDemo/>
+          <NavigationMenuDemo />
         </div>
-        <div className={`flex items-center justify-end w-1/3 ${isScrolled ? "text-[#2A774C]" : "text-black"}`}>
+        <div
+          className={`flex items-center justify-end w-1/3 ${
+            isScrolled ? "text-[#2A774C]" : "text-black"
+          }`}
+        >
           <BasketDropDown />
           <MdMenu className="sm:invisible w-[25px] h-[25px] ml-2 sm:ml-0 hover:cursor-pointer" />
         </div>
       </div>
 
       <div className="mt-[3.4rem]">
-        <Promo/>
+        <Promo />
         <SearchBar />
-        <Breadcrumbs/>
+        <Breadcrumbs />
       </div>
     </div>
   );

@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { useState, useEffect } from "react";
-
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -54,16 +53,11 @@ export function NavigationMenuDemo() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    // Add the scroll event listener
     const handleScroll = () => {
       const shouldHaveWhiteBackground = window.scrollY === 0;
       setIsScrolled(!shouldHaveWhiteBackground);
     };
-
-    // Attach the event listener when the component mounts
     window.addEventListener("scroll", handleScroll);
-
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -71,8 +65,12 @@ export function NavigationMenuDemo() {
 
   return (
     <NavigationMenu className="invisible sm:visible">
-      <NavigationMenuList className={`${isScrolled ? "bg-white md:px-8 xl:px-12 rounded" : "bg-white"}`}>
-        <NavigationMenuItem >
+      <NavigationMenuList
+        className={`${
+          isScrolled ? "bg-white md:px-8 xl:px-12 rounded" : "bg-white"
+        }`}
+      >
+        <NavigationMenuItem>
           <NavigationMenuLink href="/" className={navigationMenuTriggerStyle()}>
             Home
           </NavigationMenuLink>
@@ -129,9 +127,7 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none font-extrabold	">
-            {title}
-          </div>
+          <div className="text-sm  leading-none font-extrabold	">{title}</div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>

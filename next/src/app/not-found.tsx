@@ -1,17 +1,16 @@
-import Header from '@/components/Header'
+import Header from "@/components/Header";
 
 export default function NotFound() {
-
   return (
     <div>
-        <Header/>
+      <Header />
+      <div className="error">404</div>
+      <br />
+      <br />
+      <span className="info">Page not found</span>
 
-        <div className="error">404</div>
-        <br /><br />
-        <span className="info">Page not found</span>
-
-        <style>
-            {`
+      <style>
+        {`
             @import url(https://fonts.googleapis.com/css?family=Gilda+Display);
 
             html {
@@ -130,7 +129,7 @@ export default function NotFound() {
               43% {opacity: 1; transform: scaleX(10) rotate(60deg);}
             }
             `}
-        </style>
+      </style>
     </div>
-  )
+  );
 }

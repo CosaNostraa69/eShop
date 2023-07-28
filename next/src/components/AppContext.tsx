@@ -1,6 +1,5 @@
 "use client";
-import { createContext, FC, useContext, useState, useEffect } from "react";
-import ProductCard from "./ProductCard";
+import { createContext, FC, useState, useEffect } from "react";
 
 type ContextValues = {
   handleAddToCart: (data: any, quantity: number) => void;
@@ -34,7 +33,6 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({
   };
 
   useEffect(() => {
-    // Load cart data from localStorage on component mount
     const cartDataJSON = localStorage.getItem("cartData");
     const cartData: BasketItem[] = cartDataJSON ? JSON.parse(cartDataJSON) : [];
     const cartDataArray = Object.values(cartData);
@@ -69,7 +67,6 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({
   };
 
   const handleDeleteFromCart = (productId: string) => {
-    // Remove the item with the given productId from the cart
     const existingCartData = localStorage.getItem("cartData");
     const cartData = existingCartData ? JSON.parse(existingCartData) : {};
 
@@ -114,11 +111,6 @@ const AppContextProvider: FC<{ children: React.ReactNode }> = ({
     cartItems.forEach((item) => {
       totalPrice += item.quantity * item.price;
     });
-    // console.log(totalPrice);
-
-    // Add 12% tax to the total
-
-    // totalPrice *= 1 + taxPercentage;
 
     return totalPrice;
   };

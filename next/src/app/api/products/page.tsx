@@ -53,7 +53,6 @@ export default function Page() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   useEffect(() => {
-    // Fetch data when the component mounts
     fetchProducts();
   }, []);
 
@@ -62,7 +61,7 @@ export default function Page() {
       const productsData = await getProducts();
       setProducts(productsData["hydra:member"]);
     } catch (error) {
-      // Handle errors here
+      console.log(`error fetching the products: ${error}`);
     }
   };
 
@@ -80,7 +79,6 @@ export default function Page() {
   const type = searchParams.get("type");
   const search = searchParams.get("search");
 
-  // Conditional rendering: Display a loading message or fallback if products are not available yet
   if (products === undefined) {
     return (
       <div className="flex flex-col lg:flex-row items-center space-x-4">
@@ -229,7 +227,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   );
 };
 
-// const categories = ["Tabac", "Presse", "Confiserie", "Accessoires", "other"];
 const categories: string[] = [
   "Cigarettes",
   "Journaux et magazines",

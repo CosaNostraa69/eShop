@@ -51,7 +51,6 @@ export default function Footer() {
           <Link href={"/api/products?type=drinks"}>Drinks</Link>
           <Link href={"/api/products?type=cigarettes"}>Cigarettes</Link>
           <Link href={"/api/products?type=sweets"}>Sweets</Link>
-          {/* <Link href={"/api/products?type=other"}>Others</Link>e */}
         </nav>
       </div>
 

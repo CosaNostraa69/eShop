@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Textarea } from "@/components/ui/textarea";
@@ -34,7 +33,6 @@ const formSchema = z.object({
 });
 
 export function ContactForm() {
-  // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,11 +44,7 @@ export function ContactForm() {
   });
   const { toast } = useToast();
 
-  // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    // console.log(values);
     toast({
       title: `${values.firstName}, votre message a bien été envoyé!`,
       description: "Nous reviendrons bientôt vers vous.",

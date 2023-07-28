@@ -8,19 +8,11 @@ import Link from "next/link";
 
 export function BasketDropDown() {
   const [cardMenuOpen, setCardMenuOpen] = useState(false);
-
   const appContext = useContext(AppContext);
   const cartItems = appContext ? appContext.cartItems : [];
   let totalPrice = appContext ? appContext.calculateTotalPrice() : 0;
-
-  // const taxPercentage = 0.12;
-  // Calculate the tax amount
-  // const taxAmount = totalPrice * taxPercentage;
   const taxAmount = totalPrice * 1.12 - totalPrice;
-  // console.log(taxAmount);
-
   totalPrice = taxAmount + totalPrice;
-  // console.log(totalPrice);
   const subTotal = totalPrice - taxAmount;
 
   const handleBasketClick = () => {
@@ -71,7 +63,6 @@ export function BasketDropDown() {
                 />
               ))}
 
-              {/* Checkout button and price info */}
               <div className="pt-6">
                 <div className="flex justify-between items-center mx-2">
                   <p className="text-[14px] font-bold text-[#444646]">

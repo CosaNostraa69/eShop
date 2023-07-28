@@ -1,32 +1,28 @@
-'use client' 
- 
-import Header from '@/components/Header'
-import { Button } from '@/components/ui/button'
-import { useEffect } from 'react'
- 
+"use client";
+
+import Header from "@/components/Header";
+import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
+
 export default function Error({
   error,
   reset,
 }: {
-  error: Error & { digest?: string }
-  reset: () => void
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error)
-  }, [error])
- 
+    console.error(error);
+  }, [error]);
 
   return (
     <div>
+      <Button className="errorPageHomebutton">Home</Button>
+      <div className="error">Something went wrong . . .</div>
+      <br />
+      <br />
 
-        <Button className='errorPageHomebutton'>Home</Button>
-
-    <div className="error">Something went wrong . . .</div>
-    <br /><br />
-    {/* <span className="info">Page not found</span> */}
-
-    <style>
+      <style>
         {`
         @import url(https://fonts.googleapis.com/css?family=Gilda+Display);
 
@@ -146,7 +142,7 @@ export default function Error({
           43% {opacity: 1; transform: scaleX(10) rotate(60deg);}
         }
         `}
-    </style>
-</div>
-  )
+      </style>
+    </div>
+  );
 }

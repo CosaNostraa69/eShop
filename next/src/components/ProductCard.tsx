@@ -2,10 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { useState, useContext } from "react";
 import { AppContext } from "@/components/AppContext";
-import { useToast } from "@/components/ui/use-toast"
-
-
-
+import { useToast } from "@/components/ui/use-toast";
 import {
   Card,
   CardContent,
@@ -18,37 +15,32 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import App from "next/app";
-
 
 export default function ProductCard(data: any) {
   const [quantity, setQuantity] = useState(1);
-  const appContext = useContext(AppContext)
-  const {toast} = useToast()
-  
-  
+  const appContext = useContext(AppContext);
+  const { toast } = useToast();
+
   const handleQuantity = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = parseInt(event.target.value);
     setQuantity(inputValue);
   };
 
   const handleAddToCart = () => {
-    if(appContext){
+    if (appContext) {
       appContext.handleAddToCart(data, quantity);
-      handleToastForAddToCart(toast)
+      handleToastForAddToCart(toast);
     }
   };
 
-  function handleToastForAddToCart(toastTest: any){
+  function handleToastForAddToCart(toastTest: any) {
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleString();
 
-    return(
-      toastTest({ 
-        title: `${quantity} ${data.data.Name}, added to the shopping cart`,
-        description: `${formattedDate}`,
-      })
-    )
+    return toastTest({
+      title: `${quantity} ${data.data.Name}, added to the shopping cart`,
+      description: `${formattedDate}`,
+    });
   }
 
   return (
@@ -110,7 +102,7 @@ export default function ProductCard(data: any) {
                   {data.data.Stock} produits restants en stock
                 </p>
               ) : (
-                <div ></div>
+                <div></div>
               )}
             </div>
           </div>

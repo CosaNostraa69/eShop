@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import Back from "@/components/Breadcrumbs";
 import {
   Table,
   TableBody,
@@ -15,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import axios from "axios";
 import { CheckoutForm } from "@/components/CheckoutForm";
 import Image from "next/image";
+
 interface BasketItem {
   id: number;
   name: string;
@@ -81,7 +81,7 @@ export default function Page() {
   const [appliedDiscount, setAppliedDiscount] = useState(0);
   const [appliedPromotion, setAppliedPromotion] = useState<Promotion | null>(
     null
-  ); // New state for applied promotion
+  );
 
   const handlePromoCodeChange = (event: any) => {
     setPromoCode(event.target.value);
@@ -216,9 +216,6 @@ export function Checkout({
   usedPromotion,
   cartDataArray,
 }: CheckoutProps) {
-  // console.log(finalPrice);
-  // console.log(usedPromotion);
-  // console.log(cartDataArray);
   return (
     <div className="w-full flex flex-col gap-6 py-12">
       <CheckoutForm
