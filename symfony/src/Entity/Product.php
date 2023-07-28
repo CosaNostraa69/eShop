@@ -9,10 +9,11 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\GetCollection;
-use ApiPlatform\Metadata\Tests\Fixtures\Metadata\Get;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
-
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 
@@ -23,6 +24,14 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
         ),
         new Get(
             normalizationContext: ['groups' => ['product_read']]
+        ),
+        new Post(
+            normalizationContext: ['groups' => ['product_write']],
+            denormalizationContext: ['groups' => ['product_write']]
+        ),
+        new Put(
+            normalizationContext: ['groups' => ['product_write']],
+            denormalizationContext: ['groups' => ['product_write']]
         )
     ],
     paginationEnabled: false
@@ -84,6 +93,15 @@ class Product
     #[ORM\PrePersist]
     public function prePersist() :void{
         $this->created_at = new \DateTime();
+    }
+
+    #[ORM\PrePersist]
+    #[ORM\PreUpdate]
+    public function prePersistAndUpdate(): void {
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt(new \DateTime());
+        }
+        $this->setUpdatedAt(new \DateTime());
     }
 
     public function getPictureUrl(): ?string

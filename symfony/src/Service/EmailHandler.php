@@ -45,7 +45,7 @@ class EmailHandler
                 'order_number' => $order->getId(),
                 'order_items' => $orderItems,
                 'order_total' => $order->getPrice(),
-                'order_date' => $order->getOrderDate(), 
+                'order_date' => $order->getCreatedAt(), 
             ]
         );
     }
