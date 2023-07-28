@@ -46,7 +46,7 @@ class UserNotifier
             'order_number' => $orderNumber,
             'order_total' => $orderTotal,
             'order_items' => $orderItems,
-            'company' => 'Your Company Name'
+            'company' => 'Ze Market'
         ];
 
         $this->emailHandler->sendTemplateEmail($email, $subject, 'email/order_confirmation.html.twig', $context); 
