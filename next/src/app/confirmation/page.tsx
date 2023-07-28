@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { GiConfirmed } from "react-icons/gi";
-
+import Link from "next/link";
 export default function confirmation() {
   return (
     <div className="w-full h-screen pt-[7%] flex justify-center text-center ">
@@ -11,7 +11,9 @@ export default function confirmation() {
           A confimation has been sent to your mail. <br /> Thank you for your
           trust!
         </p>
-        <Button>Home</Button>
+        <Link href={"/"}>
+          <Button>Home</Button>
+        </Link>
       </div>
     </div>
   );

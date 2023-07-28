@@ -72,7 +72,7 @@ export default function Page() {
     (total, product) => total + product.price * product.quantity,
     0
   );
-  const taxAmount = (totalPrice * 0.12);
+  const taxAmount = totalPrice * 0.12;
   const totalToPay: any = (totalPrice + taxAmount).toFixed(2);
 
   const [promoCode, setPromoCode] = useState("");
@@ -116,7 +116,6 @@ export default function Page() {
   };
   return (
     <div className="flex bg-slate-50 flex-col items-center lg:px-20 xl:px-32">
-      
       <div className="w-full flex flex-col items-center gap-2 p-6 md:flex-row md:items-start">
         <div className="w-full md:w-2/3 bg-white p-6 shadow-xl">
           <p className="text-lg lg:text-xl w-full justify-start font-bold">
